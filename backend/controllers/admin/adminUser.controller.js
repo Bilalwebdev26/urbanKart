@@ -1,7 +1,7 @@
 import { User } from "../../models/user.model.js";
 
 export const createUser = async (req, res) => {
-  const { firstname, lastname, email,password, role } = req.body;
+  const { firstname, lastname, email, password, role } = req.body;
   try {
     let user = await User.findOne({ email });
     if (user) {
@@ -89,6 +89,43 @@ export const deleteUser = async (req, res) => {
     const user = await User.findByIdAndDelete(usercheck._id);
     console.log("Deleted user : ", user);
     return res.status(200).json({ message: "User Deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: error.message || "Error while show user profile" });
+  }
+};
+export const filtersearchuser = async (req, res) => {
+  const { firstname, lastname, email, role } = req.query;
+  try {
+    const filterConditions = [];
+
+    if (firstname) {
+      filterConditions.push({
+        firstname: { $regex: firstname, $options: "i" },
+      });
+    }
+
+    if (lastname) {
+      filterConditions.push({ lastname: { $regex: lastname, $options: "i" } });
+    }
+
+    if (email) {
+      filterConditions.push({ email: { $regex: email, $options: "i" } });
+    }
+
+    if (role) {
+      filterConditions.push({ role: { $regex: role } });
+    }
+
+    const users = await User.aggregate([
+      {
+        $match: filterConditions.length > 0 ? { $or: filterConditions } : {},
+      },
+    ]);
+
+    return res.status(200).json({ message: "Search user founded", users });
   } catch (error) {
     console.log(error);
     return res
