@@ -7,6 +7,7 @@ const app = express();
 import userRoutes from "./routes/user.routes.js"
 import prodRoutes from "./routes/product.routes.js"
 import adminUserRoutes from "./routes/admin/adminUser.routes.js"
+import adminProductRoutes from "./routes/admin/adminProd.routes.js"
 
 dotenv.config();
 app.use(cookieParser())
@@ -17,6 +18,7 @@ app.use("/api/v1/auth",userRoutes)
 app.use("/api/v1/product",prodRoutes)
 //Admin Routes
 app.use("/admin/user",adminUserRoutes)
+app.use("/admin/product",adminProductRoutes)
 app.get("/",(req,res)=>{
     res.send("urbanKart")
 })

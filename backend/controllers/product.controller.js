@@ -59,42 +59,6 @@ export const showProductId = async (req, res) => {
       .json({ message: error.message || "Error while fetching product" });
   }
 };
-export const createProduct = async (req, res) => {
-  const {
-    name,
-    desc,
-    price,
-    percentOff,
-    units,
-    sku,
-    category,
-    brand,
-    tags,
-    images,
-  } = req.body;
-  try {
-    const product = new Product({
-      name,
-      desc,
-      price,
-      percentOff,
-      units,
-      sku,
-      category,
-      brand,
-      tags,
-      images,
-      user: req.user._id,
-    });
-    await product.save();
-    return res.status(201).json({ message: "Product created", product });
-  } catch (error) {
-    console.log(error);
-    return res
-      .status(500)
-      .json({ message: error.message || "Error while creating product" });
-  }
-};
 export const showSimillarProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -198,7 +162,44 @@ export const bestProductofEachCategory = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({
-      message: error.message || "Error while fetching best selling product by category",
+      message:
+        error.message ||
+        "Error while fetching best selling product by category",
+    });
+  }
+};
+export const showFlashSalesProducts = async (req, res) => {
+  try {
+    let filter = {
+      percentOff: { $gte: 25 },
+    };
+    const saleProducts = await Product.find(filter);
+    if (!saleProducts) {
+      return res.status(400).json({ message: "No Sale product available" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Showing sale products.", saleProducts });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: error.message || "Error while fetching sale products.",
+    });
+  }
+};
+export const newArrivalProducts = async (req, res) => {
+  try {
+    const products = await Product.find({}).sort({createdAt: -1}).limit(8);
+    if (!products) {
+      return res.status(400).json({ message: "No Product available",products });
+    }
+    return res
+      .status(200)
+      .json({ message: "Show newly add Products.", products });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: error.message || "Error while fetching newly arived products.",
     });
   }
 };

@@ -63,6 +63,16 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
+    isFlashSale: {
+      type: Boolean,
+      default: false,
+    },
+    saleStartDate: {
+      type: Date,
+    },
+    saleEndData: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );
