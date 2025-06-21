@@ -7,6 +7,7 @@ const app = express();
 import userRoutes from "./routes/user.routes.js"
 import prodRoutes from "./routes/product.routes.js"
 import wishlistRoutes from "./routes/wishlist.routes.js"
+import reviewRoutes from "./routes/review.routes.js"
 import adminUserRoutes from "./routes/admin/adminUser.routes.js"
 import adminProductRoutes from "./routes/admin/adminProd.routes.js"
 
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use("/api/v1/auth",userRoutes)
 app.use("/api/v1/product",prodRoutes)
 app.use("/api/v1/wishlist",wishlistRoutes)
+app.use("/api/v1/review",reviewRoutes)
 //Admin Routes
 app.use("/admin/user",adminUserRoutes)
 app.use("/admin/product",adminProductRoutes)
