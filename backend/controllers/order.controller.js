@@ -18,7 +18,7 @@ export const getAllOrder = async (req, res) => {
 };
 export const showOrderById = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id);
+    const order = await Order.findById(req.params.id).populate("user","firstname lastname email");
     if (!order) {
       return res.status(400).json({ message: "Order not found." });
     }
