@@ -14,6 +14,7 @@ import orderRoutes from "./routes/order.routes.js"
 import adminUserRoutes from "./routes/admin/adminUser.routes.js"
 import adminProductRoutes from "./routes/admin/adminProd.routes.js"
 import adminShippingRoutes from "./routes/admin/shipping.routes.js"
+import adminOrderRoutes from "./routes/admin/adminOrder.routes.js"
 
 dotenv.config();
 app.use(cookieParser())
@@ -31,6 +32,7 @@ app.use("/api/v1/order",orderRoutes)
 app.use("/admin/user",adminUserRoutes)//Admin user
 app.use("/admin/product",adminProductRoutes)//Admin Products
 app.use("/admin/shipping",adminShippingRoutes)//Admin Shipping Charges
+app.use("/admin/order",adminOrderRoutes)//Admin Order Charges
 app.get("/",(req,res)=>{
     res.send("urbanKart")
 })
