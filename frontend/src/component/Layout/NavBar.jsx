@@ -1,0 +1,208 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { GoPerson } from "react-icons/go";
+import { FaSearch } from "react-icons/fa";
+import { MdManageAccounts } from "react-icons/md";
+import { PiShoppingBagOpenBold } from "react-icons/pi";
+import { RiStarSLine } from "react-icons/ri";
+import { IoLogInOutline } from "react-icons/io5";
+import { RiLogoutBoxLine } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import SideBar from "./SideBar";
+const NavBar = ({ isScrolled }) => {
+  const [onProfile, setOnProfile] = useState(false);
+  const [setHam, setHamMenu] = useState(false);
+  const handleProfilebtn = () => {
+    setOnProfile(!onProfile);
+  };
+  const handleHamburger = () => {
+    setHamMenu(!setHam);
+  };
+  return (
+    <div
+      className={`poppins-font fixed left-0 w-full bg-white shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ${
+        isScrolled ? "top-0 py-6" : "top-[36px]"
+      }`}
+    >
+      <Link
+        to={"/"}
+        className={`font-semibold transition-all duration-300 ${
+          isScrolled ? "text-xl md:text-3xl" : "text-xl md:text-2xl "
+        }`}
+      >
+        urbanKart
+      </Link>
+      <div
+        className={`hidden lg:flex space-x-4 transition-all duration-300 ${
+          isScrolled ? "text-sm md:text-lg" : "text-sm md:text-md"
+        }`}
+      >
+        <Link to={"/"} className="hover:underline">
+          Home
+        </Link>
+        <Link className="hover:underline">Profile</Link>
+        <Link to={"/cart"} className="hover:underline">
+          Cart
+        </Link>
+        <Link className="hover:underline">Sign Up</Link>
+        <Link className="hover:underline">Sign In</Link>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="relative w-54 mr-4 hidden md:flex">
+          <input
+            type="text"
+            className="w-full pl-3 pr-8 py-1 bg-gray-100 rounded-md outline-none placeholder:text-[10px]"
+            placeholder="What are you looking for?"
+          />
+          <FaSearch
+            className={`absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 transition-all duration-300 ${
+              isScrolled ? "text-lg" : "text-sm"
+            }`}
+          />
+        </div>
+        <div className="md:hidden">
+          <FaSearch
+            className={`mr-3 font-normal transition-all duration-300 ${
+              isScrolled ? "text-xl" : "text-lg"
+            }`}
+          />
+        </div>
+
+        <div
+          className={`flex items-center justify-center transition-all duration-300 ${
+            isScrolled ? "text-2xl" : "text-xl"
+          } space-x-4.5`}
+        >
+          {/* wishlist icon */}
+          <Link to={"/wishlist"} className="hidden md:flex">
+            <FaRegHeart />
+          </Link>
+          {/* cart */}
+          <div className="relative">
+            <Link to="/cart">
+              <AiOutlineShoppingCart
+                className={`transition-all duration-300${
+                  isScrolled ? "text-3xl" : "text-2xl"
+                }`}
+              />
+            </Link>
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+              5
+            </span>
+          </div>
+          {/* profile */}
+          <div className="relative">
+            <button
+              onClick={handleProfilebtn}
+              className={`flex items-center cursor-pointer transition-all duration-300 ${
+                isScrolled ? "text-3xl" : "text-2xl"
+              } `}
+            >
+              <GoPerson />
+            </button>
+            {onProfile && (
+              <div className="absolute right-0 -bottom-44 w-54 bg-white/20 backdrop-blur-md p-2 rounded-md shadow-lg">
+                <div className="flex flex-col py-4 space-y-2 text-black">
+                  <Link
+                    to={"/account"}
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2  text-sm"
+                  >
+                    <MdManageAccounts />
+                    Manage My Account
+                  </Link>
+                  <Link
+                    to={"/orders"}
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2 text-sm"
+                  >
+                    <PiShoppingBagOpenBold />
+                    My Orders
+                  </Link>
+                  <Link
+                    to={"/wishlist"}
+                    onClick={handleProfilebtn}
+                    className="md:hidden flex items-center gap-2 text-sm"
+                  >
+                    <FaRegHeart />
+                    Wishlist
+                  </Link>
+                  <Link
+                    to={"/myreviews"}
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2  text-sm"
+                  >
+                    <RiStarSLine />
+                    My Reviews
+                  </Link>
+                  <Link
+                    to={"/login"}
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2 text-sm border-b-1 pb-1"
+                  >
+                    <IoLogInOutline />
+                    Login
+                  </Link>
+                  <Link
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2 text-red-600  text-sm"
+                  >
+                    <RiLogoutBoxLine />
+                    Logout
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+          {/* Hamburger */}
+          {/* <button onClick={handleHamburger}></button> */}
+          <GiHamburgerMenu onClick={handleHamburger} />
+        </div>
+      </div>
+      {/* Overlay - Black background with opacity */}
+      {setHam && (
+        <div 
+          className="fixed inset-0 bg-black opacity-50 z-30 transition-opacity duration-300"
+          onClick={handleHamburger}
+        />
+      )}
+      {/* Category sidebar */}
+      <div
+        className={`fixed min-h-full w-70 top-0 left-0 py-3 px-5 z-50 bg-gray-100 transition-all duration-300 ${
+          setHam ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="absolute right-10 text-white top-7.5">
+          {/* close sidebar button */}
+          <IoMdCloseCircleOutline
+            onClick={handleHamburger}
+            className="text-2xl font-semibold"
+          />
+        </div>
+        <div className="flex">
+          {/* <div className="z-40">
+            <Link>Women's Fashion</Link>
+            <Link>Men's Fashion</Link>
+            <Link>Electronics</Link>
+            <Link>Health & Care</Link>
+            <Link>Medicine</Link>
+            <Link>Sports & Outdoor</Link>
+            <Link>Baby's & Toys</Link>
+            <Link>Groceries & Pets</Link>
+            <Link>Health & beauty</Link>
+          </div> */}
+          <SideBar/>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;
+
+// {`poppins-font fixed top-[36px] left-0 w-full z-50 bg-white shadow-md  flex items-center justify-between py-3 px-5 border-b-4 border-purple-800 transition-all duration-500 ${
+//         isScrolled ? "top-0" : "top-[36px]"
+//       }"`}
