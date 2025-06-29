@@ -1,85 +1,15 @@
 import React, { useState } from 'react'
+import Banner from '../Common/Banner'
+import SalePoducts from '../Product/SalePoducts'
+import Category from '../Common/Category'
 const Home = () => {
   return (
     <div className=''>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
-         <div className="">Home</div>
+        <Banner/>
+        {/* Today Products */}
+        <SalePoducts/>
+        {/* Category */}
+        <Category/>
     </div>
   )
 }

@@ -6,7 +6,7 @@ const HomeLayout = () => {
   return (
     <div>
       <Header />
-      <main className="pt-[100px]">
+      <main className="pt-[100px] px-2 py-3 md:px-8">
         <Outlet />
       </main>
       <Footer />

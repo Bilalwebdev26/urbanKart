@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -15,12 +15,31 @@ import SideBar from "./SideBar";
 const NavBar = ({ isScrolled }) => {
   const [onProfile, setOnProfile] = useState(false);
   const [setHam, setHamMenu] = useState(false);
+  const profileRef = useRef(false);
   const handleProfilebtn = () => {
     setOnProfile(!onProfile);
   };
   const handleHamburger = () => {
     setHamMenu(!setHam);
   };
+  // Close profile dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setOnProfile(false);
+      }
+    };
+
+    // Add event listener when profile is open
+    if (onProfile) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onProfile]);
   return (
     <div
       className={`poppins-font fixed left-0 w-full bg-white shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ${
@@ -94,7 +113,7 @@ const NavBar = ({ isScrolled }) => {
             </span>
           </div>
           {/* profile */}
-          <div className="relative">
+          <div ref={profileRef} className="relative">
             <button
               onClick={handleProfilebtn}
               className={`flex items-center cursor-pointer transition-all duration-300 ${
@@ -104,7 +123,7 @@ const NavBar = ({ isScrolled }) => {
               <GoPerson />
             </button>
             {onProfile && (
-              <div className="absolute right-0 -bottom-44 w-54 bg-white/20 backdrop-blur-md p-2 rounded-md shadow-lg">
+              <div className="absolute right-0 -bottom-54 w-54 bg-white/20 backdrop-blur-md p-2 rounded-md shadow-lg">
                 <div className="flex flex-col py-4 space-y-2 text-black">
                   <Link
                     to={"/account"}
@@ -164,7 +183,7 @@ const NavBar = ({ isScrolled }) => {
       </div>
       {/* Overlay - Black background with opacity */}
       {setHam && (
-        <div 
+        <div
           className="fixed inset-0 bg-black opacity-50 z-30 transition-opacity duration-300"
           onClick={handleHamburger}
         />
@@ -194,7 +213,7 @@ const NavBar = ({ isScrolled }) => {
             <Link>Groceries & Pets</Link>
             <Link>Health & beauty</Link>
           </div> */}
-          <SideBar/>
+          <SideBar />
         </div>
       </div>
     </div>
