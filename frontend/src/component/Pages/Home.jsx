@@ -3,6 +3,9 @@ import Banner from '../Common/Banner'
 import SalePoducts from '../Product/SalePoducts'
 import Category from '../Common/Category'
 import BestSellingProducts from '../Product/BestSellingProducts'
+import SingleBanner from '../Common/SingleBanner'
+import ExploreProducts from '../Product/ExploreProducts'
+import NewArrivals from '../Product/NewArrivals'
 const Home = () => {
   return (
     <div className=''>
@@ -13,6 +16,12 @@ const Home = () => {
         <Category/>
         {/* Best Selling Products */}
         <BestSellingProducts/>
+        {/* Banner */}
+        <SingleBanner/>
+        {/* Explore Products */}
+        <ExploreProducts/>
+        {/* New Arrivals Products */}
+        <NewArrivals/>
     </div>
   )
 }

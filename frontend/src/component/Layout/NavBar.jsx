@@ -123,7 +123,7 @@ const NavBar = ({ isScrolled }) => {
               <GoPerson />
             </button>
             {onProfile && (
-              <div className="absolute right-0 -bottom-54 w-54 bg-white/20 backdrop-blur-md p-2 rounded-md shadow-lg">
+              <div className="absolute right-0 -bottom-54 w-54 bg-white/20 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
                 <div className="flex flex-col py-4 space-y-2 text-black">
                   <Link
                     to={"/account"}
