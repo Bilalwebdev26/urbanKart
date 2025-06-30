@@ -42,8 +42,7 @@
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
-const ProductsList = ({ list,scrollRef }) => {
-
+const ProductsList = ({ list, scrollRef }) => {
   return (
     <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
       <div className="flex gap-4 pb-4">
@@ -65,9 +64,11 @@ const ProductsList = ({ list,scrollRef }) => {
                 <div className="absolute top-4 right-2 bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border">
                   <FaRegHeart />
                 </div>
-                <div className="absolute top-4 left-4 bg-red-600 text-white p-1 text-sm rounded">
-                  -{product.percentOff}% off
-                </div>
+                {product.percentOff !== undefined && (
+                  <div className="absolute top-4 left-4 bg-red-600 text-white p-1 text-sm rounded">
+                    -{product.percentOff}% OFF
+                  </div>
+                )}
               </div>
               <div className="p-4 poppins-font">
                 <h3 className="text-sm font-semibold text-gray-800 mb-2 line-clamp-1">
@@ -77,9 +78,14 @@ const ProductsList = ({ list,scrollRef }) => {
                   <p className="text-red-500 text-lg font-medium">
                     ${product.price}
                   </p>
-                  <p className="line-through text-sm text-gray-500 font-light">
-                    ${Math.round(product.price / (1 - product.percentOff / 100))}
-                  </p>
+                  {product.percentOff !== undefined && (
+                    <p className="line-through text-sm text-gray-500 font-light">
+                      $
+                      {Math.round(
+                        product.price / (1 - product.percentOff / 100)
+                      )}
+                    </p>
+                  )}
                 </div>
                 <div className="flex gap-2 items-center text-sm text-gray-600">
                   <p>⭐⭐⭐⭐⭐</p>
