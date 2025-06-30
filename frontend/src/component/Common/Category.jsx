@@ -8,7 +8,7 @@ import { LuArrowBigLeftDash } from "react-icons/lu";
 import { LuArrowBigRightDash } from "react-icons/lu";
 
 const Category = () => {
-    const scrollRef = useRef(null)
+  const scrollRef = useRef(null);
   const cat = [
     {
       id: 1,
@@ -83,7 +83,8 @@ const Category = () => {
       bgColor: "bg-rose-50 hover:bg-rose-100",
     },
   ];
-   const moveLeft = () => {
+  const showCategories = ()=>{}
+  const moveLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
         left: -400, // scroll 300px to left
@@ -130,7 +131,17 @@ const Category = () => {
           </div>
         </div>
       </div>
-      <CategorySlider list={cat} scrollRef={scrollRef}/>
+      <CategorySlider list={cat} scrollRef={scrollRef} />
+      <div className="flex items-center justify-center">
+        <button
+          onClick={showCategories}
+          className="bg-red-500 px-4 py-2 text-white poppins-font mt-3 rounded font-semibold"
+        >
+          Show All Categories
+        </button>
+      </div>
+      <br />
+      <div className="w-full h-[2px] bg-gray-200 mb-7"></div>
     </div>
   );
 };
