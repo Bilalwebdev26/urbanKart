@@ -9,7 +9,7 @@ const WebFeature = () => {
       <div className="flex items-center justify-center flex-col text-white space-y-3 lg:space-y-0 lg:space-x-12 lg:flex-row mb-4">
         <div className="flex items-center justify-center flex-col">
           <div className="w-18 h-18 bg-gray-400 rounded-full flex items-center justify-center  border-gray-400 border-2 mb-2">
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center">
               <FaShippingFast
                 className="w-6 h-6 text-white font-extralight"
                 strokeWidth={1}
@@ -21,7 +21,7 @@ const WebFeature = () => {
         </div>
         <div className="flex items-center justify-center flex-col">
           <div className="w-18 h-18 bg-gray-400 rounded-full flex items-center justify-center border-8 border-gray-400 mb-2">
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center">
               <PiHeadphonesBold
                 className="w-6 h-6 text-white font-extralight"
                 strokeWidth={1}
@@ -33,7 +33,7 @@ const WebFeature = () => {
         </div>
         <div className="flex items-center justify-center flex-col">
           <div className="w-18 h-18 bg-gray-400 rounded-full flex items-center justify-center border-8 border-gray-400 mb-2">
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center">
               <RiSecurePaymentFill
                 className="w-6 h-6 text-white font-extralight"
                 strokeWidth={1}
