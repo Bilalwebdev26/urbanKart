@@ -42,14 +42,18 @@ const NavBar = ({ isScrolled }) => {
   }, [onProfile]);
   return (
     <div
-      className={`poppins-font fixed left-0 w-full bg-white shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ${
-        isScrolled ? "top-0 py-6" : "top-[36px]"
+      className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? "top-0 bg-white text-black py-6 shadow-lg"
+          : "top-[36px] bg-white shadow-md"
       }`}
     >
       <Link
         to={"/"}
         className={`font-semibold transition-all duration-300 ${
-          isScrolled ? "text-xl md:text-3xl" : "text-xl md:text-2xl "
+          isScrolled
+            ? "text-2xl md:text-3xl text-black"
+            : "text-xl md:text-2xl "
         }`}
       >
         urbanKart
