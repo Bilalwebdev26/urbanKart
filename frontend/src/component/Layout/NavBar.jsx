@@ -74,7 +74,7 @@ const NavBar = ({ isScrolled }) => {
           Wishlist
         </Link>
         <Link to={"/signin"} className="hover:underline">Sign In</Link>
-        <Link to={"/register"} className="hover:underline">Sign Up</Link>
+        <Link to={"/signup"} className="hover:underline">Sign Up</Link>
       </div>
       <div className="flex items-center justify-center">
         <div className="relative w-54 mr-4 hidden md:flex">
@@ -165,12 +165,20 @@ const NavBar = ({ isScrolled }) => {
                     My Reviews
                   </Link>
                   <Link
-                    to={"/login"}
+                    to={"/signin"}
                     onClick={handleProfilebtn}
                     className="flex items-center gap-2 text-sm border-b-1 pb-1"
                   >
                     <IoLogInOutline />
                     Login
+                  </Link>
+                  <Link
+                    to={"/signup"}
+                    onClick={handleProfilebtn}
+                    className="flex items-center gap-2 text-sm border-b-1 pb-1"
+                  >
+                    <IoLogInOutline />
+                    SignUp
                   </Link>
                   <Link
                     onClick={handleProfilebtn}
