@@ -66,12 +66,15 @@ const NavBar = ({ isScrolled }) => {
         <Link to={"/"} className="hover:underline">
           Home
         </Link>
-        <Link className="hover:underline">Profile</Link>
+        <Link to={"/account"} className="hover:underline">Profile</Link>
         <Link to={"/cart"} className="hover:underline">
           Cart
         </Link>
-        <Link className="hover:underline">Sign Up</Link>
-        <Link className="hover:underline">Sign In</Link>
+        <Link to={"/wishlist"} className="hover:underline">
+          Wishlist
+        </Link>
+        <Link to={"/signin"} className="hover:underline">Sign In</Link>
+        <Link to={"/register"} className="hover:underline">Sign Up</Link>
       </div>
       <div className="flex items-center justify-center">
         <div className="relative w-54 mr-4 hidden md:flex">
@@ -127,7 +130,7 @@ const NavBar = ({ isScrolled }) => {
               <GoPerson />
             </button>
             {onProfile && (
-              <div className="absolute right-0 -bottom-54 w-54 bg-white/20 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
+              <div className="absolute right-0 -bottom-54 lg:-bottom-48 w-54 bg-white/20 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
                 <div className="flex flex-col py-4 space-y-2 text-black">
                   <Link
                     to={"/account"}

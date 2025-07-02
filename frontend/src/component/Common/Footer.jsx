@@ -7,14 +7,14 @@ import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <div className="bg-black text-white px-2 py-3 md:px-8">
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+    <div className="bg-black text-white px-2 py-3 md:px-8 lg:p-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-6">
         <div className="">
           <h2 className="text-xl md:text-3xl font-semibold poppins-font my-3">
             Exclusive
           </h2>
           <h3 className=" text-[16px] md:text-xl font-medium font-fira mb-3">Subscribe</h3>
-          <div className="w-40 md:w-60">
+          <div className="w-45 md:w-60">
             <p className="text-gray-200 text-[12px] md:text-sm mb-3">
               Get 10% OFF your first Order
             </p>
@@ -22,15 +22,15 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your Email"
-                className="outline-none w-full p-2"
+                className="outline-none w-full p-2 font-fira text-sm"
               />
-              <BiSend className="text-3xl" />
+              <BiSend className="text-xl lg:text-3xl" />
             </div>
           </div>
         </div>
         <div className="text-gray-400">
           <h2 className="text-xl md:text-3xl font-semibold poppins-font my-3 text-white">Support</h2>
-          <p className="text-sm mb-2">Johar Town C block Lahore,Pakistan</p>
+          <p className="text-sm md:text-xl mb-2">Johar Town C block Lahore,Pakistan</p>
           <p className="mb-2">urbanKart@store.com</p>
           <p>+(123)-456-7890</p>
         </div>
@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center border-t p-3 mt-2">
+      <div className="text-center border-t p-3 mt-6">
         @Developer : bilalwdev26@gmail.com
       </div>
     </div>
