@@ -7,6 +7,8 @@ import Cart from './component/Pages/Cart'
 import Register from './component/Pages/Register'
 import SignIn from './component/Pages/SignIn'
 import Account from './component/Pages/Account'
+import MyReviews from './component/Pages/MyReviews'
+import MyOrders from './component/Pages/MyOrders'
 const App = () => {
   return (
     <div className=''>
@@ -18,6 +20,8 @@ const App = () => {
        <Route  path='/signin' element={<SignIn/>}/>
        <Route  path='/signup' element={<Register/>}/>
        <Route  path='/account' element={<Account/>}/>
+       <Route  path='/myreviews' element={<MyReviews/>}/>
+       <Route  path='/myorders' element={<MyOrders/>}/>
       </Route>
      </Routes>
     </div>

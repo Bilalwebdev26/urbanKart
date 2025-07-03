@@ -141,7 +141,7 @@ const NavBar = ({ isScrolled }) => {
                     Manage My Account
                   </Link>
                   <Link
-                    to={"/orders"}
+                    to={"/myorders"}
                     onClick={handleProfilebtn}
                     className="flex items-center gap-2 text-sm"
                   >
