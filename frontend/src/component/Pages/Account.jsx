@@ -5,7 +5,7 @@ import AddAddress from "../Common/Profile/AddAddress";
 import ChangePassword from "../Common/Profile/ChangePassword";
 import UpdateProfile from "../Common/Profile/UpdateProfile";
 const Account = () => {
-  const [showSection, setShowSection] = useState("changePassword");
+  const [showSection, setShowSection] = useState("myProfile");
   return (
     <div className="poppins-font">
       <h2 className="font-semibold text-lg md:text-xl my-4">Name Profile</h2>
@@ -72,7 +72,7 @@ const Account = () => {
           <div className="">
             <h2 className="text-base font-semibold">Wishlist</h2>
             <div className=" py-1 px-3 lg:p-3 text-[12px] lg:text-sm space-y-1">
-              <a href="/myreviews">My Wishlist</a>
+              <a href="/wishlist">My Wishlist</a>
             </div>
           </div>
         </div>
