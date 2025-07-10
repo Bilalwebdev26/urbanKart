@@ -9,6 +9,7 @@ import SignIn from './component/Pages/SignIn'
 import Account from './component/Pages/Account'
 import MyReviews from './component/Pages/MyReviews'
 import MyOrders from './component/Pages/MyOrders'
+import ProductId from './component/Product/ProductId'
 const App = () => {
   return (
     <div className=''>
@@ -22,6 +23,7 @@ const App = () => {
        <Route  path='/account' element={<Account/>}/>
        <Route  path='/myreviews' element={<MyReviews/>}/>
        <Route  path='/myorders' element={<MyOrders/>}/>
+       <Route path='/product/:id' element={<ProductId/>}/>
       </Route>
      </Routes>
     </div>
