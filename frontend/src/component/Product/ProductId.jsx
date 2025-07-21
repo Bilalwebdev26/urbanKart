@@ -43,11 +43,11 @@ const ProductId = () => {
         altText: "Back view of slim fit black t-shirt",
       },
       {
-        url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
         altText: "Front view of slim fit black t-shirt",
       },
       {
-        url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
         altText: "Back view of slim fit black t-shirt",
       },
     ],
@@ -63,40 +63,47 @@ const ProductId = () => {
   return (
     <div className="w-full">
       Product : {id}
-      {/*---------------------------------- Image Part--------------------------- */}
-      {/* ----------------------------------------------- */}
-      <div className="w-full lg:w-1/2 h-[400px]">
-        <div className="flex h-full">
-          {/* Left side thumbnails - take full height and divide space equally */}
-          <div className="flex flex-col justify-between mr-3 h-full">
-            {product.images.map((prod, index) => (
-              <div className="w-20 h-20" key={index}>
-                <img
-                  onClick={() => setProductIamge(prod.url)}
-                  src={prod.url}
-                  alt={prod.altText}
-                  className={`border-2 rounded w-full h-full object-cover cursor-pointer transition-all ${
-                    productImage === prod.url
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                />
-              </div>
-            ))}
-          </div>
+      <div className="flex border"> 
+        {/*---------------------------------- Image Part--------------------------- */}
+        {/* ----------------------------------------------- */}
+        <div className="w-full lg:w-1/2 h-[400px]">
+          <div className="flex h-full">
+            {/* Left side thumbnails - take full height and divide space equally */}
+            <div className="flex flex-col justify-between mr-3 h-full">
+              {product.images.map((prod, index) => (
+                <div className="w-20 h-20" key={index}>
+                  <img
+                    onClick={() => setProductIamge(prod.url)}
+                    src={prod.url}
+                    alt={prod.altText}
+                    className={`border-2 rounded w-full h-full object-cover cursor-pointer transition-all ${
+                      productImage === prod.url
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                  />
+                </div>
+              ))}
+            </div>
 
-          {/* Right side main image */}
-          <div className="flex-1 h-full">
-            <img
-              src={productImage}
-              alt="Main Product"
-              className="w-full h-full object-contain rounded border"
-            />
+            {/* Right side main image */}
+            <div className="flex-1 h-full">
+              <img
+                src={productImage}
+                alt="Main Product"
+                className="w-full h-full object-contain rounded"
+              />
+            </div>
+          </div>
+        </div>
+        {/*--------------------------------- Main Content--------------------------- */}
+        <div className="px-2">
+          <div className="poppins-font">
+            <h2 className="text-xl font-semibold line-clamp-1 ">{product.name}</h2>
+            <span>({product.numReviews}){}</span>
           </div>
         </div>
       </div>
-      {/*--------------------------------- Main Content--------------------------- */}
-      <div className="">{size}</div>
     </div>
   );
 };
