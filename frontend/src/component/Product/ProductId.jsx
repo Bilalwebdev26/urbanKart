@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import Stars from "../Common/Stars";
+import { Heart } from "lucide-react";
+import { toast, Toaster } from "react-hot-toast";
+import { Truck } from "lucide-react";
 
 const ProductId = () => {
   const product = {
     name: "Slim Fit Men's T-Shirt",
-    desc: "A comfortable and stylish slim-fit t-shirt for daily wear.",
+    desc: "A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.",
     price: 29.99,
     percentOff: 10,
     checkStock: true,
@@ -28,7 +32,7 @@ const ProductId = () => {
         createdAt: "2025-06-15T08:30:00Z",
       },
     ],
-    rating: 4,
+    rating: 3.8,
     numReviews: 2,
     tags: ["tshirt", "slimfit", "menswear"],
     soldUnits: 350,
@@ -57,19 +61,62 @@ const ProductId = () => {
     _id: 1,
   };
   const [productImage, setProductIamge] = useState(product.images[0].url);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState(product.size[0]);
+  const [colorP, setColor] = useState();
+  const [sizeP, setSize] = useState(product.size[0]);
+  const [quantity, setQuantity] = useState(Number(1));
+  const [addWish, setAddWish] = useState(false);
   const { id } = useParams();
+  const handleAddQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+  const handleSubQuantity = () => {
+    if (quantity === 1) {
+      return 1;
+    }
+    setQuantity((prev) => prev - 1);
+  };
+  const AddInWishlist = () => {
+    setAddWish(!addWish);
+    if (addWish === false) {
+      toast.success("Add in your wishlist.", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
+    }
+    if (addWish === true) {
+      toast.success("Remove from your wishlist.", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
+    }
+  };
+  const setHandleColor = (col) => {
+    setColor(col);
+  };
   return (
     <div className="w-full">
-      Product : {id}
-      <div className="flex border"> 
+      <Toaster position="top-right" reverseOrder={false} />
+      <div className="flex shadow-sm lg:flex-row flex-col">
         {/*---------------------------------- Image Part--------------------------- */}
         {/* ----------------------------------------------- */}
-        <div className="w-full lg:w-1/2 h-[400px]">
+        <div className="w-full lg:w-1/2 lg:h-[400px]">
           <div className="flex h-full">
             {/* Left side thumbnails - take full height and divide space equally */}
-            <div className="flex flex-col justify-between mr-3 h-full">
+            <div className="hidden lg:flex flex-col space-y-2 mr-3 h-full">
               {product.images.map((prod, index) => (
                 <div className="w-20 h-20" key={index}>
                   <img
@@ -95,12 +142,146 @@ const ProductId = () => {
               />
             </div>
           </div>
+          <div className="w-full lg:hidden">
+            <div className="flex items-center justify-center lg:hidden space-x-2 ">
+              {product.images.map((prod, index) => (
+                <div className="w-15 md:w-20 h-15 md:h-20 mt-1" key={index}>
+                  <img
+                    onClick={() => setProductIamge(prod.url)}
+                    src={prod.url}
+                    alt={prod.altText}
+                    className={`border-2 rounded w-full h-full object-cover cursor-pointer transition-all ${
+                      productImage === prod.url
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         {/*--------------------------------- Main Content--------------------------- */}
-        <div className="px-2">
+        <div className="mt-1 p-2 w-full lg:w-1/2">
           <div className="poppins-font">
-            <h2 className="text-xl font-semibold line-clamp-1 ">{product.name}</h2>
-            <span>({product.numReviews}){}</span>
+            <h2 className="text-xl font-semibold line-clamp-1 ">
+              {product.name}
+            </h2>
+            <div className="flex items-center space-x-2">
+              {/* Stars */}
+              <div className="">
+                <Stars stars={product.rating} />
+              </div>
+              <span className="text-xs text-gray-600">
+                ({product.numReviews} Reviews)
+              </span>
+              <span className="text-gray-500">|</span>
+              <span
+                className={`${
+                  product.checkStock ? "text-green-500" : "text-red-500"
+                } text-xs`}
+              >
+                {product.checkStock ? "In Stock" : "Out of Stock"}
+              </span>
+            </div>
+            <div className="my-3">
+              <p className="text-2xl">
+                {product.price.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </p>
+            </div>
+            <div className="">
+              <p className="text-xs text-justify">{product.desc}</p>
+            </div>
+            <div className="border border-b border-gray-400 mt-6 mb-2"></div>
+            <div className="flex mb-2">
+              <span className="mr-3 text-sm">colors : </span>
+              <div className="space-x-2 flex items-center">
+                {product.color.map((col, index) => (
+                  <button
+                    onClick={() => setHandleColor(col)}
+                    className={`inline-block w-5 h-5  rounded-full cursor-pointer border ${
+                      col === colorP ? "border-3" : ""
+                    }`}
+                    key={index}
+                    style={{ backgroundColor: col }}
+                  ></button>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center mb-2">
+              <span className="mr-3 text-sm">sizes : </span>
+              <div className="space-x-2 flex items-center">
+                {product.size.map((s, index) => (
+                  <button
+                    onClick={() => setSize(s)}
+                    className={`${
+                      s === sizeP
+                        ? "bg-black text-white"
+                        : "border-2 border-gray-300"
+                    } cursor-pointer text-center   rounded-sm w-9 h-8`}
+                    key={index}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-center  space-x-2 mb-2">
+              {/* Quantity */}
+              <div className="flex items-center border rounded-sm">
+                {/* Minus Button */}
+                <button
+                  onClick={handleSubQuantity}
+                  className="border w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center cursor-pointer"
+                >
+                  -
+                </button>
+
+                {/* Quantity Display */}
+                <span className="w-15 h-8 lg:w-16 lg:h-10 flex items-center justify-center border-x">
+                  {quantity}
+                </span>
+
+                {/* Plus Button */}
+                <button
+                  onClick={handleAddQuantity}
+                  className="border w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center bg-black text-white border-black cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+              {/* Buy Button */}
+
+              <button className="bg-black text-white px-8 lg:px-12 lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                Buy Now
+              </button>
+
+              {/* Wishlist */}
+              <div className="border w-10 h-9 rounded-sm flex items-center justify-center">
+                <Heart
+                  onClick={AddInWishlist}
+                  className={`size-7 lg:cursor-pointer ${
+                    addWish ? "fill-red-500 text-red-300" : ""
+                  }`}
+                />
+              </div>
+            </div>
+            {/* Delivery */}
+            <div className="w-full">
+              <div className="border flex space-x-4 items-center justify-start px-6 py-2">
+                <Truck className="size-9" />
+                <div className="">
+                  <h3 className="text-base font-semibold">Free Delivery</h3>
+                  <p className="text-sm">
+                    Enter your Postal code for free delivery.
+                  </p>
+                </div>
+              </div>
+              {/* <div className="border"></div> */}
+            </div>
           </div>
         </div>
       </div>
