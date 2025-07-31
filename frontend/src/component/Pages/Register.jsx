@@ -15,7 +15,7 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.auth);
-
+  console.log("Error in register : ",error);
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -134,12 +134,12 @@ const RegistrationForm = () => {
         .unwrap()
         .then(() => {
           setIsSubmitted(true); // ✅ Only runs on success
+          navigate("/");
         })
         .catch((err) => {
           console.error("Registration failed:", err);
           // Optionally show error to user here
         });
-      navigate("/");
     }
   };
   return (
@@ -200,12 +200,14 @@ const RegistrationForm = () => {
               className="w-full p-3 bg-transparent outline-none placeholder-gray-500"
             />
           </div>
-          {errors.email && (
-            <div className="flex items-center gap-2 text-red-600 text-sm">
+       <div className="h-1">
+          {error && error.tag === "email" && (
+            <div className="flex items-center gap-2 text-red-600 text-xs">
               <AlertCircle className="w-4 h-4" />
-              <span>{errors.email}</span>
+              <span>{error?.message}</span>
             </div>
           )}
+          </div>
         </div>
 
         {/* Password Field */}

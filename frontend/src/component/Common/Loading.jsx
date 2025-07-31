@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Loading = () => {
   return (
-   <div className="h-screen flex items-center justify-center bg-gray-100">
+   <div className="fixed top-0 left-0 w-full h-full z-[9999] flex items-center justify-center bg-black/60">
     <StyledWrapper>
       <svg className="pl" width={240} height={240} viewBox="0 0 240 240">
         <circle

@@ -28,15 +28,17 @@ const App = () => {
     }
   }, [dispatch, user]);
 
-  if (
-    loading &&
-    (location.pathname === "/signup" || location.pathname === "/signin")
-  ) {
-    return <Loading />;
-  }
-  
+  // if (loading) {
+  //   return <Loading />;
+  // }
+
   return (
-    <div className="">
+    <div className="z-30">
+      {loading&&(
+        <div className="z-40">
+          <Loading/>
+        </div>
+      )}
       <Routes>
         <Route element={<HomeLayout />}>
           <Route index path="/" element={<Home />} />
@@ -44,16 +46,12 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route
             path="/signin"
-            element={
-              user ? <Navigate to={"/"} /> : loading ? <Loading /> : <SignIn />
-            }
+            element={user ? <Navigate to={"/"} /> : <SignIn />}
             // element={user ? <Navigate to={"/"} /> : <SignIn />}
           />
           <Route
             path="/signup"
-            element={
-              loading ? <Loading /> : user ? <Navigate to="/" /> : <Register />
-            }
+            element={user ? <Navigate to="/" /> : <Register />}
 
             // element={user ? <Navigate to={"/"} /> : <Register />}
           />

@@ -65,19 +65,16 @@ export const registerUser = async (req, res) => {
   if (!error.isEmpty()) {
     return res
       .status(401)
-      .json({ message: error.message || "All fileds are required" });
+      .json({ message: error.message || "All fileds are required",tag:"all" });
   }
   const { name, email, password } = req.body;
-  console.log(name);
-  console.log(email);
-  console.log(password);
 
   try {
     let userCheck = await User.findOne({ email });
     if (userCheck) {
       return res
         .status(409)
-        .json({ message: "User already exist with this email" });
+        .json({ message: "User already exist with this email",tag:"email" });
     }
     userCheck = await User.create({
       name,

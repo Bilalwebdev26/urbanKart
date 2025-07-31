@@ -23,7 +23,6 @@ const NavBar = ({ isScrolled }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("User from Navbar : ", user);
   const handleProfilebtn = () => {
     setOnProfile(!onProfile);
   };
@@ -54,10 +53,7 @@ const NavBar = ({ isScrolled }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onProfile]);
-  console.log("Loading from Navbar : ", loading);
-  if (loading && location.pathname === "/signup") {
-    return <Loading />;
-  }
+
   return (
     <div
       className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
