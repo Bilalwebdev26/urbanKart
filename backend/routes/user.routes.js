@@ -19,7 +19,7 @@ import { checkUserAuth } from "../middlewares/auth.middleware.js";
 const router = express.Router();
 router.post("/login", loginValidate, loginUser);
 router.post("/register", registerValidate, registerUser);
-router.get("/logout", checkUserAuth, logoutUser);
+router.post("/logout", checkUserAuth, logoutUser);
 router.get("/profile", checkUserAuth, userProfile);
 router.put(
   "/change-pasword",

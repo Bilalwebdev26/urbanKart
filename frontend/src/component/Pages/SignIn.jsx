@@ -72,7 +72,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="max-w-md p-6 mx-auto shadow-lg rounded-lg bg-white poppins-font">
+    <div className="max-w-md p-6 mx-auto shadow-lg rounded-lg bg-gray-50 poppins-font my-14">
       <div className="mb-4">
         <h2 className="text-xl text-center lg:text-3xl md:text-2xl font-extrabold text-gray-800 tracking-tight">
           Welcome Back Buddy 👋

@@ -52,6 +52,19 @@ export const userProfile = createAsyncThunk(
     }
   }
 );
+export const logout = createAsyncThunk(
+  "/auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/logout`,{},
+        {withCredentials:true}
+      );
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || error?.message);
+    }
+  }
+);
 const userSlice = createSlice({
   name: "auth",
   initialState,
@@ -94,6 +107,18 @@ const userSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      .addCase(logout.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.loading = false;
+        state.user = null;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 export default userSlice.reducer;

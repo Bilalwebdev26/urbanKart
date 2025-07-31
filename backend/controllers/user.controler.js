@@ -113,6 +113,7 @@ export const registerUser = async (req, res) => {
 };
 export const logoutUser = async (req, res) => {
   try {
+    console.log("Logout")
     const user = await User.findById(req.user._id);
     if (!user) {
       return res.status(404).json({ message: "User Not found" });
