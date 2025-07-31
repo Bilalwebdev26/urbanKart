@@ -9,8 +9,7 @@ export const loginValidate = [
   body("password").notEmpty().withMessage("Password is Required"),
 ];
 export const registerValidate = [
-  body("firstname").notEmpty().withMessage("First Name is required"),
-  body("lastname").notEmpty().withMessage("Last Name is required"),
+  body("name").notEmpty().withMessage("Name is required"),
   body("email")
     .trim()
     .notEmpty()

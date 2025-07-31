@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoPerson } from "react-icons/go";
 import { FaSearch } from "react-icons/fa";
@@ -12,10 +12,16 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import SideBar from "./SideBar";
+import { useDispatch, useSelector } from "react-redux";
+import { userProfile } from "../../redux/Client/auth.store";
+import Loading from "../Common/Loading";
 const NavBar = ({ isScrolled }) => {
+  const { user, loading } = useSelector((state) => state.auth);
   const [onProfile, setOnProfile] = useState(false);
   const [setHam, setHamMenu] = useState(false);
   const profileRef = useRef(false);
+  const location = useLocation();
+  console.log("User from Navbar : ", user);
   const handleProfilebtn = () => {
     setOnProfile(!onProfile);
   };
@@ -29,7 +35,6 @@ const NavBar = ({ isScrolled }) => {
         setOnProfile(false);
       }
     };
-
     // Add event listener when profile is open
     if (onProfile) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -40,6 +45,10 @@ const NavBar = ({ isScrolled }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onProfile]);
+  console.log("Loading from Navbar : ", loading);
+  if (loading && location.pathname === "/signup") {
+    return <Loading />;
+  }
   return (
     <div
       className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
@@ -66,15 +75,21 @@ const NavBar = ({ isScrolled }) => {
         <Link to={"/"} className="hover:underline">
           Home
         </Link>
-        <Link to={"/account"} className="hover:underline">Profile</Link>
+        <Link to={"/account"} className="hover:underline">
+          Profile
+        </Link>
         <Link to={"/cart"} className="hover:underline">
           Cart
         </Link>
         <Link to={"/wishlist"} className="hover:underline">
           Wishlist
         </Link>
-        <Link to={"/signin"} className="hover:underline">Sign In</Link>
-        <Link to={"/signup"} className="hover:underline">Sign Up</Link>
+        <Link to={"/signin"} className="hover:underline">
+          Sign In
+        </Link>
+        <Link to={"/signup"} className="hover:underline">
+          Sign Up
+        </Link>
       </div>
       <div className="flex items-center justify-center">
         <div className="relative w-54 mr-4 hidden md:flex">
@@ -130,12 +145,12 @@ const NavBar = ({ isScrolled }) => {
               <GoPerson />
             </button>
             {onProfile && (
-              <div className="absolute right-0 -bottom-54 lg:-bottom-48 w-54 bg-white/20 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
-                <div className="flex flex-col py-4 space-y-2 text-black">
+              <div className="absolute right-0 -bottom-54 lg:-bottom-48 w-54 bg-gradient-to-r from-slate-100 to-slate-400 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
+                <div className="flex flex-col py-4 space-y-[3px] text-black">
                   <Link
                     to={"/account"}
                     onClick={handleProfilebtn}
-                    className="flex items-center gap-2  text-sm"
+                    className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
                   >
                     <MdManageAccounts />
                     Manage My Account
@@ -143,7 +158,7 @@ const NavBar = ({ isScrolled }) => {
                   <Link
                     to={"/myorders"}
                     onClick={handleProfilebtn}
-                    className="flex items-center gap-2 text-sm"
+                    className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
                   >
                     <PiShoppingBagOpenBold />
                     My Orders
@@ -151,42 +166,54 @@ const NavBar = ({ isScrolled }) => {
                   <Link
                     to={"/wishlist"}
                     onClick={handleProfilebtn}
-                    className="md:hidden flex items-center gap-2 text-sm"
+                    className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
                   >
-                    <FaRegHeart />
+                    <FaHeart  className="text-red-600 "/>
                     Wishlist
                   </Link>
                   <Link
                     to={"/myreviews"}
                     onClick={handleProfilebtn}
-                    className="flex items-center gap-2  text-sm"
+                     className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
                   >
                     <RiStarSLine />
                     My Reviews
                   </Link>
-                  <Link
-                    to={"/signin"}
-                    onClick={handleProfilebtn}
-                    className="flex items-center gap-2 text-sm border-b-1 pb-1"
-                  >
-                    <IoLogInOutline />
-                    Login
-                  </Link>
-                  <Link
-                    to={"/signup"}
-                    onClick={handleProfilebtn}
-                    className="flex items-center gap-2 text-sm border-b-1 pb-1"
-                  >
-                    <IoLogInOutline />
-                    SignUp
-                  </Link>
-                  <Link
-                    onClick={handleProfilebtn}
-                    className="flex items-center gap-2 text-red-600  text-sm"
-                  >
-                    <RiLogoutBoxLine />
-                    Logout
-                  </Link>
+                  {user ? (
+                    ""
+                  ) : (
+                    <Link
+                      to={"/signin"}
+                      onClick={handleProfilebtn}
+                      className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
+                    >
+                      <IoLogInOutline className="hover:animate-spin"/>
+                      Login
+                    </Link>
+                  )}
+                  {user ? (
+                    ""
+                  ) : (
+                    <Link
+                      to={"/signup"}
+                      onClick={handleProfilebtn}
+                      className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
+                    >
+                      <IoLogInOutline />
+                      SignUp
+                    </Link>
+                  )}
+                  {!user ? (
+                    ""
+                  ) : (
+                    <Link
+                      onClick={handleProfilebtn}
+                      className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
+                    >
+                      <RiLogoutBoxLine />
+                      Logout
+                    </Link>
+                  )}
                 </div>
               </div>
             )}

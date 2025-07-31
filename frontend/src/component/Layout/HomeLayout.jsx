@@ -2,7 +2,10 @@ import React from "react";
 import Header from "../Common/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../Common/Footer";
+import { useSelector } from "react-redux";
 const HomeLayout = () => {
+  const{user}=useSelector((state)=>state.auth)
+  console.log("User from Layout : ",user)
   return (
     <div>
       <Header />

@@ -23,14 +23,15 @@ export const loginUser = async (req, res) => {
     return res.status(401).json({ message: error.message || "Empty fields" });
   }
   const { email, password } = req.body;
+  console.log(email);
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: "User Not Found" });
+      return res.status(401).json({ message: "User Not Found",tag:"email" });
     }
     const checkPass = await user.comparePassword(password);
     if (!checkPass) {
-      return res.status(403).json({ message: "Password incorect" });
+      return res.status(403).json({ message: "Password incorect",tag:"password" });
     }
     //token
     const { refreshToken, accessToken } = await generateToken(user._id);
@@ -66,17 +67,20 @@ export const registerUser = async (req, res) => {
       .status(401)
       .json({ message: error.message || "All fileds are required" });
   }
-  const { firstname, lastname, email, password } = req.body;
+  const { name, email, password } = req.body;
+  console.log(name);
+  console.log(email);
+  console.log(password);
+
   try {
     let userCheck = await User.findOne({ email });
     if (userCheck) {
       return res
         .status(409)
-        .json({ message: "User already exist with same email" });
+        .json({ message: "User already exist with this email" });
     }
     userCheck = await User.create({
-      firstname,
-      lastname,
+      name,
       email,
       password,
     });
@@ -197,9 +201,7 @@ export const changeUserPassword = async (req, res) => {
 export const addAddress = async (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
-    return res
-      .status(400)
-      .json({ message: "Add Address" });
+    return res.status(400).json({ message: "Add Address" });
   }
   const { address } = req.body;
   try {
@@ -222,9 +224,7 @@ export const addAddress = async (req, res) => {
 export const updateProfile = async (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
-    return res
-      .status(400)
-      .json({ message: "Update Profile error" });
+    return res.status(400).json({ message: "Update Profile error" });
   }
   const { firstname, lastname, address } = req.body;
   try {

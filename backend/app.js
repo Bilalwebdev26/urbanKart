@@ -18,7 +18,10 @@ import adminOrderRoutes from "./routes/admin/adminOrder.routes.js"
 
 dotenv.config();
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({
+    origin:process.env.FRONTEND_URL,
+    credentials:true
+}))
 app.use(express.json())
 //setRoutes
 app.use("/api/v1/auth",userRoutes)

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Eye, EyeOff, AlertCircle, CheckCircle, Loader } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/Client/auth.store";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -8,6 +10,9 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const { user, loading, error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const emailValidation = (email) => {
     if (!email) return "Email is Required.";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -57,8 +62,13 @@ const SignIn = () => {
       setIsSubmit(true);
       console.log({ email, password });
       //dispatch
-      setEmail("")
-      setPassword("")
+      dispatch(login({ email, password }))
+        .unwrap()
+        .then(() => {
+          console.log(user)
+          navigate("/");
+        })
+        .catch((err) => console.error("Error in catch login :", err));
     }
   };
   return (
@@ -72,7 +82,7 @@ const SignIn = () => {
         </p>
       </div>
       <div className="flex items-center justify-center flex-col w-full space-y-3">
-        <div className="w-full space-y-2">
+        <div className="w-full">
           {/* Email */}
           <div className="bg-gray-100 w-full rounded-md">
             <input
@@ -90,16 +100,18 @@ const SignIn = () => {
               value={email}
             />
           </div>
-          {errors.email && (
-            <div className="flex items-center">
-              <span className="flex text-red-500 text-[12px] md:text-sm gap-2">
-                <AlertCircle className="w-4 h-4" />
-                {errors.email}
-              </span>
-            </div>
-          )}
+          <div className="h-1 mb-[1px] mt-[1px]">
+            {error && error.tag === "email" && (
+              <div className="flex items-center">
+                <span className="flex text-red-500 text-[10px] md:text-sm gap-2">
+                  <AlertCircle className="size-3" />
+                  {error?.message}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="w-full space-y-2">
+        <div className="w-full">
           {/* Password */}
           <div className="bg-gray-100 w-full rounded-lg relative flex items-center">
             <input
@@ -127,20 +139,28 @@ const SignIn = () => {
               )}
             </button>
           </div>
-          {errors.password && (
-            <div className="text-[12px] md:text-sm text-red-500">
-              <span className="flex items-center gap-2">
-                <AlertCircle className="w-4 h-4" />
-                {errors.password}
-              </span>
-            </div>
-          )}
+          <div className="h-1 mb-[3px] mt-[1px]">
+            {error && error.tag === "password" && (
+              <div className="flex items-center">
+                <span className="flex text-red-500 text-[10px] md:text-sm gap-2">
+                  <AlertCircle className="size-3" />
+                  {error?.message}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
         <button
           onClick={submitHandler}
           className="w-full bg-black text-white p-2 rounded-lg hover:bg-slate-900 duration-150 lg:cursor-pointer"
         >
-          SignIn
+          {loading ? (
+            <div className="flex items-center justify-center">
+              <Loader className="size-6 text-white animate-spin" />
+            </div>
+          ) : (
+            "SignIn"
+          )}
         </button>
         <div className="text-center text-sm my-3">
           <h3 className="text-gray-500 ">
