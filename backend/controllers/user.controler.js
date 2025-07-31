@@ -42,13 +42,13 @@ export const loginUser = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true, // prevent JS access in browser
       secure: true, // set true if using HTTPS
-      sameSite: "strict", // CSRF protection
+      sameSite: "none", // CSRF protection
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
     return res
       .status(200)
@@ -93,13 +93,13 @@ export const registerUser = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true, // prevent JS access in browser
       secure: true, // set true if using HTTPS
-      sameSite: "strict", // CSRF protection
+      sameSite: "none", // CSRF protection
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
     return res
       .status(201)
@@ -123,12 +123,12 @@ export const logoutUser = async (req, res) => {
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
     res.clearCookie("accessToken", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     });
     return res.status(200).json({ message: "User Logout Successfully" });
   } catch (error) {
