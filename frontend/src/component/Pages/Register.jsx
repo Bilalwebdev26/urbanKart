@@ -401,10 +401,6 @@ const RegistrationForm = () => {
             Sign In
           </Link>
         </div>
-        {console.log(user)}
-        <div className="bg-red-400 text-white w-full p-2 text-center">
-          {error}
-        </div>
       </div>
     </div>
   );

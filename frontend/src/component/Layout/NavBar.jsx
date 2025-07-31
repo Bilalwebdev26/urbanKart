@@ -116,7 +116,9 @@ const NavBar = ({ isScrolled }) => {
             />
           </div>
 
-          {(location.pathname === "/signin" ||
+         
+        </div>
+         {(location.pathname === "/signin" ||
             location.pathname === "/signup") && (
             <button
               onClick={() => navigate("/")}
@@ -125,7 +127,6 @@ const NavBar = ({ isScrolled }) => {
               Home
             </button>
           )}
-        </div>
         {location.pathname !== "/signin" && location.pathname !== "/signup" && (
           <div className="md:hidden">
             <FaSearch
