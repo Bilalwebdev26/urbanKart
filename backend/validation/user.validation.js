@@ -33,7 +33,6 @@ export const addressValidate = [
   body("address").notEmpty().withMessage("Address is required"),
 ];
 export const updateProfileValidate = [
-  body("firstname").notEmpty().withMessage("First Name is required"),
-  body("lastname").notEmpty().withMessage("Last Name is required"),
+  body("name").notEmpty().withMessage("First Name is required"),
   body("address").trim().notEmpty().withMessage("Address is required"),
 ];

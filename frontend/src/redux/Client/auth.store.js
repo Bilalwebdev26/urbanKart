@@ -17,7 +17,6 @@ export const register = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error.response?.data || error);
     }
   }
@@ -33,7 +32,6 @@ export const login = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error.response?.data || error);
     }
   }
@@ -57,14 +55,61 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/logout`,{},
-        {withCredentials:true}
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/logout`,
+        {},
+        { withCredentials: true }
       );
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error?.message);
     }
   }
 );
+export const setAddress = createAsyncThunk(
+  "/auth/setAddress",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/addAddress`,
+        data,
+        { withCredentials: true }
+      );
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error?.response?.data || error);
+    }
+  }
+);
+export const changePassword = createAsyncThunk(
+  "/auth/changePassword",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/change-pasword`,
+        data,
+        { withCredentials: true }
+      );
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error?.response?.data || error);
+    }
+  }
+);
+export const updateProfile = createAsyncThunk(
+  "/auth/updateProfile",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.patch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/updateProfile`,
+        data,
+        { withCredentials: true }
+      );
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error?.response?.data || error);
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "auth",
   initialState,
@@ -77,7 +122,7 @@ const userSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
+        state.user = action.payload.user;
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
@@ -89,7 +134,7 @@ const userSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
+        state.user = action.payload.user;
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
@@ -116,6 +161,42 @@ const userSlice = createSlice({
         state.user = null;
       })
       .addCase(logout.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(setAddress.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(setAddress.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(setAddress.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(changePassword.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

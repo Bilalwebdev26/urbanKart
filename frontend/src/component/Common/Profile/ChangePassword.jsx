@@ -1,6 +1,9 @@
-import { Eye, EyeOff } from "lucide-react";
+import { AlertCircle, Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
 import { CiCircleAlert, CiWarning } from "react-icons/ci";
+import { changePassword } from "../../../redux/Client/auth.store";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-hot-toast";
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -9,6 +12,8 @@ const ChangePassword = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setError] = useState({});
+  const { user, loading, error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const newPassValidation = (password) => {
     if (!password || password.length < 1) return "Enter Password";
     if (password.length < 7)
@@ -34,7 +39,7 @@ const ChangePassword = () => {
   };
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+
     if (name === "oldPassword") {
       setOldPassword(value);
       //purane error ko run time me khatam kerna
@@ -67,11 +72,11 @@ const ChangePassword = () => {
   };
   const submitHandler = () => {
     const newPassError = newPassValidation(newPassword);
-    console.log("New pass err", newPassError);
+
     const confirmPassError = confirmPassValidator(newPassword, confirmPassword);
-    console.log("confirm err", confirmPassError);
+
     const currentPassError = currentPasswordVaidation(oldPassword);
-    console.log("current err", confirmPassError);
+
     const errorObj = {
       newPassword: newPassError,
       confirmPassword: confirmPassError,
@@ -80,17 +85,25 @@ const ChangePassword = () => {
 
     setError(errorObj);
     const isValid = !Object.values(errorObj).some((err) => err !== "");
-    console.log(isValid);
+
     if (isValid) {
       setOldPassword(oldPassword);
       setNewPassword(newPassword);
       setConfirmPassword(confirmPassword);
-      console.log({ oldPassword, newPassword, confirmPassword });
-      setOldPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
+      dispatch(changePassword({ oldPassword, newPassword, confirmPassword }))
+        .unwrap()
+        .then(() => {
+          toast.success("Password Updated SuccessFully");
+          setOldPassword("");
+          setNewPassword("");
+          setConfirmPassword("");
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   };
+
   return (
     // <div className="p-2  relative">
     <div className="w-full max-w-screen overflow-x-hidden px-2 lg:flex lg:flex-row-reverse lg:justify-start lg:relative">
@@ -115,7 +128,7 @@ const ChangePassword = () => {
       <div className="flex items-center justify-start flex-col w-full">
         <div className="w-full max-w-md space-y-2 ">
           {/* oldPassword, newPassword, confirmPassword  */}
-          <label htmlFor="" className="text-[10px] lg:text-sm">
+          <label htmlFor="" className="text-[8x] lg:text-sm">
             Enter Current Password
           </label>
           <div className="bg-gray-200 w-full rounded-lg relative p-2">
@@ -128,32 +141,31 @@ const ChangePassword = () => {
             />
             <div className="absolute right-2 top-3">
               {showPassword ? (
-                <EyeOff
+                <Eye
                   onClick={() => setShowPassword(!showPassword)}
                   className="w-5 h-5"
                 />
               ) : (
-                <Eye
+                <EyeOff
                   className="w-5 h-5"
                   onClick={() => setShowPassword(!showPassword)}
                 />
               )}
             </div>
           </div>
-          {/* old password section  oldPassword*/}
-          <div className="h-2">
-            {errors.oldPassword && (
-              <div className="">
-                <span className="flex items-center gap-2 text-[10px] text-red-500">
-                  <CiWarning className="w-4 h-4 text-yellow-400" />
-                  {errors.oldPassword}
-                </span>
+          <div className="h-1 mt-1 mb-2">
+            {error && (
+              <div className="flex items-center gap-2">
+                <AlertCircle className="size-3 text-red-500" />
+                <span className="text-red-500 text-xs">{error?.message}</span>
               </div>
             )}
           </div>
+          {/* old password section  oldPassword*/}
+
           <label
             htmlFor=""
-            className="text-start flex items-start text-[10px] lg:text-sm"
+            className="text-start flex items-start text-[9px] lg:text-sm"
           >
             Enter new Password
           </label>
@@ -167,12 +179,12 @@ const ChangePassword = () => {
             />
             <div className="absolute right-2 top-3">
               {showNewPassword ? (
-                <EyeOff
+                <Eye
                   onClick={() => setShowNewPassword(false)}
                   className="w-5 h-5"
                 />
               ) : (
-                <Eye
+                <EyeOff
                   className="w-5 h-5"
                   onClick={() => setShowNewPassword(true)}
                 />
@@ -191,7 +203,7 @@ const ChangePassword = () => {
           </div>
           <label
             htmlFor=""
-            className="text-start flex items-start text-[10px] lg:text-sm"
+            className="text-start flex items-start text-[8px] lg:text-sm"
           >
             Confirm Password
           </label>
@@ -205,12 +217,12 @@ const ChangePassword = () => {
             />
             <div className="absolute right-2 top-3">
               {showConfirmPassword ? (
-                <EyeOff
+                <Eye
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="w-5 h-5"
                 />
               ) : (
-                <Eye
+                <EyeOff
                   className="w-5 h-5"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 />

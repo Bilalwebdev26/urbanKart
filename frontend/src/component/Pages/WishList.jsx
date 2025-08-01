@@ -131,11 +131,11 @@ const WishList = () => {
         <h2 className="font-semibold">
           Wishlist(<span className="font-normal">{wishlist.length}</span>)
         </h2>
-        <button className="bg-slate-950 text-white px-5 py-2 border-2 rounded-md">
+        <button className="bg-slate-950 text-white px-3 py-1 lg:px-5 lg:py-2 border-2 rounded-md text-sm hover:scale-95 transition-all lg:cursor-pointer hover:bg-black/80">
           Move All To Cart
         </button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-2 space-y-4 my-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 space-y-4 my-6">
         {/* Products */}
         {wishlist.map((prod, index) => (
           <div

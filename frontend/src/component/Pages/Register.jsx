@@ -15,7 +15,6 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.auth);
-  console.log("Error in register : ",error);
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -62,7 +61,6 @@ const RegistrationForm = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === "checkbox" ? checked : value;
-    console.log(`${name}:${newValue}`);
     setFormData((prev) => ({ ...prev, [name]: newValue }));
 
     // Clear error when user starts typing/checking
@@ -129,17 +127,12 @@ const RegistrationForm = () => {
 
     if (isValid) {
       // Here you would typically send data to your backend
-      console.log("Form submitted successfully:", formData);
       dispatch(register(formData))
         .unwrap()
         .then(() => {
           setIsSubmitted(true); // ✅ Only runs on success
           navigate("/");
         })
-        .catch((err) => {
-          console.error("Registration failed:", err);
-          // Optionally show error to user here
-        });
     }
   };
   return (
@@ -200,13 +193,13 @@ const RegistrationForm = () => {
               className="w-full p-3 bg-transparent outline-none placeholder-gray-500"
             />
           </div>
-       <div className="h-1">
-          {error && error.tag === "email" && (
-            <div className="flex items-center gap-2 text-red-600 text-xs">
-              <AlertCircle className="w-4 h-4" />
-              <span>{error?.message}</span>
-            </div>
-          )}
+          <div className="h-1">
+            {error && error.tag === "email" && (
+              <div className="flex items-center gap-2 text-red-600 text-xs">
+                <AlertCircle className="w-4 h-4" />
+                <span>{error?.message}</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -236,9 +229,9 @@ const RegistrationForm = () => {
                 className="p-3 text-gray-500 hover:text-gray-700 absolute right-0"
               >
                 {showPassword ? (
-                  <EyeOff className="w-5 h-5" />
-                ) : (
                   <Eye className="w-5 h-5" />
+                ) : (
+                  <EyeOff className="w-5 h-5" />
                 )}
               </button>
             </div>
@@ -307,9 +300,9 @@ const RegistrationForm = () => {
                 className="p-3 text-gray-500 hover:text-gray-700 absolute right-0"
               >
                 {showConfirmPassword ? (
-                  <EyeOff className="w-5 h-5" />
-                ) : (
                   <Eye className="w-5 h-5" />
+                ) : (
+                  <EyeOff className="w-5 h-5" />
                 )}
               </button>
             </div>

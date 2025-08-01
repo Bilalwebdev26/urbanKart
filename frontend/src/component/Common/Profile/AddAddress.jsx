@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { CiWarning } from "react-icons/ci";
+import { useDispatch, useSelector } from "react-redux";
+import { setAddress } from "../../../redux/Client/auth.store";
+import Swal from 'sweetalert2'
 const AddPassword = () => {
   const [address, setNewAddress] = useState("");
   const [updateAddress, setUpdateAddress] = useState(false);
   const [errors, setError] = useState({});
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const addressValidation = (address) => {
     if (!address.trim()) return "First Write New Address";
     if (address.length > 100) return "Address should be less than 100";
@@ -15,9 +20,8 @@ const AddPassword = () => {
     if (errors[name]) {
       setError((prev) => ({ ...prev, [name]: "" }));
     }
-    console.log(name);
     const addressError = addressValidation(value);
-    console.log(addressError);
+
     setError((prev) => ({ ...prev, [name]: addressError }));
   };
   const submitHandler = () => {
@@ -29,21 +33,38 @@ const AddPassword = () => {
     const isValid = !Object.values(addressError).some((err) => err !== "");
     if (isValid) {
       setError({});
-      setNewAddress(address);
-      console.log({ address });
-      setNewAddress("");
+      dispatch(setAddress({ address }))
+        .unwrap()
+        .then(() => {
+          setUpdateAddress(false);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Address Added SuccessFully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((err) => console.log("Error : ", err));
     }
   };
   return (
     <div className="p-2 relative font-fira">
       <h2 className="text-lg lg:text-xl font-semibold">Add Address</h2>
       <div className="">
-        <label htmlFor="" className="text-[10px] font-light">
-          Old Address
-        </label>
-        <h3 className="w-full bg-gray-100 text-sm p-1 lg:p-2 mb-3 rounded cursor-not-allowed">
-          Old Address
-        </h3>
+        {user.address ? (
+          <>
+            <label htmlFor="" className="text-[10px] font-light">
+              Old Address
+            </label>
+            <h3 className="w-full bg-gray-100 text-sm p-1 lg:p-2 mb-3 rounded cursor-not-allowed">
+              {user?.address}
+            </h3>
+          </>
+        ) : (
+          ""
+        )}
+
         {updateAddress ? (
           <div className="mb-5">
             <label htmlFor="" className="text-[10px] font-light  mt-3">
@@ -72,7 +93,7 @@ const AddPassword = () => {
         ) : (
           <button
             onClick={() => setUpdateAddress(true)}
-            className="bg-black text-white px-3 py-1 rounded text-sm cursor-pointer hover:scale-110 duration-200 transition-all"
+            className="my-3 bg-black text-white px-3 py-1 rounded text-sm cursor-pointer hover:scale-110 duration-200 transition-all"
           >
             Set Address
           </button>

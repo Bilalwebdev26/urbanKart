@@ -15,6 +15,7 @@ import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Client/auth.store";
 import Loading from "../Common/Loading";
+import toast from "react-hot-toast";
 const NavBar = ({ isScrolled }) => {
   const { user, loading } = useSelector((state) => state.auth);
   const [onProfile, setOnProfile] = useState(false);
@@ -29,7 +30,7 @@ const NavBar = ({ isScrolled }) => {
   const handleLogoutbtn = () => {
     setOnProfile(!onProfile);
     if (user) {
-      dispatch(logout());
+      dispatch(logout()).unwrap().then(()=>{toast.success("dddddd")})
     }
   };
 
@@ -80,21 +81,28 @@ const NavBar = ({ isScrolled }) => {
         <Link to={"/"} className="hover:underline">
           Home
         </Link>
-        <Link to={"/account"} className="hover:underline">
-          Profile
-        </Link>
+        {user && (
+          <Link to={"/account"} className="hover:underline">
+            Profile
+          </Link>
+        )}
+
         <Link to={"/cart"} className="hover:underline">
           Cart
         </Link>
         <Link to={"/wishlist"} className="hover:underline">
           Wishlist
         </Link>
-        <Link to={"/signin"} className="hover:underline">
-          Sign In
-        </Link>
-        <Link to={"/signup"} className="hover:underline">
-          Sign Up
-        </Link>
+        {!user && (
+          <>
+            <Link to={"/signin"} className="hover:underline">
+              Sign In
+            </Link>
+            <Link to={"/signup"} className="hover:underline">
+              Sign Up
+            </Link>
+          </>
+        )}
       </div>
 
       <div className="flex items-center justify-center">
@@ -111,18 +119,16 @@ const NavBar = ({ isScrolled }) => {
               }`}
             />
           </div>
-
-         
         </div>
-         {(location.pathname === "/signin" ||
-            location.pathname === "/signup") && (
-            <button
-              onClick={() => navigate("/")}
-              className="px-3 py-1 text-base bg-black text-white rounded-lg justify-end cursor-pointer"
-            >
-              Home
-            </button>
-          )}
+        {(location.pathname === "/signin" ||
+          location.pathname === "/signup") && (
+          <button
+            onClick={() => navigate("/")}
+            className="px-3 py-1 text-base bg-black text-white rounded-lg justify-end cursor-pointer"
+          >
+            Home
+          </button>
+        )}
         {location.pathname !== "/signin" && location.pathname !== "/signup" && (
           <div className="md:hidden">
             <FaSearch
@@ -139,9 +145,18 @@ const NavBar = ({ isScrolled }) => {
             } space-x-4.5`}
           >
             {/* wishlist icon */}
-            <Link to={"/wishlist"} className="hidden md:flex">
+            {location.pathname === "/wishlist" ? (
+              <Link to={"/wishlist"} >
+                <FaHeart className="fill-red-500 hover:animate-bounce"/>
+              </Link>
+            ) : (
+              <Link to={"/wishlist"} className="">
+                <FaRegHeart />
+              </Link>
+            )}
+            {/* <Link to={"/wishlist"} className="hidden md:flex">
               <FaRegHeart />
-            </Link>
+            </Link> */}
             {/* cart */}
             <div className="relative">
               <Link to="/cart">
@@ -166,16 +181,19 @@ const NavBar = ({ isScrolled }) => {
                 <GoPerson />
               </button>
               {onProfile && (
-                <div className="absolute right-0 -bottom-58 lg:-bottom-58 w-54 bg-gradient-to-r from-slate-100 to-slate-400 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
-                  <div className="flex flex-col py-4 space-y-[3px] text-black">
-                    <Link
-                      to={"/account"}
-                      onClick={handleProfilebtn}
-                      className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
-                    >
-                      <MdManageAccounts />
-                      Manage My Account
-                    </Link>
+                <div className="absolute right-0 -bottom-45 lg:-bottom-46 w-54 bg-gradient-to-r from-slate-100 to-slate-400 backdrop-blur-[22px] p-2 rounded-md shadow-lg">
+                  <div className="flex flex-col py-1 space-y-[3px] text-black">
+                    {user && (
+                      <Link
+                        to={"/account"}
+                        onClick={handleProfilebtn}
+                        className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
+                      >
+                        <MdManageAccounts />
+                        Manage My Account
+                      </Link>
+                    )}
+
                     <Link
                       to={"/myorders"}
                       onClick={handleProfilebtn}

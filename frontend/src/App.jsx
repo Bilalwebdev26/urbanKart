@@ -18,8 +18,6 @@ import Loading from "./component/Common/Loading";
 import { userProfile } from "./redux/Client/auth.store";
 const App = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
-  // const [user, setUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,16 +25,11 @@ const App = () => {
       dispatch(userProfile());
     }
   }, [dispatch, user]);
-
-  // if (loading) {
-  //   return <Loading />;
-  // }
-
   return (
     <div className="z-30">
-      {loading&&(
+      {loading && (
         <div className="z-40">
-          <Loading/>
+          <Loading />
         </div>
       )}
       <Routes>
@@ -44,21 +37,19 @@ const App = () => {
           <Route index path="/" element={<Home />} />
           <Route path="/wishlist" element={<WishList />} />
           <Route path="/cart" element={<Cart />} />
+
           <Route
             path="/signin"
-            element={user ? <Navigate to={"/"} /> : <SignIn />}
+            element={!user ? <SignIn /> : <Navigate to={"/"} />}
             // element={user ? <Navigate to={"/"} /> : <SignIn />}
           />
           <Route
             path="/signup"
-            element={user ? <Navigate to="/" /> : <Register />}
+            element={!user ? <Register /> : <Navigate to="/" />}
 
             // element={user ? <Navigate to={"/"} /> : <Register />}
           />
-          <Route
-            path="/account"
-            element={user ? <Account /> : <Navigate to={"/signin"} />}
-          />
+          <Route path="/account" element={<Account />} />
           <Route path="/myreviews" element={<MyReviews />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/product/:id" element={<ProductId />} />

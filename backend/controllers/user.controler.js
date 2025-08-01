@@ -25,17 +25,17 @@ export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   console.log(email);
   try {
-    const user = await User.findOne({ email });
-    if (!user) {
+    const usercheck = await User.findOne({ email });
+    if (!usercheck) {
       return res.status(401).json({ message: "User Not Found",tag:"email" });
     }
-    const checkPass = await user.comparePassword(password);
+    const checkPass = await usercheck.comparePassword(password);
     if (!checkPass) {
       return res.status(403).json({ message: "Password incorect",tag:"password" });
     }
     //token
-    const { refreshToken, accessToken } = await generateToken(user._id);
-    const usercheck = await User.findOne({ email }).select(
+    const { refreshToken, accessToken } = await generateToken(usercheck._id);
+    const user = await User.findOne({ email }).select(
       "-password -refreshToken"
     );
     // Set cookies
@@ -52,7 +52,7 @@ export const loginUser = async (req, res) => {
     });
     return res
       .status(200)
-      .json({ message: "User logged In successfully", usercheck });
+      .json({ message: "User logged In successfully", user });
   } catch (error) {
     console.log("error in login :", error);
     return res
@@ -202,6 +202,7 @@ export const addAddress = async (req, res) => {
     return res.status(400).json({ message: "Add Address" });
   }
   const { address } = req.body;
+  console.log(address)
   try {
     const usercheck = await User.findById(req.user._id);
     if (!usercheck) {
@@ -224,14 +225,13 @@ export const updateProfile = async (req, res) => {
   if (!error.isEmpty()) {
     return res.status(400).json({ message: "Update Profile error" });
   }
-  const { firstname, lastname, address } = req.body;
+  const { name,address } = req.body;
   try {
     const checkuser = await User.findById(req.user._id);
     if (!checkuser) {
       return res.status(404).json({ message: "User not found" });
     }
-    checkuser.firstname = firstname;
-    checkuser.lastname = lastname;
+    checkuser.name = name;
     checkuser.address = address;
     await checkuser.save();
     const user = await User.findById(req.user._id).select(

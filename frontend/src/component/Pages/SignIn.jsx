@@ -21,8 +21,6 @@ const SignIn = () => {
   };
   const passwordValidation = (password) => {
     if (!password) return "Enter Password";
-    if (password.length < 7)
-      return "Password must be greater than 6 characters";
     return "";
   };
   const handleonChange = (e) => {
@@ -33,7 +31,6 @@ const SignIn = () => {
       if (errors[name]) {
         setErrors((prev) => ({ ...prev, [name]: "" }));
       }
-      console.log(value);
       const emailError = emailValidation(value);
       setErrors((prev) => ({ ...prev, email: emailError }));
     }
@@ -43,7 +40,6 @@ const SignIn = () => {
       if (errors[name]) {
         setErrors((prev) => ({ ...prev, [name]: "" }));
       }
-      console.log(value);
       const passError = passwordValidation(value);
       setErrors((prev) => ({ ...prev, password: passError }));
     }
@@ -57,18 +53,14 @@ const SignIn = () => {
     };
     setErrors(newError);
     const isValid = !Object.values(newError).some((err) => err !== "");
-    console.log(errors);
     if (isValid) {
       setIsSubmit(true);
-      console.log({ email, password });
       //dispatch
       dispatch(login({ email, password }))
         .unwrap()
         .then(() => {
-          console.log(user)
           navigate("/");
         })
-        .catch((err) => console.error("Error in catch login :", err));
     }
   };
   return (
@@ -103,9 +95,9 @@ const SignIn = () => {
           <div className="h-1 mb-[1px] mt-[1px]">
             {error && error.tag === "email" && (
               <div className="flex items-center">
-                <span className="flex text-red-500 text-[10px] md:text-sm gap-2">
+                <span className="flex items-center text-red-500 text-[10px] md:text-sm gap-2">
                   <AlertCircle className="size-3" />
-                  {error?.message}
+                  <span className="text-xs">{error?.message}</span>
                 </span>
               </div>
             )}
@@ -133,18 +125,18 @@ const SignIn = () => {
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                <EyeOff className="w-5 h-5" />
-              ) : (
                 <Eye className="w-5 h-5" />
+              ) : (
+                <EyeOff className="w-5 h-5" />
               )}
             </button>
           </div>
           <div className="h-1 mb-[3px] mt-[1px]">
             {error && error.tag === "password" && (
               <div className="flex items-center">
-                <span className="flex text-red-500 text-[10px] md:text-sm gap-2">
+                <span className="flex items-center text-red-500 text-[10px] md:text-sm gap-2">
                   <AlertCircle className="size-3" />
-                  {error?.message}
+                  <span className="text-xs">{error?.message}</span>
                 </span>
               </div>
             )}

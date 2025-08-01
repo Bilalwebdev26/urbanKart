@@ -1,6 +1,7 @@
 import React from "react";
-
-const MyProfile = () => {
+import { useSelector } from "react-redux";
+const MyProfile = ({setShowSection}) => {
+  const { user } = useSelector((state) => state.auth);
   return (
     <div className="">
       <h2>My Profile</h2>
@@ -10,13 +11,21 @@ const MyProfile = () => {
             <label className="text-[10px]" htmlFor="">
               First Name
             </label>
-            <h3 className="bg-gray-100 p-1 rounded">John</h3>
+            <h3 className="bg-gray-100 p-1 rounded">
+              {user?.name?.split(" ")[0]}
+            </h3>
           </div>
           <div className="w-[100%]">
-            <label className="text-[10px]" htmlFor="">
-              LastName
-            </label>
-            <h3 className="bg-gray-100 p-1 w-full rounded">Doe</h3>
+            {user?.name?.split(" ")[1] && (
+              <div className="">
+                <label className="text-[10px]" htmlFor="">
+                  LastName
+                </label>
+                <h3 className="bg-gray-100 p-1 w-full rounded">
+                  {user?.name.split(" ")[1]}
+                </h3>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex gap-2 lg:flex-row flex-col">
@@ -25,16 +34,30 @@ const MyProfile = () => {
               Email
             </label>
             <h3 className="bg-gray-100 p-2 w-full rounded text-[12px] lg:text-base">
-              johnDoe@gmail.com
+              {user?.email}
             </h3>
           </div>
           <div className="w-[100%]">
-            <label className="text-[10px]" htmlFor="">
-              Address
-            </label>
-            <h3 className="bg-gray-100 p-2 w-full rounded text-[12px] lg:text-base ">
-              H150 Johar Town C1 Lahore,Pakistan
-            </h3>
+            {user.address ? (
+              <div className="">
+                <label className="text-[10px]" htmlFor="">
+                  Address
+                </label>
+                <h3 className="bg-gray-100 p-2 w-full rounded text-[12px] lg:text-base ">
+                  {user?.address}
+                </h3>
+              </div>
+            ) : (
+              <div className="my-6">
+                <button
+                  className="w-full bg-black text-center text-white rounded-md py-1 cursor-pointer hover:scale-95 transition-all"
+                  onClick={() =>  setShowSection("addAddress")}
+                >
+                  Add Address
+                </button>
+              </div>
+            )}
+
             {/* {ager address na para ho to varning type kuch dekahye} */}
           </div>
         </div>
