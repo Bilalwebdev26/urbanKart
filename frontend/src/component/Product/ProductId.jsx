@@ -1,71 +1,109 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Stars from "../Common/Stars";
 import { Heart } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { Truck } from "lucide-react";
+import axios from "axios";
+import LoadingSpinner from "../Common/PorductLoading";
 
 const ProductId = () => {
-  const product = {
-    name: "Slim Fit Men's T-Shirt",
-    desc: "A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.",
-    price: 29.99,
-    percentOff: 10,
-    checkStock: true,
-    units: 120,
-    sku: "TSHIRT-MEN-SLIM-BLK001",
-    color: ["Black", "White", "Navy"],
-    size: ["M", "L", "XL"],
-    category: "Men's Fashion",
-    brand: "UrbanWear",
-    reviews: [
-      {
-        user: "john_doe",
-        comment: "Great fit and very comfortable.",
-        rating: 5,
-        createdAt: "2025-06-01T12:00:00Z",
-      },
-      {
-        user: "mark92",
-        comment: "Color fades a bit after wash.",
-        rating: 3,
-        createdAt: "2025-06-15T08:30:00Z",
-      },
-    ],
-    rating: 3.8,
-    numReviews: 2,
-    tags: ["tshirt", "slimfit", "menswear"],
-    soldUnits: 350,
-    isFeatured: true,
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
-        altText: "Front view of slim fit black t-shirt",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
-        altText: "Back view of slim fit black t-shirt",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
-        altText: "Front view of slim fit black t-shirt",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
-        altText: "Back view of slim fit black t-shirt",
-      },
-    ],
-    isFlashSale: true,
-    saleStartDate: "2025-07-01T00:00:00Z",
-    saleEndData: "2025-07-10T23:59:59Z",
-    _id: 1,
-  };
-  const [productImage, setProductIamge] = useState(product.images[0].url);
+  //productById
+  const { id } = useParams();
+  console.log(id);
+  const [product, setProduct] = useState();
+  const [productImage, setProductIamge] = useState(null);
+   const [sizeP, setSize] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const productById = async () => {
+      console.log("Use effect working");
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/${id}`
+        );
+        console.log("Here api hit:", res);
+        setProduct(res.data.product);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      productById();
+    }
+  }, [id]);
+  //product img ke liye
+  useEffect(() => {
+  if (product?.images?.length > 0) {
+    setProductIamge(product.images[0].url);
+  }
+  if (product?.size?.length > 0) {
+    setSize(product.size[0]);
+  }
+}, [product]);
+console.log(productImage)
+  console.log(product);
+  // const product = {
+  //   name: "Slim Fit Men's T-Shirt",
+  //   desc: "A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.",
+  //   price: 29.99,
+  //   percentOff: 10,
+  //   checkStock: true,
+  //   units: 120,
+  //   sku: "TSHIRT-MEN-SLIM-BLK001",
+  //   color: ["Black", "White", "Navy"],
+  //   size: ["M", "L", "XL"],
+  //   category: "Men's Fashion",
+  //   brand: "UrbanWear",
+  //   reviews: [
+  //     {
+  //       user: "john_doe",
+  //       comment: "Great fit and very comfortable.",
+  //       rating: 5,
+  //       createdAt: "2025-06-01T12:00:00Z",
+  //     },
+  //     {
+  //       user: "mark92",
+  //       comment: "Color fades a bit after wash.",
+  //       rating: 3,
+  //       createdAt: "2025-06-15T08:30:00Z",
+  //     },
+  //   ],
+  //   rating: 3.8,
+  //   numReviews: 2,
+  //   tags: ["tshirt", "slimfit", "menswear"],
+  //   soldUnits: 350,
+  //   isFeatured: true,
+  //   images: [
+  //     {
+  //       url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+  //       altText: "Front view of slim fit black t-shirt",
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
+  //       altText: "Back view of slim fit black t-shirt",
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+  //       altText: "Front view of slim fit black t-shirt",
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
+  //       altText: "Back view of slim fit black t-shirt",
+  //     },
+  //   ],
+  //   isFlashSale: true,
+  //   saleStartDate: "2025-07-01T00:00:00Z",
+  //   saleEndData: "2025-07-10T23:59:59Z",
+  //   _id: 1,
+  // };
+
   const [colorP, setColor] = useState();
-  const [sizeP, setSize] = useState(product.size[0]);
   const [quantity, setQuantity] = useState(Number(1));
   const [addWish, setAddWish] = useState(false);
-  const { id } = useParams();
   const handleAddQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -107,6 +145,9 @@ const ProductId = () => {
   const setHandleColor = (col) => {
     setColor(col);
   };
+    if (loading) {
+    return <LoadingSpinner/>;
+  }
   return (
     <div className="w-full">
       <Toaster position="top-right" reverseOrder={false} />
@@ -117,11 +158,11 @@ const ProductId = () => {
           <div className="flex h-full">
             {/* Left side thumbnails - take full height and divide space equally */}
             <div className="hidden lg:flex flex-col space-y-2 mr-3 h-full">
-              {product.images.map((prod, index) => (
+              {product?.images?.map((prod, index) => (
                 <div className="w-20 h-20" key={index}>
                   <img
                     onClick={() => setProductIamge(prod.url)}
-                    src={prod.url}
+                    src={prod?.url}
                     alt={prod.altText}
                     className={`border-2 rounded w-full h-full object-cover cursor-pointer transition-all ${
                       productImage === prod.url
@@ -144,11 +185,11 @@ const ProductId = () => {
           </div>
           <div className="w-full lg:hidden">
             <div className="flex items-center justify-center lg:hidden space-x-2 ">
-              {product.images.map((prod, index) => (
+              {product?.images?.map((prod, index) => (
                 <div className="w-15 md:w-20 h-15 md:h-20 mt-1" key={index}>
                   <img
                     onClick={() => setProductIamge(prod.url)}
-                    src={prod.url}
+                    src={prod?.url}
                     alt={prod.altText}
                     className={`border-2 rounded w-full h-full object-cover cursor-pointer transition-all ${
                       productImage === prod.url
@@ -165,7 +206,7 @@ const ProductId = () => {
         <div className="mt-1 p-2 w-full lg:w-1/2">
           <div className="poppins-font">
             <h2 className="text-xl font-semibold line-clamp-1 ">
-              {product.name}
+              {product?.name}
             </h2>
             <div className="flex items-center space-x-2">
               {/* Stars */}
@@ -186,7 +227,7 @@ const ProductId = () => {
             </div>
             <div className="my-3">
               <p className="text-2xl">
-                {product.price.toLocaleString("en-US", {
+                {product?.price?.toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                 })}
@@ -199,7 +240,7 @@ const ProductId = () => {
             <div className="flex mb-2">
               <span className="mr-3 text-sm">colors : </span>
               <div className="space-x-2 flex items-center">
-                {product.color.map((col, index) => (
+                {product.color?.map((col, index) => (
                   <button
                     onClick={() => setHandleColor(col)}
                     className={`inline-block w-5 h-5  rounded-full cursor-pointer border ${
@@ -214,7 +255,7 @@ const ProductId = () => {
             <div className="flex items-center mb-2">
               <span className="mr-3 text-sm">sizes : </span>
               <div className="space-x-2 flex items-center">
-                {product.size.map((s, index) => (
+                {product.size?.map((s, index) => (
                   <button
                     onClick={() => setSize(s)}
                     className={`${

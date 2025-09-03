@@ -45,8 +45,10 @@ export const showProductsbyCategory = async (req, res) => {
       .json({ message: error.message || "Error while fetching products" });
   }
 };
+
 export const showProductId = async (req, res) => {
   try {
+    console.log("Backend Api Hit")
     const product = await Product.findById(req.params.id);
     if (!product) {
       return res.status(404).json({ message: "Product Not Found" });
@@ -173,8 +175,8 @@ export const showFlashSalesProducts = async (req, res) => {
     let filter = {
       percentOff: { $gte: 25 },
     };
-    const saleProducts = await Product.find(filter).sort({numReviews:-1});
-    if (!saleProducts) {
+    const saleProducts = await Product.find(filter).sort({ numReviews: -1 });
+    if (saleProducts.length > 0) {
       return res.status(400).json({ message: "No Sale product available" });
     }
     return res
@@ -189,9 +191,11 @@ export const showFlashSalesProducts = async (req, res) => {
 };
 export const newArrivalProducts = async (req, res) => {
   try {
-    const products = await Product.find({}).sort({createdAt: -1}).limit(8);
+    const products = await Product.find({}).sort({ createdAt: -1 }).limit(8);
     if (!products) {
-      return res.status(400).json({ message: "No Product available",products });
+      return res
+        .status(400)
+        .json({ message: "No Product available", products });
     }
     return res
       .status(200)
