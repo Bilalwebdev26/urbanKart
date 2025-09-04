@@ -243,7 +243,7 @@ const ProductsList = ({ products, scrollRef, loading }) => {
 
                     {/* Discount Tag */}
                     {product.percentOff !== undefined && (
-                      <div className="absolute top-4 left-4 bg-red-600 text-white p-1 text-sm rounded">
+                      <div className="absolute top-2 left-4 bg-red-600 text-white p-1 text-xs rounded">
                         -{product.percentOff}% OFF
                       </div>
                     )}
@@ -283,7 +283,7 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                         <button
                           key={index}
                           className="px-2 py-1 text-xs border-1 border-black"
-                          onClick={()=>setProd()}
+                          onClick={() => setProd()}
                         >
                           {c}
                         </button>
