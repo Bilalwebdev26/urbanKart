@@ -3,3 +3,5 @@ model
 project.txt
 products_100.json
 products_100_enum.json
+products_100_final.json
+products_with_user.json

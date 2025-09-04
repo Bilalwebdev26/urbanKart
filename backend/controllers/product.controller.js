@@ -175,8 +175,8 @@ export const showFlashSalesProducts = async (req, res) => {
     let filter = {
       percentOff: { $gte: 25 },
     };
-    const saleProducts = await Product.find(filter).sort({ numReviews: -1 });
-    if (saleProducts.length > 0) {
+    const saleProducts = await Product.find(filter).sort({ percentOff:-1,numReviews: -1 }).limit(8);
+    if (saleProducts.length <= 0) {
       return res.status(400).json({ message: "No Sale product available" });
     }
     return res

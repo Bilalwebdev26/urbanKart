@@ -1,7 +1,7 @@
 import express from "express"
 import { checkAdmin, checkUserAuth } from "../../middlewares/auth.middleware.js"
 import { createProduct, deleteProduct, showAllProducts, updateProduct,setFeaturedproduct, setInSaleListing, setDateforSale } from "../../controllers/admin/adminProd.controller.js"
-const router = express.Router()
+const router = express.Router();
 router.post("/createProduct",checkUserAuth,checkAdmin,createProduct)//create new product
 router.get("/showallproducts",checkUserAuth,checkAdmin,showAllProducts)//show all products
 router.delete("/delete/:id",checkUserAuth,checkAdmin,deleteProduct)//Delete product
