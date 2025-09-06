@@ -1,0 +1,4341 @@
+[
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Whiskas Groceries & Pets Item 1",
+    "desc": "This is a premium quality groceries & pets product from Whiskas, built for durability and great performance.",
+    "price": 433.13,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 11,
+    "sku": "SKU-0001",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Whiskas",
+    "rating": 4.5,
+    "numReviews": 12,
+    "tags": [
+      "trending",
+      "budget"
+    ],
+    "soldUnits": 6,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Zara Woman's Fashion Item 2",
+    "desc": "This is a premium quality woman's fashion product from Zara, built for durability and great performance.",
+    "price": 153.4,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 50,
+    "sku": "SKU-0002",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Zara",
+    "rating": 3.5,
+    "numReviews": 269,
+    "tags": [
+      "quality",
+      "trending"
+    ],
+    "soldUnits": 98,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Medicine Item 3",
+    "desc": "This is a premium quality medicine product from Nestle, built for durability and great performance.",
+    "price": 849.16,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 159,
+    "sku": "SKU-0003",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Medicine",
+    "brand": "Nestle",
+    "rating": 4.9,
+    "numReviews": 170,
+    "tags": [
+      "luxury",
+      "budget"
+    ],
+    "soldUnits": 162,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pampers Baby's & Toys Item 4",
+    "desc": "This is a premium quality baby's & toys product from Pampers, built for durability and great performance.",
+    "price": 286.08,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 34,
+    "sku": "SKU-0004",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Pampers",
+    "rating": 3.1,
+    "numReviews": 369,
+    "tags": [
+      "eco",
+      "trending"
+    ],
+    "soldUnits": 113,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Zara Woman's Fashion Item 5",
+    "desc": "This is a premium quality woman's fashion product from Zara, built for durability and great performance.",
+    "price": 654.28,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 14,
+    "sku": "SKU-0005",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Zara",
+    "rating": 3.8,
+    "numReviews": 342,
+    "tags": [
+      "budget",
+      "luxury"
+    ],
+    "soldUnits": 183,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Philips Home & Lifestyle Item 6",
+    "desc": "This is a premium quality home & lifestyle product from Philips, built for durability and great performance.",
+    "price": 201.55,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 103,
+    "sku": "SKU-0006",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Philips",
+    "rating": 4.2,
+    "numReviews": 185,
+    "tags": [
+      "discount",
+      "premium"
+    ],
+    "soldUnits": 191,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Sony Home & Lifestyle Item 7",
+    "desc": "This is a premium quality home & lifestyle product from Sony, built for durability and great performance.",
+    "price": 859.75,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 156,
+    "sku": "SKU-0007",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Sony",
+    "rating": 4.1,
+    "numReviews": 314,
+    "tags": [
+      "luxury",
+      "budget"
+    ],
+    "soldUnits": 164,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Prada Woman's Fashion Item 8",
+    "desc": "This is a premium quality woman's fashion product from Prada, built for durability and great performance.",
+    "price": 394.1,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 140,
+    "sku": "SKU-0008",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Prada",
+    "rating": 4.0,
+    "numReviews": 125,
+    "tags": [
+      "friendly",
+      "luxury"
+    ],
+    "soldUnits": 188,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Philips Home & Lifestyle Item 9",
+    "desc": "This is a premium quality home & lifestyle product from Philips, built for durability and great performance.",
+    "price": 796.08,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 117,
+    "sku": "SKU-0009",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Philips",
+    "rating": 3.5,
+    "numReviews": 479,
+    "tags": [
+      "friendly",
+      "premium"
+    ],
+    "soldUnits": 28,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Apple Electronics Item 10",
+    "desc": "This is a premium quality electronics product from Apple, built for durability and great performance.",
+    "price": 39.8,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 130,
+    "sku": "SKU-0010",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Electronics",
+    "brand": "Apple",
+    "rating": 4.0,
+    "numReviews": 161,
+    "tags": [
+      "eco",
+      "luxury"
+    ],
+    "soldUnits": 55,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Sony Electronics Item 11",
+    "desc": "This is a premium quality electronics product from Sony, built for durability and great performance.",
+    "price": 74.62,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 42,
+    "sku": "SKU-0011",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Electronics",
+    "brand": "Sony",
+    "rating": 4.7,
+    "numReviews": 225,
+    "tags": [
+      "discount",
+      "eco"
+    ],
+    "soldUnits": 155,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Ikea Home & Lifestyle Item 12",
+    "desc": "This is a premium quality home & lifestyle product from Ikea, built for durability and great performance.",
+    "price": 714.16,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 169,
+    "sku": "SKU-0012",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Ikea",
+    "rating": 3.5,
+    "numReviews": 46,
+    "tags": [
+      "quality",
+      "new"
+    ],
+    "soldUnits": 188,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Prada Woman's Fashion Item 13",
+    "desc": "This is a premium quality woman's fashion product from Prada, built for durability and great performance.",
+    "price": 629.74,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 172,
+    "sku": "SKU-0013",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Prada",
+    "rating": 4.8,
+    "numReviews": 400,
+    "tags": [
+      "eco",
+      "premium"
+    ],
+    "soldUnits": 47,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fisher Price Baby's & Toys Item 14",
+    "desc": "This is a premium quality baby's & toys product from Fisher Price, built for durability and great performance.",
+    "price": 141.47,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 121,
+    "sku": "SKU-0014",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Fisher Price",
+    "rating": 3.4,
+    "numReviews": 239,
+    "tags": [
+      "eco",
+      "friendly"
+    ],
+    "soldUnits": 34,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Decathlon Sports & Outdoor Item 15",
+    "desc": "This is a premium quality sports & outdoor product from Decathlon, built for durability and great performance.",
+    "price": 606.36,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 147,
+    "sku": "SKU-0015",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Decathlon",
+    "rating": 3.7,
+    "numReviews": 336,
+    "tags": [
+      "budget",
+      "trending"
+    ],
+    "soldUnits": 156,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Dove Health & Beauty Item 16",
+    "desc": "This is a premium quality health & beauty product from Dove, built for durability and great performance.",
+    "price": 464.22,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 153,
+    "sku": "SKU-0016",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Dove",
+    "rating": 3.6,
+    "numReviews": 159,
+    "tags": [
+      "trending",
+      "quality"
+    ],
+    "soldUnits": 113,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Philips Home & Lifestyle Item 17",
+    "desc": "This is a premium quality home & lifestyle product from Philips, built for durability and great performance.",
+    "price": 60.2,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 122,
+    "sku": "SKU-0017",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Philips",
+    "rating": 4.7,
+    "numReviews": 109,
+    "tags": [
+      "eco",
+      "trending"
+    ],
+    "soldUnits": 174,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Prada Woman's Fashion Item 18",
+    "desc": "This is a premium quality woman's fashion product from Prada, built for durability and great performance.",
+    "price": 515.68,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 119,
+    "sku": "SKU-0018",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Prada",
+    "rating": 4.3,
+    "numReviews": 282,
+    "tags": [
+      "friendly",
+      "sale"
+    ],
+    "soldUnits": 110,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fair and Lovely Health & Beauty Item 19",
+    "desc": "This is a premium quality health & beauty product from Fair and Lovely, built for durability and great performance.",
+    "price": 704.52,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 19,
+    "sku": "SKU-0019",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Fair and Lovely",
+    "rating": 4.5,
+    "numReviews": 436,
+    "tags": [
+      "quality",
+      "luxury"
+    ],
+    "soldUnits": 82,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "HomeCentre Home & Lifestyle Item 20",
+    "desc": "This is a premium quality home & lifestyle product from HomeCentre, built for durability and great performance.",
+    "price": 892.83,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 176,
+    "sku": "SKU-0020",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "HomeCentre",
+    "rating": 3.5,
+    "numReviews": 303,
+    "tags": [
+      "new",
+      "luxury"
+    ],
+    "soldUnits": 128,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 21",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 323.37,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 138,
+    "sku": "SKU-0021",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 3.8,
+    "numReviews": 424,
+    "tags": [
+      "new",
+      "eco"
+    ],
+    "soldUnits": 100,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Groceries & Pets Item 22",
+    "desc": "This is a premium quality groceries & pets product from Nestle, built for durability and great performance.",
+    "price": 843.13,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 30,
+    "sku": "SKU-0022",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Nestle",
+    "rating": 3.6,
+    "numReviews": 461,
+    "tags": [
+      "friendly",
+      "quality"
+    ],
+    "soldUnits": 39,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Ikea Home & Lifestyle Item 23",
+    "desc": "This is a premium quality home & lifestyle product from Ikea, built for durability and great performance.",
+    "price": 659.78,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 105,
+    "sku": "SKU-0023",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Ikea",
+    "rating": 4.8,
+    "numReviews": 61,
+    "tags": [
+      "eco",
+      "new"
+    ],
+    "soldUnits": 36,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "LG Medicine Item 24",
+    "desc": "This is a premium quality medicine product from LG, built for durability and great performance.",
+    "price": 101.54,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 122,
+    "sku": "SKU-0024",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Medicine",
+    "brand": "LG",
+    "rating": 4.1,
+    "numReviews": 250,
+    "tags": [
+      "friendly",
+      "sale"
+    ],
+    "soldUnits": 65,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nike Men's Fashion Item 25",
+    "desc": "This is a premium quality men's fashion product from Nike, built for durability and great performance.",
+    "price": 272.5,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 16,
+    "sku": "SKU-0025",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Nike",
+    "rating": 4.5,
+    "numReviews": 466,
+    "tags": [
+      "eco",
+      "quality"
+    ],
+    "soldUnits": 35,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "HomeCentre Home & Lifestyle Item 26",
+    "desc": "This is a premium quality home & lifestyle product from HomeCentre, built for durability and great performance.",
+    "price": 397.2,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 42,
+    "sku": "SKU-0026",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "HomeCentre",
+    "rating": 3.2,
+    "numReviews": 482,
+    "tags": [
+      "quality",
+      "trending"
+    ],
+    "soldUnits": 144,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fair and Lovely Health & Beauty Item 27",
+    "desc": "This is a premium quality health & beauty product from Fair and Lovely, built for durability and great performance.",
+    "price": 835.84,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 175,
+    "sku": "SKU-0027",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Fair and Lovely",
+    "rating": 4.8,
+    "numReviews": 139,
+    "tags": [
+      "friendly",
+      "trending"
+    ],
+    "soldUnits": 75,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 28",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 234.51,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 123,
+    "sku": "SKU-0028",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 4.1,
+    "numReviews": 36,
+    "tags": [
+      "eco",
+      "quality"
+    ],
+    "soldUnits": 179,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 29",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 139.77,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 20,
+    "sku": "SKU-0029",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 3.5,
+    "numReviews": 226,
+    "tags": [
+      "new",
+      "friendly"
+    ],
+    "soldUnits": 106,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 30",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 357.94,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 54,
+    "sku": "SKU-0030",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 5.0,
+    "numReviews": 447,
+    "tags": [
+      "sale",
+      "trending"
+    ],
+    "soldUnits": 107,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pedigree Groceries & Pets Item 31",
+    "desc": "This is a premium quality groceries & pets product from Pedigree, built for durability and great performance.",
+    "price": 375.69,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 156,
+    "sku": "SKU-0031",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Pedigree",
+    "rating": 3.6,
+    "numReviews": 312,
+    "tags": [
+      "new",
+      "friendly"
+    ],
+    "soldUnits": 38,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fair and Lovely Health & Beauty Item 32",
+    "desc": "This is a premium quality health & beauty product from Fair and Lovely, built for durability and great performance.",
+    "price": 240.5,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 160,
+    "sku": "SKU-0032",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Fair and Lovely",
+    "rating": 4.8,
+    "numReviews": 218,
+    "tags": [
+      "budget",
+      "friendly"
+    ],
+    "soldUnits": 193,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Adidas Sports & Outdoor Item 33",
+    "desc": "This is a premium quality sports & outdoor product from Adidas, built for durability and great performance.",
+    "price": 309.5,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 29,
+    "sku": "SKU-0033",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Adidas",
+    "rating": 3.1,
+    "numReviews": 40,
+    "tags": [
+      "quality",
+      "discount"
+    ],
+    "soldUnits": 7,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Sony Home & Lifestyle Item 34",
+    "desc": "This is a premium quality home & lifestyle product from Sony, built for durability and great performance.",
+    "price": 856.09,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 72,
+    "sku": "SKU-0034",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Sony",
+    "rating": 4.6,
+    "numReviews": 344,
+    "tags": [
+      "luxury",
+      "trending"
+    ],
+    "soldUnits": 162,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Whiskas Groceries & Pets Item 35",
+    "desc": "This is a premium quality groceries & pets product from Whiskas, built for durability and great performance.",
+    "price": 283.57,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 26,
+    "sku": "SKU-0035",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Whiskas",
+    "rating": 3.7,
+    "numReviews": 397,
+    "tags": [
+      "budget",
+      "quality"
+    ],
+    "soldUnits": 187,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 36",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 846.8,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 53,
+    "sku": "SKU-0036",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 4.7,
+    "numReviews": 84,
+    "tags": [
+      "discount",
+      "luxury"
+    ],
+    "soldUnits": 11,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "HomeCentre Home & Lifestyle Item 37",
+    "desc": "This is a premium quality home & lifestyle product from HomeCentre, built for durability and great performance.",
+    "price": 615.76,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 169,
+    "sku": "SKU-0037",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "HomeCentre",
+    "rating": 4.4,
+    "numReviews": 377,
+    "tags": [
+      "budget",
+      "discount"
+    ],
+    "soldUnits": 198,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Groceries & Pets Item 38",
+    "desc": "This is a premium quality groceries & pets product from Nestle, built for durability and great performance.",
+    "price": 208.01,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 173,
+    "sku": "SKU-0038",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Nestle",
+    "rating": 4.2,
+    "numReviews": 336,
+    "tags": [
+      "quality",
+      "luxury"
+    ],
+    "soldUnits": 125,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "HomeCentre Home & Lifestyle Item 39",
+    "desc": "This is a premium quality home & lifestyle product from HomeCentre, built for durability and great performance.",
+    "price": 702.86,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 149,
+    "sku": "SKU-0039",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "HomeCentre",
+    "rating": 3.3,
+    "numReviews": 387,
+    "tags": [
+      "trending",
+      "budget"
+    ],
+    "soldUnits": 103,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Medicine Item 40",
+    "desc": "This is a premium quality medicine product from Nestle, built for durability and great performance.",
+    "price": 370.85,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 182,
+    "sku": "SKU-0040",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Medicine",
+    "brand": "Nestle",
+    "rating": 4.4,
+    "numReviews": 108,
+    "tags": [
+      "quality",
+      "premium"
+    ],
+    "soldUnits": 145,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Decathlon Sports & Outdoor Item 41",
+    "desc": "This is a premium quality sports & outdoor product from Decathlon, built for durability and great performance.",
+    "price": 970.44,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 143,
+    "sku": "SKU-0041",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Decathlon",
+    "rating": 3.1,
+    "numReviews": 471,
+    "tags": [
+      "new",
+      "luxury"
+    ],
+    "soldUnits": 115,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 42",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 87.65,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 101,
+    "sku": "SKU-0042",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 4.4,
+    "numReviews": 164,
+    "tags": [
+      "budget",
+      "discount"
+    ],
+    "soldUnits": 18,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Levis Men's Fashion Item 43",
+    "desc": "This is a premium quality men's fashion product from Levis, built for durability and great performance.",
+    "price": 81.81,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 136,
+    "sku": "SKU-0043",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Levis",
+    "rating": 3.8,
+    "numReviews": 473,
+    "tags": [
+      "trending",
+      "friendly"
+    ],
+    "soldUnits": 26,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 44",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 443.69,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 173,
+    "sku": "SKU-0044",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 3.5,
+    "numReviews": 426,
+    "tags": [
+      "friendly",
+      "quality"
+    ],
+    "soldUnits": 152,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Medicine Item 45",
+    "desc": "This is a premium quality medicine product from Nestle, built for durability and great performance.",
+    "price": 782.92,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 58,
+    "sku": "SKU-0045",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Medicine",
+    "brand": "Nestle",
+    "rating": 4.8,
+    "numReviews": 223,
+    "tags": [
+      "premium",
+      "friendly"
+    ],
+    "soldUnits": 139,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "H&M Woman's Fashion Item 46",
+    "desc": "This is a premium quality woman's fashion product from H&M, built for durability and great performance.",
+    "price": 591.75,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 189,
+    "sku": "SKU-0046",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "H&M",
+    "rating": 3.6,
+    "numReviews": 476,
+    "tags": [
+      "friendly",
+      "quality"
+    ],
+    "soldUnits": 28,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 47",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 729.13,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 196,
+    "sku": "SKU-0047",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 4.4,
+    "numReviews": 115,
+    "tags": [
+      "luxury",
+      "quality"
+    ],
+    "soldUnits": 41,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pedigree Groceries & Pets Item 48",
+    "desc": "This is a premium quality groceries & pets product from Pedigree, built for durability and great performance.",
+    "price": 943.34,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 134,
+    "sku": "SKU-0048",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Pedigree",
+    "rating": 3.5,
+    "numReviews": 172,
+    "tags": [
+      "trending",
+      "discount"
+    ],
+    "soldUnits": 184,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Purina Groceries & Pets Item 49",
+    "desc": "This is a premium quality groceries & pets product from Purina, built for durability and great performance.",
+    "price": 433.34,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 85,
+    "sku": "SKU-0049",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Purina",
+    "rating": 4.7,
+    "numReviews": 388,
+    "tags": [
+      "eco",
+      "sale"
+    ],
+    "soldUnits": 84,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nike Men's Fashion Item 50",
+    "desc": "This is a premium quality men's fashion product from Nike, built for durability and great performance.",
+    "price": 917.49,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 143,
+    "sku": "SKU-0050",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Nike",
+    "rating": 4.8,
+    "numReviews": 72,
+    "tags": [
+      "premium",
+      "sale"
+    ],
+    "soldUnits": 150,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Unilever Medicine Item 51",
+    "desc": "This is a premium quality medicine product from Unilever, built for durability and great performance.",
+    "price": 701.36,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 191,
+    "sku": "SKU-0051",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Medicine",
+    "brand": "Unilever",
+    "rating": 3.9,
+    "numReviews": 231,
+    "tags": [
+      "trending",
+      "friendly"
+    ],
+    "soldUnits": 148,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Decathlon Sports & Outdoor Item 52",
+    "desc": "This is a premium quality sports & outdoor product from Decathlon, built for durability and great performance.",
+    "price": 607.28,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 200,
+    "sku": "SKU-0052",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Decathlon",
+    "rating": 4.0,
+    "numReviews": 19,
+    "tags": [
+      "luxury",
+      "quality"
+    ],
+    "soldUnits": 116,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "HomeCentre Home & Lifestyle Item 53",
+    "desc": "This is a premium quality home & lifestyle product from HomeCentre, built for durability and great performance.",
+    "price": 917.86,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 154,
+    "sku": "SKU-0053",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "HomeCentre",
+    "rating": 3.1,
+    "numReviews": 365,
+    "tags": [
+      "budget",
+      "luxury"
+    ],
+    "soldUnits": 195,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Levis Men's Fashion Item 54",
+    "desc": "This is a premium quality men's fashion product from Levis, built for durability and great performance.",
+    "price": 305.61,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 44,
+    "sku": "SKU-0054",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Levis",
+    "rating": 4.2,
+    "numReviews": 253,
+    "tags": [
+      "quality",
+      "discount"
+    ],
+    "soldUnits": 94,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Gucci Woman's Fashion Item 55",
+    "desc": "This is a premium quality woman's fashion product from Gucci, built for durability and great performance.",
+    "price": 859.12,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 176,
+    "sku": "SKU-0055",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Gucci",
+    "rating": 3.7,
+    "numReviews": 430,
+    "tags": [
+      "quality",
+      "premium"
+    ],
+    "soldUnits": 67,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Purina Groceries & Pets Item 56",
+    "desc": "This is a premium quality groceries & pets product from Purina, built for durability and great performance.",
+    "price": 45.16,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 32,
+    "sku": "SKU-0056",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Purina",
+    "rating": 3.1,
+    "numReviews": 366,
+    "tags": [
+      "premium",
+      "luxury"
+    ],
+    "soldUnits": 146,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Groceries & Pets Item 57",
+    "desc": "This is a premium quality groceries & pets product from Nestle, built for durability and great performance.",
+    "price": 157.39,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 139,
+    "sku": "SKU-0057",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Nestle",
+    "rating": 4.3,
+    "numReviews": 492,
+    "tags": [
+      "new",
+      "discount"
+    ],
+    "soldUnits": 6,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pedigree Groceries & Pets Item 58",
+    "desc": "This is a premium quality groceries & pets product from Pedigree, built for durability and great performance.",
+    "price": 464.48,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 174,
+    "sku": "SKU-0058",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Pedigree",
+    "rating": 3.5,
+    "numReviews": 28,
+    "tags": [
+      "trending",
+      "premium"
+    ],
+    "soldUnits": 65,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "LG Electronics Item 59",
+    "desc": "This is a premium quality electronics product from LG, built for durability and great performance.",
+    "price": 66.22,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 66,
+    "sku": "SKU-0059",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Electronics",
+    "brand": "LG",
+    "rating": 4.5,
+    "numReviews": 171,
+    "tags": [
+      "friendly",
+      "discount"
+    ],
+    "soldUnits": 172,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pfizer Medicine Item 60",
+    "desc": "This is a premium quality medicine product from Pfizer, built for durability and great performance.",
+    "price": 773.34,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 17,
+    "sku": "SKU-0060",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Medicine",
+    "brand": "Pfizer",
+    "rating": 4.0,
+    "numReviews": 162,
+    "tags": [
+      "luxury",
+      "discount"
+    ],
+    "soldUnits": 75,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Whiskas Groceries & Pets Item 61",
+    "desc": "This is a premium quality groceries & pets product from Whiskas, built for durability and great performance.",
+    "price": 359.87,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 24,
+    "sku": "SKU-0061",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Whiskas",
+    "rating": 4.8,
+    "numReviews": 186,
+    "tags": [
+      "quality",
+      "discount"
+    ],
+    "soldUnits": 124,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Whiskas Groceries & Pets Item 62",
+    "desc": "This is a premium quality groceries & pets product from Whiskas, built for durability and great performance.",
+    "price": 837.28,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 78,
+    "sku": "SKU-0062",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Whiskas",
+    "rating": 4.1,
+    "numReviews": 335,
+    "tags": [
+      "eco",
+      "new"
+    ],
+    "soldUnits": 120,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pampers Baby's & Toys Item 63",
+    "desc": "This is a premium quality baby's & toys product from Pampers, built for durability and great performance.",
+    "price": 979.47,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 52,
+    "sku": "SKU-0063",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Pampers",
+    "rating": 4.7,
+    "numReviews": 222,
+    "tags": [
+      "budget",
+      "trending"
+    ],
+    "soldUnits": 117,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "H&M Woman's Fashion Item 64",
+    "desc": "This is a premium quality woman's fashion product from H&M, built for durability and great performance.",
+    "price": 133.57,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 75,
+    "sku": "SKU-0064",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "H&M",
+    "rating": 4.7,
+    "numReviews": 233,
+    "tags": [
+      "discount",
+      "trending"
+    ],
+    "soldUnits": 101,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pfizer Medicine Item 65",
+    "desc": "This is a premium quality medicine product from Pfizer, built for durability and great performance.",
+    "price": 355.11,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 132,
+    "sku": "SKU-0065",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Medicine",
+    "brand": "Pfizer",
+    "rating": 3.2,
+    "numReviews": 83,
+    "tags": [
+      "discount",
+      "eco"
+    ],
+    "soldUnits": 174,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Samsung Electronics Item 66",
+    "desc": "This is a premium quality electronics product from Samsung, built for durability and great performance.",
+    "price": 755.83,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 36,
+    "sku": "SKU-0066",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Electronics",
+    "brand": "Samsung",
+    "rating": 3.9,
+    "numReviews": 197,
+    "tags": [
+      "premium",
+      "sale"
+    ],
+    "soldUnits": 184,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Medicine Item 67",
+    "desc": "This is a premium quality medicine product from Nestle, built for durability and great performance.",
+    "price": 326.22,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 168,
+    "sku": "SKU-0067",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Medicine",
+    "brand": "Nestle",
+    "rating": 4.4,
+    "numReviews": 134,
+    "tags": [
+      "trending",
+      "quality"
+    ],
+    "soldUnits": 163,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fair and Lovely Health & Beauty Item 68",
+    "desc": "This is a premium quality health & beauty product from Fair and Lovely, built for durability and great performance.",
+    "price": 858.47,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 13,
+    "sku": "SKU-0068",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Fair and Lovely",
+    "rating": 3.6,
+    "numReviews": 87,
+    "tags": [
+      "new",
+      "budget"
+    ],
+    "soldUnits": 187,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Sony Home & Lifestyle Item 69",
+    "desc": "This is a premium quality home & lifestyle product from Sony, built for durability and great performance.",
+    "price": 947.04,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 185,
+    "sku": "SKU-0069",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Sony",
+    "rating": 4.1,
+    "numReviews": 356,
+    "tags": [
+      "quality",
+      "eco"
+    ],
+    "soldUnits": 61,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Apple Electronics Item 70",
+    "desc": "This is a premium quality electronics product from Apple, built for durability and great performance.",
+    "price": 327.44,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 115,
+    "sku": "SKU-0070",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Electronics",
+    "brand": "Apple",
+    "rating": 4.5,
+    "numReviews": 120,
+    "tags": [
+      "discount",
+      "friendly"
+    ],
+    "soldUnits": 7,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "LG Medicine Item 71",
+    "desc": "This is a premium quality medicine product from LG, built for durability and great performance.",
+    "price": 642.64,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 14,
+    "sku": "SKU-0071",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Medicine",
+    "brand": "LG",
+    "rating": 4.0,
+    "numReviews": 348,
+    "tags": [
+      "sale",
+      "budget"
+    ],
+    "soldUnits": 91,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Pfizer Medicine Item 72",
+    "desc": "This is a premium quality medicine product from Pfizer, built for durability and great performance.",
+    "price": 812.62,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 14,
+    "sku": "SKU-0072",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Medicine",
+    "brand": "Pfizer",
+    "rating": 4.6,
+    "numReviews": 39,
+    "tags": [
+      "budget",
+      "friendly"
+    ],
+    "soldUnits": 196,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 73",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 763.7,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 116,
+    "sku": "SKU-0073",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 4.5,
+    "numReviews": 272,
+    "tags": [
+      "trending",
+      "budget"
+    ],
+    "soldUnits": 33,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Fair and Lovely Health & Beauty Item 74",
+    "desc": "This is a premium quality health & beauty product from Fair and Lovely, built for durability and great performance.",
+    "price": 430.53,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 53,
+    "sku": "SKU-0074",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Fair and Lovely",
+    "rating": 4.9,
+    "numReviews": 203,
+    "tags": [
+      "sale",
+      "friendly"
+    ],
+    "soldUnits": 97,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 75",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 241.49,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 100,
+    "sku": "SKU-0075",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 3.6,
+    "numReviews": 477,
+    "tags": [
+      "trending",
+      "friendly"
+    ],
+    "soldUnits": 41,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 76",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 516.49,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 91,
+    "sku": "SKU-0076",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 3.8,
+    "numReviews": 16,
+    "tags": [
+      "premium",
+      "budget"
+    ],
+    "soldUnits": 161,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Decathlon Sports & Outdoor Item 77",
+    "desc": "This is a premium quality sports & outdoor product from Decathlon, built for durability and great performance.",
+    "price": 689.37,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 182,
+    "sku": "SKU-0077",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Decathlon",
+    "rating": 4.3,
+    "numReviews": 292,
+    "tags": [
+      "new",
+      "trending"
+    ],
+    "soldUnits": 46,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Dove Health & Beauty Item 78",
+    "desc": "This is a premium quality health & beauty product from Dove, built for durability and great performance.",
+    "price": 645.8,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 73,
+    "sku": "SKU-0078",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Dove",
+    "rating": 4.7,
+    "numReviews": 330,
+    "tags": [
+      "discount",
+      "budget"
+    ],
+    "soldUnits": 2,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Levis Men's Fashion Item 79",
+    "desc": "This is a premium quality men's fashion product from Levis, built for durability and great performance.",
+    "price": 369.4,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 121,
+    "sku": "SKU-0079",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Levis",
+    "rating": 3.7,
+    "numReviews": 200,
+    "tags": [
+      "quality",
+      "new"
+    ],
+    "soldUnits": 145,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Dove Health & Beauty Item 80",
+    "desc": "This is a premium quality health & beauty product from Dove, built for durability and great performance.",
+    "price": 275.54,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 63,
+    "sku": "SKU-0080",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Dove",
+    "rating": 3.7,
+    "numReviews": 413,
+    "tags": [
+      "budget",
+      "trending"
+    ],
+    "soldUnits": 72,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616627985860-7f59ab2ae0d5",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Sony Electronics Item 81",
+    "desc": "This is a premium quality electronics product from Sony, built for durability and great performance.",
+    "price": 271.16,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 128,
+    "sku": "SKU-0081",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Electronics",
+    "brand": "Sony",
+    "rating": 3.9,
+    "numReviews": 91,
+    "tags": [
+      "discount",
+      "budget"
+    ],
+    "soldUnits": 25,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Decathlon Sports & Outdoor Item 82",
+    "desc": "This is a premium quality sports & outdoor product from Decathlon, built for durability and great performance.",
+    "price": 281.96,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 88,
+    "sku": "SKU-0082",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Decathlon",
+    "rating": 3.2,
+    "numReviews": 38,
+    "tags": [
+      "luxury",
+      "premium"
+    ],
+    "soldUnits": 139,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nestle Medicine Item 83",
+    "desc": "This is a premium quality medicine product from Nestle, built for durability and great performance.",
+    "price": 335.48,
+    "percentOff": 30,
+    "checkStock": true,
+    "units": 20,
+    "sku": "SKU-0083",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Medicine",
+    "brand": "Nestle",
+    "rating": 4.6,
+    "numReviews": 203,
+    "tags": [
+      "premium",
+      "eco"
+    ],
+    "soldUnits": 139,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1606813902911-3f4a5a52f2f1",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 84",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 198.87,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 112,
+    "sku": "SKU-0084",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 4.7,
+    "numReviews": 386,
+    "tags": [
+      "premium",
+      "new"
+    ],
+    "soldUnits": 26,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nike Sports & Outdoor Item 85",
+    "desc": "This is a premium quality sports & outdoor product from Nike, built for durability and great performance.",
+    "price": 927.02,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 35,
+    "sku": "SKU-0085",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Nike",
+    "rating": 3.9,
+    "numReviews": 305,
+    "tags": [
+      "luxury",
+      "new"
+    ],
+    "soldUnits": 179,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Purina Groceries & Pets Item 86",
+    "desc": "This is a premium quality groceries & pets product from Purina, built for durability and great performance.",
+    "price": 756.85,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 100,
+    "sku": "SKU-0086",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Purina",
+    "rating": 5.0,
+    "numReviews": 452,
+    "tags": [
+      "budget",
+      "trending"
+    ],
+    "soldUnits": 111,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762622-76f5d95e6e6e",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Adidas Sports & Outdoor Item 87",
+    "desc": "This is a premium quality sports & outdoor product from Adidas, built for durability and great performance.",
+    "price": 939.98,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 38,
+    "sku": "SKU-0087",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Adidas",
+    "rating": 3.1,
+    "numReviews": 434,
+    "tags": [
+      "discount",
+      "friendly"
+    ],
+    "soldUnits": 100,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Ikea Home & Lifestyle Item 88",
+    "desc": "This is a premium quality home & lifestyle product from Ikea, built for durability and great performance.",
+    "price": 439.82,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 142,
+    "sku": "SKU-0088",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Ikea",
+    "rating": 3.6,
+    "numReviews": 96,
+    "tags": [
+      "sale",
+      "discount"
+    ],
+    "soldUnits": 1,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "LG Electronics Item 89",
+    "desc": "This is a premium quality electronics product from LG, built for durability and great performance.",
+    "price": 620.97,
+    "percentOff": 10,
+    "checkStock": true,
+    "units": 63,
+    "sku": "SKU-0089",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Electronics",
+    "brand": "LG",
+    "rating": 4.5,
+    "numReviews": 97,
+    "tags": [
+      "luxury",
+      "budget"
+    ],
+    "soldUnits": 120,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Unilever Medicine Item 90",
+    "desc": "This is a premium quality medicine product from Unilever, built for durability and great performance.",
+    "price": 29.17,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 171,
+    "sku": "SKU-0090",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Medicine",
+    "brand": "Unilever",
+    "rating": 4.9,
+    "numReviews": 142,
+    "tags": [
+      "friendly",
+      "premium"
+    ],
+    "soldUnits": 7,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1616628182509-9137bac9c0ed",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Zara Woman's Fashion Item 91",
+    "desc": "This is a premium quality woman's fashion product from Zara, built for durability and great performance.",
+    "price": 212.52,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 166,
+    "sku": "SKU-0091",
+    "color": [
+      "gray",
+      "silver"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "Zara",
+    "rating": 3.8,
+    "numReviews": 457,
+    "tags": [
+      "trending",
+      "discount"
+    ],
+    "soldUnits": 72,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Levis Men's Fashion Item 92",
+    "desc": "This is a premium quality men's fashion product from Levis, built for durability and great performance.",
+    "price": 906.75,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 88,
+    "sku": "SKU-0092",
+    "color": [
+      "red",
+      "black"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Levis",
+    "rating": 3.2,
+    "numReviews": 30,
+    "tags": [
+      "friendly",
+      "sale"
+    ],
+    "soldUnits": 151,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1632150899990-6bbcb0a94d77",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Hasbro Baby's & Toys Item 93",
+    "desc": "This is a premium quality baby's & toys product from Hasbro, built for durability and great performance.",
+    "price": 227.91,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 138,
+    "sku": "SKU-0093",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Baby's & Toys",
+    "brand": "Hasbro",
+    "rating": 4.2,
+    "numReviews": 78,
+    "tags": [
+      "quality",
+      "discount"
+    ],
+    "soldUnits": 26,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Nike Sports & Outdoor Item 94",
+    "desc": "This is a premium quality sports & outdoor product from Nike, built for durability and great performance.",
+    "price": 527.16,
+    "percentOff": 15,
+    "checkStock": true,
+    "units": 158,
+    "sku": "SKU-0094",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Nike",
+    "rating": 3.8,
+    "numReviews": 470,
+    "tags": [
+      "premium",
+      "sale"
+    ],
+    "soldUnits": 112,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1621609762684-bb12c0e94d9c",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "H&M Woman's Fashion Item 95",
+    "desc": "This is a premium quality woman's fashion product from H&M, built for durability and great performance.",
+    "price": 794.76,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 172,
+    "sku": "SKU-0095",
+    "color": [
+      "brown",
+      "beige"
+    ],
+    "size": [
+      "One Size"
+    ],
+    "category": "Woman's Fashion",
+    "brand": "H&M",
+    "rating": 3.6,
+    "numReviews": 240,
+    "tags": [
+      "new",
+      "quality"
+    ],
+    "soldUnits": 23,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1602524813306-78e6d8e52f89",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Puma Sports & Outdoor Item 96",
+    "desc": "This is a premium quality sports & outdoor product from Puma, built for durability and great performance.",
+    "price": 956.38,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 184,
+    "sku": "SKU-0096",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "250ml",
+      "500ml"
+    ],
+    "category": "Sports & Outdoor",
+    "brand": "Puma",
+    "rating": 4.5,
+    "numReviews": 389,
+    "tags": [
+      "new",
+      "sale"
+    ],
+    "soldUnits": 10,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583337130417-fb3f71c1d1b4",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": false,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Whiskas Groceries & Pets Item 97",
+    "desc": "This is a premium quality groceries & pets product from Whiskas, built for durability and great performance.",
+    "price": 495.48,
+    "percentOff": 50,
+    "checkStock": true,
+    "units": 26,
+    "sku": "SKU-0097",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "S",
+      "M",
+      "L"
+    ],
+    "category": "Groceries & Pets",
+    "brand": "Whiskas",
+    "rating": 4.4,
+    "numReviews": 304,
+    "tags": [
+      "quality",
+      "eco"
+    ],
+    "soldUnits": 132,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1622445272659-d234b63d3151",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Levis Men's Fashion Item 98",
+    "desc": "This is a premium quality men's fashion product from Levis, built for durability and great performance.",
+    "price": 96.08,
+    "percentOff": 20,
+    "checkStock": true,
+    "units": 190,
+    "sku": "SKU-0098",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "size": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "category": "Men's Fashion",
+    "brand": "Levis",
+    "rating": 4.2,
+    "numReviews": 84,
+    "tags": [
+      "new",
+      "eco"
+    ],
+    "soldUnits": 64,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1582719478173-2d50f4e3fdd3",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Dove Health & Beauty Item 99",
+    "desc": "This is a premium quality health & beauty product from Dove, built for durability and great performance.",
+    "price": 819.54,
+    "percentOff": 25,
+    "checkStock": true,
+    "units": 199,
+    "sku": "SKU-0099",
+    "color": [
+      "blue",
+      "white"
+    ],
+    "size": [
+      "5kg",
+      "10kg"
+    ],
+    "category": "Health & Beauty",
+    "brand": "Dove",
+    "rating": 3.8,
+    "numReviews": 29,
+    "tags": [
+      "premium",
+      "eco"
+    ],
+    "soldUnits": 114,
+    "isFeatured": true,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  },
+  {
+    "user": "688bc9b0fa45b8ffa95c37f0",
+    "name": "Philips Home & Lifestyle Item 100",
+    "desc": "This is a premium quality home & lifestyle product from Philips, built for durability and great performance.",
+    "price": 606.71,
+    "percentOff": 40,
+    "checkStock": true,
+    "units": 169,
+    "sku": "SKU-0100",
+    "color": [
+      "pink",
+      "purple"
+    ],
+    "size": [
+      "32GB",
+      "64GB",
+      "128GB"
+    ],
+    "category": "Home & Lifestyle",
+    "brand": "Philips",
+    "rating": 4.1,
+    "numReviews": 267,
+    "tags": [
+      "quality",
+      "friendly"
+    ],
+    "soldUnits": 36,
+    "isFeatured": false,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1632150899804-df8848e44a7f",
+        "altText": "Front view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+        "altText": "Side view"
+      }
+    ],
+    "isFlashSale": true,
+    "reviews": [],
+    "__v": 0,
+    "createdAt": "2025-09-06T08:46:38.736961Z",
+    "updatedAt": "2025-09-06T08:46:38.736961Z"
+  }
+]

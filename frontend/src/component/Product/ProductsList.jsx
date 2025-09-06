@@ -170,10 +170,18 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                     />
 
                     {/* Eye Button */}
-                    <div className="absolute top-14 right-2 bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border">
-                      <Dialog>
-                        <DialogTrigger>
-                          <IoEyeOutline />
+                    <Dialog>
+                      <div className="absolute top-14 right-2">
+                        {/* bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border */}
+                        {/* <DialogTrigger>
+                          <span className="w-5 h-5 bg-white">
+                            <IoEyeOutline  className=" w-5 h-5 bg-white rounded-full"/>
+                          </span>
+                        </DialogTrigger> */}
+                        <DialogTrigger >
+                          <span className="w-6 h-6 flex items-center justify-center bg-white rounded-full">
+                            <IoEyeOutline className="w-5 h-5 text-black" />
+                          </span>
                         </DialogTrigger>
                         <DialogContent>
                           <div className="flex flex-col md:flex-row gap-2">
@@ -233,8 +241,8 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                             </div>
                           </div>
                         </DialogContent>
-                      </Dialog>
-                    </div>
+                      </div>
+                    </Dialog>
 
                     {/* Heart Icon */}
                     <div className="absolute top-4 right-2 bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border">

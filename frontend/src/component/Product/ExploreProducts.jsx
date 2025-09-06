@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { FaRegHandPointLeft, FaRegHandPointRight } from "react-icons/fa";
 import ProductCard from "./ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBestSellingForEachCategory } from "@/redux/Client/product.store";
 
 const ExploreProducts = () => {
   const scrollRef = useRef(null);
+  const{bestEachCategory:products,loading}=useSelector((state)=>state.product)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchBestSellingForEachCategory())
+  },[dispatch])
   const moveLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -21,104 +28,104 @@ const ExploreProducts = () => {
     }
   };
   const showProducts = ()=>{}
-  const products = [
-    {
-      _id: "1",
-      name: "Premium Wireless Headphones",
-      price: 299,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 27,
-      numReviews: 128,
-    },
-    {
-      _id: "2",
-      name: "Smart Watch Pro",
-      price: 199,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 37,
-      numReviews: 89,
-    },
-    {
-      _id: "3",
-      name: "Gaming Mechanical Keyboard",
-      price: 149,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 25,
-      numReviews: 234,
-    },
-    {
-      _id: "4",
-      name: "Ultra HD 4K Monitor",
-      price: 449,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 30,
-      numReviews: 156,
-    },
-    {
-      _id: "5",
-      name: "Bluetooth Speaker",
-      price: 89,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 33,
-      numReviews: 67,
-    },
-    {
-      _id: "6",
-      name: "Bluetooth Speaker",
-      price: 89,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 33,
-      numReviews: 67,
-    },
-    {
-      _id: "7",
-      name: "Wireless Mouse",
-      price: 59,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 28,
-      numReviews: 45,
-    },
-    {
-      _id: "8",
-      name: "Wireless Mouse",
-      price: 59,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 28,
-      numReviews: 45,
-    },
-  ];
+  // const products = [
+  //   {
+  //     _id: "1",
+  //     name: "Premium Wireless Headphones",
+  //     price: 299,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 27,
+  //     numReviews: 128,
+  //   },
+  //   {
+  //     _id: "2",
+  //     name: "Smart Watch Pro",
+  //     price: 199,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 37,
+  //     numReviews: 89,
+  //   },
+  //   {
+  //     _id: "3",
+  //     name: "Gaming Mechanical Keyboard",
+  //     price: 149,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 25,
+  //     numReviews: 234,
+  //   },
+  //   {
+  //     _id: "4",
+  //     name: "Ultra HD 4K Monitor",
+  //     price: 449,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 30,
+  //     numReviews: 156,
+  //   },
+  //   {
+  //     _id: "5",
+  //     name: "Bluetooth Speaker",
+  //     price: 89,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 33,
+  //     numReviews: 67,
+  //   },
+  //   {
+  //     _id: "6",
+  //     name: "Bluetooth Speaker",
+  //     price: 89,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 33,
+  //     numReviews: 67,
+  //   },
+  //   {
+  //     _id: "7",
+  //     name: "Wireless Mouse",
+  //     price: 59,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 28,
+  //     numReviews: 45,
+  //   },
+  //   {
+  //     _id: "8",
+  //     name: "Wireless Mouse",
+  //     price: 59,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 28,
+  //     numReviews: 45,
+  //   },
+  // ];
   return (
     <div>
       <div className="flex items-center gap-2">
@@ -150,7 +157,7 @@ const ExploreProducts = () => {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <ProductCard list={products} scrollRef={scrollRef} />
+        <ProductCard list={products} scrollRef={scrollRef} loading={loading}/>
       </div>
        <div className="flex items-center justify-center">
         <button

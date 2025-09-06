@@ -188,7 +188,7 @@
 // };
 
 // export default NewArrivals;
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ProductList from "./ProductsList";
 import ps from "../../assets/ps.png";
 import perfume from "../../assets/perfume.png";
@@ -196,7 +196,17 @@ import speaker from "../../assets/speaker.png";
 import womencol from "../../assets/womcol.jpg";
 import { Link } from "react-router-dom";
 import { FaRegHandPointLeft, FaRegHandPointRight } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNewArrivalsProducts } from "@/redux/Client/product.store";
 const NewArrivals = () => {
+  const { newArrivals: products, loading } = useSelector(
+    (state) => state.product
+  );
+  console.log("New",products)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchNewArrivalsProducts());
+  }, [dispatch]);
   const banner = [
     {
       _id: 1,
@@ -231,80 +241,80 @@ const NewArrivals = () => {
       link: "",
     },
   ];
-  const products = [
-    {
-      _id: "1",
-      name: "Premium Wireless Headphones",
-      price: 299,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 27,
-      numReviews: 128,
-    },
-    {
-      _id: "2",
-      name: "Smart Watch Pro",
-      price: 199,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 37,
-      numReviews: 89,
-    },
-    {
-      _id: "3",
-      name: "Gaming Mechanical Keyboard",
-      price: 149,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 25,
-      numReviews: 234,
-    },
-    {
-      _id: "4",
-      name: "Ultra HD 4K Monitor",
-      price: 449,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 30,
-      numReviews: 156,
-    },
-    {
-      _id: "5",
-      name: "Bluetooth Speaker",
-      price: 89,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 33,
-      numReviews: 67,
-    },
-    {
-      _id: "6",
-      name: "Wireless Mouse",
-      price: 59,
-      images: [
-        {
-          url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
-        },
-      ],
-      percentOff: 28,
-      numReviews: 45,
-    },
-  ];
+  // const products = [
+  //   {
+  //     _id: "1",
+  //     name: "Premium Wireless Headphones",
+  //     price: 299,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 27,
+  //     numReviews: 128,
+  //   },
+  //   {
+  //     _id: "2",
+  //     name: "Smart Watch Pro",
+  //     price: 199,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 37,
+  //     numReviews: 89,
+  //   },
+  //   {
+  //     _id: "3",
+  //     name: "Gaming Mechanical Keyboard",
+  //     price: 149,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 25,
+  //     numReviews: 234,
+  //   },
+  //   {
+  //     _id: "4",
+  //     name: "Ultra HD 4K Monitor",
+  //     price: 449,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 30,
+  //     numReviews: 156,
+  //   },
+  //   {
+  //     _id: "5",
+  //     name: "Bluetooth Speaker",
+  //     price: 89,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 33,
+  //     numReviews: 67,
+  //   },
+  //   {
+  //     _id: "6",
+  //     name: "Wireless Mouse",
+  //     price: 59,
+  //     images: [
+  //       {
+  //         url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
+  //       },
+  //     ],
+  //     percentOff: 28,
+  //     numReviews: 45,
+  //   },
+  // ];
   const scrollRef = useRef();
   const moveLeft = () => {
     if (scrollRef.current) {
@@ -414,7 +424,7 @@ const NewArrivals = () => {
           </div>
         </div>
       </div>
-      <ProductList list={products} scrollRef={scrollRef} />
+      <ProductList products={products} scrollRef={scrollRef} loading={loading} />
       <div className="flex items-center justify-center">
         <button className="bg-red-500 px-4 py-2 text-white poppins-font mt-3 rounded font-semibold">
           Newly Add Products
