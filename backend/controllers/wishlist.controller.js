@@ -2,8 +2,10 @@ import { Product } from "../models/product.model.js";
 import { Wishlist } from "../models/wishlist.model.js";
 export const addInWishList = async (req, res) => {
   try {
+    console.log("Add controller call")
     //(1)First, query the Wishlist collection to check if a document for the current user (req.user._id) already exists.
     const wishlist = await Wishlist.findOne({ user: req.user._id });
+    // console.log("Wishlist : ",wishlist)
     const product = await Product.findById(req.params.id);
     if (!product) {
       return res.status(400).json({ message: "Product Not Available." });
@@ -43,6 +45,7 @@ export const addInWishList = async (req, res) => {
   }
 };
 export const removeFromWishlist = async (req, res) => {
+  console.log("Delete controller call")
   try {
     const product = await Product.findById(req.params.id);
     const wishlist = await Wishlist.findOne({ user: req.user._id });

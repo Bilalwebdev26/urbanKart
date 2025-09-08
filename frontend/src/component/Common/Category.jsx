@@ -6,8 +6,12 @@ import { FaStethoscope, FaBaby } from "react-icons/fa";
 import { IoHomeOutline, IoFootballOutline } from "react-icons/io5";
 import { LuArrowBigLeftDash } from "react-icons/lu";
 import { LuArrowBigRightDash } from "react-icons/lu";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSideBar } from "@/redux/Client/sideBar.store";
 
 const Category = () => {
+  const{setHam}= useSelector((state)=>state.sidebar)
+  const dispatch = useDispatch()
   const scrollRef = useRef(null);
   const cat = [
     {
@@ -83,7 +87,9 @@ const Category = () => {
       bgColor: "bg-rose-50 hover:bg-rose-100",
     },
   ];
-  const showCategories = ()=>{}
+  const showCategories = ()=>{
+    dispatch(toggleSideBar())
+  }
   const moveLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({

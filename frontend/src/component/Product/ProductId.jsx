@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Stars from "../Common/Stars";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { Truck } from "lucide-react";
 import axios from "axios";
 import LoadingSpinner from "../Common/PorductLoading";
+import { BiBasket } from "react-icons/bi";
 
 const ProductId = () => {
   //productById
@@ -13,7 +14,7 @@ const ProductId = () => {
   console.log(id);
   const [product, setProduct] = useState();
   const [productImage, setProductIamge] = useState(null);
-   const [sizeP, setSize] = useState(null);
+  const [sizeP, setSize] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const productById = async () => {
@@ -37,14 +38,14 @@ const ProductId = () => {
   }, [id]);
   //product img ke liye
   useEffect(() => {
-  if (product?.images?.length > 0) {
-    setProductIamge(product.images[0].url);
-  }
-  if (product?.size?.length > 0) {
-    setSize(product.size[0]);
-  }
-}, [product]);
-console.log(productImage)
+    if (product?.images?.length > 0) {
+      setProductIamge(product.images[0].url);
+    }
+    if (product?.size?.length > 0) {
+      setSize(product.size[0]);
+    }
+  }, [product]);
+  console.log(productImage);
   console.log(product);
   // const product = {
   //   name: "Slim Fit Men's T-Shirt",
@@ -145,8 +146,8 @@ console.log(productImage)
   const setHandleColor = (col) => {
     setColor(col);
   };
-    if (loading) {
-    return <LoadingSpinner/>;
+  if (loading) {
+    return <LoadingSpinner />;
   }
   return (
     <div className="w-full">
@@ -243,8 +244,8 @@ console.log(productImage)
                 {product.color?.map((col, index) => (
                   <button
                     onClick={() => setHandleColor(col)}
-                    className={`inline-block w-5 h-5  rounded-full cursor-pointer border ${
-                      col === colorP ? "border-3" : ""
+                    className={`inline-block w-8 h-8  rounded-full cursor-pointer border-2 ${
+                      col === colorP ? "border-3 border-black" : ""
                     }`}
                     key={index}
                     style={{ backgroundColor: col }}
@@ -262,7 +263,7 @@ console.log(productImage)
                       s === sizeP
                         ? "bg-black text-white"
                         : "border-2 border-gray-300"
-                    } cursor-pointer text-center   rounded-sm w-9 h-8`}
+                    } cursor-pointer text-center text-sm   rounded-sm p-1`}
                     key={index}
                   >
                     {s}
@@ -296,9 +297,21 @@ console.log(productImage)
               </div>
               {/* Buy Button */}
 
-              <button className="bg-black text-white px-8 lg:px-12 lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+              <button className="bg-black text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
                 Buy Now
               </button>
+              <div className="">
+              <button className="bg-black hidden lg:flex items-center gap-2 text-white px-2  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                <ShoppingCart className="size-5"/>
+                <span className="text-sm">Add To Cart</span>
+              </button>
+              <button className="bg-black flex items-center gap-2 lg:hidden text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                <ShoppingCart className="size-5"/>
+              </button>
+                {/* <button className="bg-black text-white text-xs px-2 lg:px-4 lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                  Add to Cart
+                </button> */}
+              </div>
 
               {/* Wishlist */}
               <div className="border w-10 h-9 rounded-sm flex items-center justify-center">

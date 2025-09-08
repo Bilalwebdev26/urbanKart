@@ -16,10 +16,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/Client/auth.store";
 import Loading from "../Common/Loading";
 import toast from "react-hot-toast";
+import { toggleSideBar } from "@/redux/Client/sideBar.store";
 const NavBar = ({ isScrolled }) => {
   const { user, loading } = useSelector((state) => state.auth);
+  const{setHam}= useSelector((state)=>state.sidebar)
   const [onProfile, setOnProfile] = useState(false);
-  const [setHam, setHamMenu] = useState(false);
+  // const [setHam, setHamMenu] = useState(false);
   const profileRef = useRef(false);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const NavBar = ({ isScrolled }) => {
   };
 
   const handleHamburger = () => {
-    setHamMenu(!setHam);
+    dispatch(toggleSideBar())
   };
   // Close profile dropdown when clicking outside
   useEffect(() => {

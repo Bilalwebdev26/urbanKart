@@ -16,6 +16,7 @@ import axios from "axios";
 import { useState } from "react";
 import Loading from "./component/Common/Loading";
 import { userProfile } from "./redux/Client/auth.store";
+import { Toaster } from "react-hot-toast";
 const App = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const location = useLocation();
@@ -55,6 +56,10 @@ const App = () => {
           <Route path="/product/:id" element={<ProductId />} />
         </Route>
       </Routes>
+      <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
     </div>
   );
 };
