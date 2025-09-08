@@ -61,9 +61,8 @@ export const deleteAllProductsFromWishlist = createAsyncThunk(
   "wishlist/deleteAllProductsFromWishlist",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.get(
+      const res = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/wishlist/deleteAll`,
-        {},
         { withCredentials: true }
       );
       return res.data;
@@ -120,7 +119,7 @@ export const wishlistSlice = createSlice({
         state.loading = false;
       })
       .addCase(deleteProductFromWishlist.rejected, (state, action) => {
-        (state.loading = true), (state.error = action.payload);
+        (state.loading = false), (state.error = action.payload);
       })
       //Delete All products from wishlist products -> delete all kerna wishlist ki array
       .addCase(deleteAllProductsFromWishlist.pending, (state) => {
@@ -130,7 +129,7 @@ export const wishlistSlice = createSlice({
         (state.wishListProducts = action.payload), (state.loading = false);
       })
       .addCase(deleteAllProductsFromWishlist.rejected, (state, action) => {
-        (state.loading = true), (state.error = action.payload);
+        (state.loading = false), (state.error = action.payload);
       });
   },
 });

@@ -1,11 +1,16 @@
 import { userProfile } from "@/redux/Client/auth.store";
-import { getWishListProducts } from "@/redux/Client/wishlist.store";
-import { Eye } from "lucide-react";
+import {
+  deleteAllProductsFromWishlist,
+  deleteProductFromWishlist,
+  getWishListProducts,
+} from "@/redux/Client/wishlist.store";
+import { Eye, Loader } from "lucide-react";
 import React, { useEffect } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import UserLoading from "../Common/UserLoading";
+import { toast } from "react-hot-toast";
 
 const WishList = () => {
   const wishlists = [
@@ -70,9 +75,43 @@ const WishList = () => {
   useEffect(() => {
     dispatch(getWishListProducts());
     dispatch(userProfile());
-  }, [dispatch]);
+  }, [dispatch, wishlist.length]);
   console.log("Wishlist.jsx : ", wishlist);
-  const deleteFromWishlist = () => {};
+  const deleteFromWishlist = async (id) => {
+    await dispatch(deleteProductFromWishlist(id));
+    dispatch(getWishListProducts());
+  };
+  const removeAllFromWishlist = () => {
+    if (wishlist.length > 0) {
+      toast((t) => (
+        <span className="flex flex-col gap-2">
+          <p>Are you sure you want to remove all wishlist items?</p>
+          <div className="flex gap-2">
+            {/* Yes Button */}
+            <button
+              className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+              onClick={() => {
+                dispatch(deleteAllProductsFromWishlist()); // 🔥 delete all action
+                toast.dismiss(t.id); // close toast
+                toast.success("All items removed from wishlist!"); // success message
+              }}
+            >
+              Yes
+            </button>
+
+            {/* No Button */}
+            <button
+              className="bg-gray-300 text-black px-3 py-1 rounded hover:bg-gray-400"
+              onClick={() => toast.dismiss(t.id)} // ❌ cancel
+            >
+              No
+            </button>
+          </div>
+        </span>
+      ));
+    }
+  };
+
   if (authLoading) {
     return <UserLoading />;
   }
@@ -82,9 +121,19 @@ const WishList = () => {
         <h2 className="font-semibold">
           Wishlist(<span className="font-normal">{wishlist.length}</span>)
         </h2>
-        <button className="bg-slate-950 text-white px-3 py-1 lg:px-5 lg:py-2 border-2 rounded-md text-sm hover:scale-95 transition-all lg:cursor-pointer hover:bg-black/80">
-          Move All To Cart
-        </button>
+        {wishlist.length > 0 && (
+          <div className="">
+            <button className="bg-slate-950 text-white px-3 py-1 lg:px-5 lg:py-2 border-2 rounded-md text-sm hover:scale-95 transition-all lg:cursor-pointer hover:bg-black/80">
+              Move All To Cart
+            </button>
+            <button
+              onClick={() => removeAllFromWishlist()}
+              className="bg-slate-950 text-white px-3 py-1 lg:px-5 lg:py-2 border-2 rounded-md text-sm hover:scale-95 transition-all lg:cursor-pointer hover:bg-black/80"
+            >
+              Remove All
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Loading state */}
@@ -181,7 +230,6 @@ const WishList = () => {
                     </div>
 
                     {/* Top right corner accent */}
-                 
                   </div>
 
                   {/* Content Area */}
@@ -194,10 +242,6 @@ const WishList = () => {
                         style={{ animationDelay: "0.1s" }}
                       ></div>
                     </div>
-
-                   
-
-                
 
                     {/* Action Button */}
                     <div className="mt-4">
@@ -322,67 +366,76 @@ const WishList = () => {
         </>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 space-y-4 my-6">
-          {Array.isArray(wishlist)&&wishlist.map((prod, index) => (
-            <div
-              className="w-45 h-55 md:w-60 md:h-65 md:mr-2 rounded-lg shadow-lg"
-              key={index}
-            >
-              {/* image */}
-              <div className="overflow-hidden rounded-lg relative h-40 md:h-50">
-                <img
-                  src={prod.images[0].url}
-                  alt=""
-                  className="rounded-lg transition-all duration-300 hover:scale-110"
-                />
-                {prod.percentOff && (
-                  <div className="text-[10px] absolute top-2 bg-red-600 p-1 rounded text-white left-2">
-                    -{prod.percentOff} OFF
+          {Array.isArray(wishlist) &&
+            wishlist.map((prod, index) => (
+              <div
+                className="w-45 h-55 md:w-60 md:h-65 md:mr-2 rounded-lg shadow-lg"
+                key={index}
+              >
+                {/* image */}
+                <div className="overflow-hidden rounded-lg relative h-40 md:h-50">
+                  <img
+                    src={prod.images[0].url}
+                    alt="side image"
+                    className="rounded-lg transition-all duration-300 hover:scale-110"
+                  />
+                  {prod.percentOff && (
+                    <div className="text-[10px] absolute top-2 bg-red-600 p-1 rounded text-white left-2">
+                      -{prod.percentOff} OFF
+                    </div>
+                  )}
+                  <div
+                    onClick={() => deleteFromWishlist(prod._id)}
+                    className="absolute right-2 top-2 bg-white h-7 w-7 rounded-full flex items-center justify-center"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader className="size-4 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        <FaTrashAlt className="h-4 w-4" />
+                      </>
+                    )}
                   </div>
-                )}
-                <div
-                  onClick={deleteFromWishlist}
-                  className="absolute right-2 top-2 bg-white h-7 w-7 rounded-full flex items-center justify-center"
-                >
-                  <FaTrashAlt className="h-4 w-4" />
+                  <div className="absolute bottom-0 bg-black w-full text-white flex items-center justify-center gap-2 px-2 py-2 text-xs md:text-sm">
+                    <FaCartPlus />
+                    <h3>Add To Cart</h3>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 bg-black w-full text-white flex items-center justify-center gap-2 px-2 py-2 text-xs md:text-sm">
-                  <FaCartPlus />
-                  <h3>Add To Cart</h3>
-                </div>
-              </div>
 
-              {/* content */}
-              <div className="p-2">
-                <h2 className="text-black font-semibold text-xs md:text-sm line-clamp-1">
-                  {prod.name}
-                </h2>
-                <div className="flex items-center gap-2">
-                  <p className="text-red-500 text-sm font-semibold">
-                    {prod.percentOff
-                      ? (
-                          prod.price -
-                          (prod.price * prod.percentOff) / 100
-                        ).toLocaleString("en-US", {
-                          style: "currency",
-                          currency: "USD",
-                        })
-                      : prod?.price?.toLocaleString("en-US", {
+                {/* content */}
+                <div className="p-2">
+                  <h2 className="text-black font-semibold text-xs md:text-sm line-clamp-1">
+                    {prod.name}
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <p className="text-red-500 text-sm font-semibold">
+                      {prod.percentOff
+                        ? (
+                            prod.price -
+                            (prod.price * prod.percentOff) / 100
+                          ).toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                          })
+                        : prod?.price?.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                          })}
+                    </p>
+                    {prod.percentOff && (
+                      <p className="text-gray-500 text-sm line-through">
+                        {prod?.price?.toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
                         })}
-                  </p>
-                  {prod.percentOff && (
-                    <p className="text-gray-500 text-sm line-through">
-                      {prod?.price?.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
-                    </p>
-                  )}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       )}
     </div>
