@@ -125,7 +125,7 @@ import {
 import Stars from "../Common/Stars";
 import { CarTaxiFront } from "lucide-react";
 import { FaBucket } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addProductInWishlist,
@@ -133,47 +133,92 @@ import {
   getWishListProducts,
 } from "@/redux/Client/wishlist.store";
 import toast from "react-hot-toast";
+import { userProfile } from "@/redux/Client/auth.store";
 
 const ProductsList = ({ products, scrollRef, loading }) => {
   console.log("list : ", products);
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const [prod, setProd] = useState({
     size: "S",
     color: "",
   });
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
+  const { user } = useSelector((state) => state.auth);
   const toggleWishlist = async (product) => {
-  const inWishlist =
-    Array.isArray(wishlist) &&
-    wishlist.find((wish) => wish._id === product._id);
-  if (inWishlist) {
-    // 🔻 delete case with toast.promise
-    await toast.promise(
-      dispatch(deleteProductFromWishlist(product._id)),
-      {
-        loading: "Removing from wishlist...",
-        success: <b>Removed from wishlist!</b>,
-        error: <b>Could not remove product.</b>,
+    if (user) {
+      const inWishlist =
+        Array.isArray(wishlist) &&
+        wishlist.find((wish) => wish._id === product._id);
+      if (inWishlist) {
+        // 🔻 delete case with toast.promise
+        await toast.promise(dispatch(deleteProductFromWishlist(product._id)), {
+          loading: "Removing from wishlist...",
+          success: <b>Removed from wishlist!</b>,
+          error: <b>Could not remove product.</b>,
+        });
+      } else {
+        // 🔺 add case with toast.promise
+        await toast.promise(dispatch(addProductInWishlist(product._id)), {
+          loading: "Adding to wishlist...",
+          success: <b>Added to wishlist!</b>,
+          error: <b>Could not add product.</b>,
+        });
       }
-    );
-  } else {
-    // 🔺 add case with toast.promise
-    await toast.promise(
-      dispatch(addProductInWishlist(product._id)),
-      {
-        loading: "Adding to wishlist...",
-        success: <b>Added to wishlist!</b>,
-        error: <b>Could not add product.</b>,
-      }
-    );
-  }
+      // ✅ Refresh wishlist from backend
+      dispatch(getWishListProducts());
+    } else {
+      toast.custom((t) => (
+  <div
+    className={`${
+      t.visible ? "animate-slide-in-right" : "animate-slide-out-right"
+    } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+  >
+    <div className="flex-1 w-0 p-4">
+      <div className="flex items-start">
+        <div className="flex-shrink-0 pt-0.5">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+            alt="login required"
+          />
+        </div>
+        <div className="ml-3 flex-1">
+          <p className="text-base font-medium text-gray-900">Login Required</p>
+          <p className="mt-1 text-sm text-gray-500">
+            Log in now to save your favorite items in your wishlist.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="flex border-l border-gray-200">
+      {/* Login Button */}
+      <button
+        onClick={() => {
+          toast.dismiss(t.id);
+          navigate("/signin");
+        }}
+        className="w-full border border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      >
+        Login
+      </button>
+      {/* Close Button */}
+      <button
+        onClick={() => toast.dismiss(t.id)}
+        className="w-full border bg-gradient-to-t to-[#36D1DC] from-[#5B86E5] rounded-r-lg text-white border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+));
 
-  // ✅ Refresh wishlist from backend
-  dispatch(getWishListProducts());
-};
+    }
+  };
   useEffect(() => {
+    dispatch(userProfile());
     dispatch(getWishListProducts());
-  }, [dispatch,wishlist?.length]);
+  }, [dispatch, wishlist?.length]);
   console.log("Wishlist O/A? : ", wishlist);
   // Skeleton Loader
   const SkeletonCard = () => (
