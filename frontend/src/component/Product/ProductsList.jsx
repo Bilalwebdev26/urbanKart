@@ -137,7 +137,7 @@ import { userProfile } from "@/redux/Client/auth.store";
 
 const ProductsList = ({ products, scrollRef, loading }) => {
   console.log("list : ", products);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [prod, setProd] = useState({
     size: "S",
@@ -169,50 +169,56 @@ const ProductsList = ({ products, scrollRef, loading }) => {
       dispatch(getWishListProducts());
     } else {
       toast.custom((t) => (
-  <div
-    className={`${
-      t.visible ? "animate-slide-in-right" : "animate-slide-out-right"
-    } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-  >
-    <div className="flex-1 w-0 p-4">
-      <div className="flex items-start">
-        <div className="flex-shrink-0 pt-0.5">
-          <img
-            className="h-10 w-10 rounded-full"
-            src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
-            alt="login required"
-          />
+        <div
+          className={`${
+            t.visible ? "animate-slide-in-right" : "animate-slide-out-right"
+          } md:max-w-md md:w-full w-66 bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+        >
+          <div className="flex-1 w-0 p-2 lg:p-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 pt-0.5">
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                  alt="login required"
+                />
+              </div>
+              <div className="ml-3 flex-1">
+                <p className="text-sm md:text-base font-medium text-gray-900">
+                  Login Required
+                </p>
+                <div className="hidden md:flex">
+                  <p className=" md:mt-1 text-xs md:text-sm text-gray-500">
+                    Log in now to save your favorite items in your wishlist.
+                  </p>
+                </div>
+                 <p className="md:hidden flex md:mt-1 text-xs md:text-sm text-gray-500">
+                    Login to save Products.
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex border-l border-gray-200">
+            {/* Login Button */}
+            <button
+              onClick={() => {
+                toast.dismiss(t.id);
+                navigate("/signin");
+              }}
+              className="w-full border border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Login
+            </button>
+            {/* Close Button */}
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="hidden lg:flex w-full border bg-gradient-to-t to-[#36D1DC] from-[#5B86E5] rounded-r-lg text-white border-transparent rounded-none p-4  items-center justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500"
+            >
+              Close
+            </button>
+          </div>
         </div>
-        <div className="ml-3 flex-1">
-          <p className="text-base font-medium text-gray-900">Login Required</p>
-          <p className="mt-1 text-sm text-gray-500">
-            Log in now to save your favorite items in your wishlist.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="flex border-l border-gray-200">
-      {/* Login Button */}
-      <button
-        onClick={() => {
-          toast.dismiss(t.id);
-          navigate("/signin");
-        }}
-        className="w-full border border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      >
-        Login
-      </button>
-      {/* Close Button */}
-      <button
-        onClick={() => toast.dismiss(t.id)}
-        className="w-full border bg-gradient-to-t to-[#36D1DC] from-[#5B86E5] rounded-r-lg text-white border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-));
-
+      ));
     }
   };
   useEffect(() => {
