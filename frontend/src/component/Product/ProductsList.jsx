@@ -172,7 +172,7 @@ const ProductsList = ({ products, scrollRef, loading }) => {
         <div
           className={`${
             t.visible ? "animate-slide-in-right" : "animate-slide-out-right"
-          } md:max-w-md md:w-full w-66 bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          } md:max-w-md md:w-full w-80 bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
         >
           <div className="flex-1 w-0 p-2 lg:p-4">
             <div className="flex items-start">
@@ -193,7 +193,7 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                   </p>
                 </div>
                  <p className="md:hidden flex md:mt-1 text-xs md:text-sm text-gray-500">
-                    Login to save Products.
+                   Login to update wishlist Products.
                   </p>
               </div>
             </div>

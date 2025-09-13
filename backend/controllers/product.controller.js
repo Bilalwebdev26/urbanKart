@@ -72,7 +72,7 @@ export const showSimillarProduct = async (req, res) => {
         $match: {
           $and: [
             {
-              $and: [
+              $or: [
                 { category: product.category },
                 { tags: { $in: product.tags } },
               ],

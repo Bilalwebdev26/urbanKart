@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Stars from "../Common/Stars";
 import { Heart, ShoppingCart } from "lucide-react";
@@ -7,18 +7,41 @@ import { Truck } from "lucide-react";
 import axios from "axios";
 import LoadingSpinner from "../Common/PorductLoading";
 import { BiBasket } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addProductInWishlist,
+  deleteProductFromWishlist,
+  getWishListProducts,
+} from "@/redux/Client/wishlist.store";
+import { fetchSimillarProducts } from "@/redux/Client/product.store";
+import ProductsList from "./ProductsList";
 
 const ProductId = () => {
   //productById
   const { id } = useParams();
-  console.log(id);
+  const dispatch = useDispatch();
+  const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
+  const { user } = useSelector((state) => state.auth);
+  const { simillarProducts, loading: productLoading } = useSelector(
+    (state) => state.product
+  );
+  console.log("Fetch Simillar : ", simillarProducts);
+  console.log("WishList wait: ", wishlist);
+  const addWish = wishlist.some((wish) => wish._id === id);
+  console.log("True/False ", addWish);
+  useEffect(() => {
+    dispatch(getWishListProducts());
+  }, [dispatch, wishlist?.length]);
+  useEffect(() => {
+    dispatch(fetchSimillarProducts(id));
+  }, [dispatch, id]);
   const [product, setProduct] = useState();
   const [productImage, setProductIamge] = useState(null);
   const [sizeP, setSize] = useState(null);
   const [loading, setLoading] = useState(true);
+  const scrollRef = useRef();
   useEffect(() => {
     const productById = async () => {
-      console.log("Use effect working");
       try {
         const res = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/${id}`
@@ -45,66 +68,9 @@ const ProductId = () => {
       setSize(product.size[0]);
     }
   }, [product]);
-  console.log(productImage);
-  console.log(product);
-  // const product = {
-  //   name: "Slim Fit Men's T-Shirt",
-  //   desc: "A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.A comfortable and stylish slim-fit t-shirt for daily wear.",
-  //   price: 29.99,
-  //   percentOff: 10,
-  //   checkStock: true,
-  //   units: 120,
-  //   sku: "TSHIRT-MEN-SLIM-BLK001",
-  //   color: ["Black", "White", "Navy"],
-  //   size: ["M", "L", "XL"],
-  //   category: "Men's Fashion",
-  //   brand: "UrbanWear",
-  //   reviews: [
-  //     {
-  //       user: "john_doe",
-  //       comment: "Great fit and very comfortable.",
-  //       rating: 5,
-  //       createdAt: "2025-06-01T12:00:00Z",
-  //     },
-  //     {
-  //       user: "mark92",
-  //       comment: "Color fades a bit after wash.",
-  //       rating: 3,
-  //       createdAt: "2025-06-15T08:30:00Z",
-  //     },
-  //   ],
-  //   rating: 3.8,
-  //   numReviews: 2,
-  //   tags: ["tshirt", "slimfit", "menswear"],
-  //   soldUnits: 350,
-  //   isFeatured: true,
-  //   images: [
-  //     {
-  //       url: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
-  //       altText: "Front view of slim fit black t-shirt",
-  //     },
-  //     {
-  //       url: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop",
-  //       altText: "Back view of slim fit black t-shirt",
-  //     },
-  //     {
-  //       url: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop",
-  //       altText: "Front view of slim fit black t-shirt",
-  //     },
-  //     {
-  //       url: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
-  //       altText: "Back view of slim fit black t-shirt",
-  //     },
-  //   ],
-  //   isFlashSale: true,
-  //   saleStartDate: "2025-07-01T00:00:00Z",
-  //   saleEndData: "2025-07-10T23:59:59Z",
-  //   _id: 1,
-  // };
 
   const [colorP, setColor] = useState();
   const [quantity, setQuantity] = useState(Number(1));
-  const [addWish, setAddWish] = useState(false);
   const handleAddQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -114,33 +80,90 @@ const ProductId = () => {
     }
     setQuantity((prev) => prev - 1);
   };
-  const AddInWishlist = () => {
-    setAddWish(!addWish);
-    if (addWish === false) {
-      toast.success("Add in your wishlist.", {
-        style: {
-          border: "1px solid #713200",
-          padding: "16px",
-          color: "#713200",
-        },
-        iconTheme: {
-          primary: "#713200",
-          secondary: "#FFFAEE",
-        },
-      });
-    }
-    if (addWish === true) {
-      toast.success("Remove from your wishlist.", {
-        style: {
-          border: "1px solid #713200",
-          padding: "16px",
-          color: "#713200",
-        },
-        iconTheme: {
-          primary: "#713200",
-          secondary: "#FFFAEE",
-        },
-      });
+  const AddInWishlist = async (id) => {
+    if (user) {
+      if (addWish === false) {
+        await dispatch(addProductInWishlist(id));
+        toast.success("Add in your wishlist.", {
+          style: {
+            border: "1px solid #FF0000",
+            padding: "16px",
+            color: "#FF0000",
+          },
+          iconTheme: {
+            primary: "#FF0000",
+            // primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
+      }
+      if (addWish === true) {
+        await dispatch(deleteProductFromWishlist(id));
+        toast.success("Remove from your wishlist.", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
+      }
+      dispatch(getWishListProducts());
+    } else {
+      toast.custom((t) => (
+        <div
+          className={`${
+            t.visible ? "animate-slide-in-right" : "animate-slide-out-right"
+          } md:max-w-md md:w-full w-82 bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+        >
+          <div className="flex-1 w-0 p-2 lg:p-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 pt-0.5">
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                  alt="login required"
+                />
+              </div>
+              <div className="ml-3 flex-1">
+                <p className="text-sm md:text-base font-medium text-gray-900">
+                  Login Required
+                </p>
+                <div className="hidden md:flex">
+                  <p className=" md:mt-1 text-xs md:text-sm text-gray-500">
+                    Log in now to save your favorite items in your wishlist.
+                  </p>
+                </div>
+                <p className="md:hidden flex md:mt-1 text-xs md:text-sm text-gray-500">
+                  Login to update wishlist Products.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex border-l border-gray-200">
+            {/* Login Button */}
+            <button
+              onClick={() => {
+                toast.dismiss(t.id);
+                navigate("/signin");
+              }}
+              className="w-full border border-transparent rounded-none p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Login
+            </button>
+            {/* Close Button */}
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="hidden lg:flex w-full border bg-gradient-to-t to-[#36D1DC] from-[#5B86E5] rounded-r-lg text-white border-transparent rounded-none p-4  items-center justify-center text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-500"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      ));
     }
   };
   const setHandleColor = (col) => {
@@ -301,13 +324,13 @@ const ProductId = () => {
                 Buy Now
               </button>
               <div className="">
-              <button className="bg-black hidden lg:flex items-center gap-2 text-white px-2  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
-                <ShoppingCart className="size-5"/>
-                <span className="text-sm">Add To Cart</span>
-              </button>
-              <button className="bg-black flex items-center gap-2 lg:hidden text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
-                <ShoppingCart className="size-5"/>
-              </button>
+                <button className="bg-black hidden lg:flex items-center gap-2 text-white px-2  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                  <ShoppingCart className="size-5" />
+                  <span className="text-sm">Add To Cart</span>
+                </button>
+                <button className="bg-black flex items-center gap-2 lg:hidden text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
+                  <ShoppingCart className="size-5" />
+                </button>
                 {/* <button className="bg-black text-white text-xs px-2 lg:px-4 lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
                   Add to Cart
                 </button> */}
@@ -316,7 +339,7 @@ const ProductId = () => {
               {/* Wishlist */}
               <div className="border w-10 h-9 rounded-sm flex items-center justify-center">
                 <Heart
-                  onClick={AddInWishlist}
+                  onClick={() => AddInWishlist(product._id)}
                   className={`size-7 lg:cursor-pointer ${
                     addWish ? "fill-red-500 text-red-300" : ""
                   }`}
@@ -339,6 +362,18 @@ const ProductId = () => {
           </div>
         </div>
       </div>
+      {/* Product list */}
+      <div className="flex items-center gap-2 mt-4 mb-8">
+        <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
+        <h3 className="text-red-500 text-sm poppins-font font-semibold">
+          Simillar Products
+        </h3>
+      </div>
+      <ProductsList
+        products={simillarProducts}
+        scrollRef={scrollRef}
+        loading={productLoading}
+      />
     </div>
   );
 };

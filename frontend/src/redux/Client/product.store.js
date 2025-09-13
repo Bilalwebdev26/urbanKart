@@ -3,6 +3,7 @@ import axios from "axios";
 const initialState = {
   salesProducts: [],
   bestSellingProducts: [],
+  simillarProducts:[],
   bestEachCategory: [],
   newArrivals: [],
   product: null,
@@ -69,6 +70,20 @@ export const fetchBestSellingForEachCategory = createAsyncThunk(
     }
   }
 );
+export const fetchSimillarProducts = createAsyncThunk(
+  "product/fetchSimillarProducts",
+  async (id, { rejectWithValue }) => {
+    try {
+      const res = await axios.get( `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/v1/product/similarproducts/${id}`)
+        console.log("Res.data Simillar : ",res)
+        return res.data.products
+    } catch (error) {
+      return rejectWithValue(error.response.data)
+    }
+  }
+);
 export const productSlice = createSlice({
   name: "product",
   initialState,
@@ -96,6 +111,18 @@ export const productSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchBestSellingProducts.rejected, (state, action) => {
+        state.loading = true;
+        state.error = action.payload;
+      })
+      .addCase(fetchSimillarProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSimillarProducts.fulfilled, (state, action) => {
+        state.simillarProducts = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchSimillarProducts.rejected, (state, action) => {
         state.loading = true;
         state.error = action.payload;
       })
