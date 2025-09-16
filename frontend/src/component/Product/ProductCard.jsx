@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userProfile } from "@/redux/Client/auth.store";
 import {
@@ -22,6 +22,7 @@ import toast from "react-hot-toast";
 
 const ProductsCard = ({ list, scrollRef, loading }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //get wishlist products
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
