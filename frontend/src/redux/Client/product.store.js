@@ -3,8 +3,9 @@ import axios from "axios";
 const initialState = {
   salesProducts: [],
   bestSellingProducts: [],
-  simillarProducts:[],
+  simillarProducts: [],
   bestEachCategory: [],
+  productId: {},
   newArrivals: [],
   product: null,
   loading: false,
@@ -74,13 +75,31 @@ export const fetchSimillarProducts = createAsyncThunk(
   "product/fetchSimillarProducts",
   async (id, { rejectWithValue }) => {
     try {
-      const res = await axios.get( `${
+      const res = await axios.get(
+        `${
           import.meta.env.VITE_BACKEND_URL
-        }/api/v1/product/similarproducts/${id}`)
-        console.log("Res.data Simillar : ",res)
-        return res.data.products
+        }/api/v1/product/similarproducts/${id}`
+      );
+      console.log("Res.data Simillar : ", res);
+      return res.data.products;
     } catch (error) {
-      return rejectWithValue(error.response.data)
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+export const fetchProductById = createAsyncThunk(
+  "product/fetchProductId",
+  async (id, { rejectWithValue }) => {
+    console.log("Api called id")
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/${id}`
+      );
+      console.log("Here Product Id api hit:", res);
+      return res.data.product;
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -90,6 +109,19 @@ export const productSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchProductById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.productId = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchProductById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      //------------------------------------------- fetch product  by id
       .addCase(fetchSalesProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -102,6 +134,19 @@ export const productSlice = createSlice({
         state.loading = true;
         state.error = action.payload;
       })
+      //------------------------------------------- fetch product by sales discount
+      // .addCase(fetchSalesProducts.pending, (state) => {
+      //   state.loading = true;
+      //   state.error = null;
+      // })
+      // .addCase(fetchSalesProducts.fulfilled, (state, action) => {
+      //   state.salesProducts = action.payload;
+      //   state.loading = false;
+      // })
+      // .addCase(fetchSalesProducts.rejected, (state, action) => {
+      //   state.loading = true;
+      //   state.error = action.payload;
+      // })
       .addCase(fetchBestSellingProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -114,6 +159,7 @@ export const productSlice = createSlice({
         state.loading = true;
         state.error = action.payload;
       })
+      //------------------------------------------- fetch best selling products
       .addCase(fetchSimillarProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -126,6 +172,7 @@ export const productSlice = createSlice({
         state.loading = true;
         state.error = action.payload;
       })
+      //------------------------------------------- fetch simillar products
       .addCase(fetchNewArrivalsProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -138,6 +185,7 @@ export const productSlice = createSlice({
         state.loading = true;
         state.error = action.payload;
       })
+      //------------------------------------------- fetch new arrival products
       .addCase(fetchBestSellingForEachCategory.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -150,6 +198,7 @@ export const productSlice = createSlice({
         state.loading = true;
         state.error = action.payload;
       });
+      //-------------------------------------------fetch best selling products
   },
 });
 
