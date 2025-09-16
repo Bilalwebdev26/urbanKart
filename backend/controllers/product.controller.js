@@ -48,7 +48,7 @@ export const showProductsbyCategory = async (req, res) => {
 
 export const showProductId = async (req, res) => {
   try {
-    console.log("Backend Api Hit Product id")
+    console.log("Backend Api Hit Product id");
     const product = await Product.findById(req.params.id);
     if (!product) {
       return res.status(404).json({ message: "Product Not Found" });
@@ -175,7 +175,9 @@ export const showFlashSalesProducts = async (req, res) => {
     let filter = {
       percentOff: { $gte: 25 },
     };
-    const saleProducts = await Product.find(filter).sort({ percentOff:-1,numReviews: -1 }).limit(8);
+    const saleProducts = await Product.find(filter)
+      .sort({ percentOff: -1, numReviews: -1 })
+      .limit(8);
     if (saleProducts.length <= 0) {
       return res.status(400).json({ message: "No Sale product available" });
     }
