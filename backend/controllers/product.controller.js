@@ -48,7 +48,7 @@ export const showProductsbyCategory = async (req, res) => {
 
 export const showProductId = async (req, res) => {
   try {
-    console.log("Backend Api Hit")
+    console.log("Backend Api Hit Product id")
     const product = await Product.findById(req.params.id);
     if (!product) {
       return res.status(404).json({ message: "Product Not Found" });
@@ -84,7 +84,7 @@ export const showSimillarProduct = async (req, res) => {
         },
       },
       {
-        $limit: 4,
+        $limit: 8,
       },
     ]);
     return res.status(200).json({ message: "Similar Products Show", products });
