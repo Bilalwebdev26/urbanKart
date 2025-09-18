@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteAllCart,
   deleteProductFromCart,
   fetchCartProducts,
   updateQuantity,
@@ -117,17 +118,38 @@ const Cart = () => {
     }
     console.log("ID : ", product.productId);
     dispatch(
-      deleteProductFromCart({id:product.productId, size:product.size, color:product.color})
+      deleteProductFromCart({
+        id: product.productId,
+        size: product.size,
+        color: product.color,
+      })
     );
     dispatch(fetchCartProducts());
   };
+  const handleDeleteAllCart = () => {
+    if (cart?.products?.length < 1) {
+      toast.error("No Product Available in cart.")
+    }
+    dispatch(deleteAllCart());
+  };
   return (
     <div className="poppins-font">
-      <div className="flex items-center gap-2 my-2">
-        <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
-        <h3 className="text-red-500 text-sm poppins-font font-semibold">
-          Cart Products Detail
-        </h3>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 my-2">
+          <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
+          <h3 className="text-red-500 text-sm poppins-font font-semibold">
+            Cart Products Detail
+          </h3>
+        </div>
+        <div className="flex items-center justify-center">
+          <button
+            onClick={() => handleDeleteAllCart()}
+            className="flex flex-row items-center justify-center gap-2 px-2 py-1 border border-red-400 hover:scale-95 duration-200 transition-all cursor-pointer rounded"
+          >
+            <Trash2 className="text-red-500 w-5 h-5 inline-block" />
+            <span className="text-red-400">Delete All</span>
+          </button>
+        </div>
       </div>
 
       <div className="w-full overflow-x-auto">
@@ -202,44 +224,42 @@ const Cart = () => {
                       })}
                     </TableCell>
                     <TableCell>
-                     
-                        <div className="relative">
-                          <Input
-                            type="number"
-                            value={c.quantity}
-                            onChange={(e) =>
-                              dispatch(
-                                updateQuantity({
-                                  quantity: Number(e.target.value),
-                                  size: c.size,
-                                  color: c.color,
-                                  ProductId: c.productId,
-                                })
-                              )
-                            }
-                            className="w-12 md:w-20 pr-1 lg:pr-5 text-start"
-                          />
+                      <div className="relative">
+                        <Input
+                          type="number"
+                          value={c.quantity}
+                          onChange={(e) =>
+                            dispatch(
+                              updateQuantity({
+                                quantity: Number(e.target.value),
+                                size: c.size,
+                                color: c.color,
+                                ProductId: c.productId,
+                              })
+                            )
+                          }
+                          className="w-12 md:w-20 pr-1 lg:pr-5 text-start"
+                        />
 
-                          <div className="absolute inset-y-0 right-0 flex flex-col justify-center">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-5 w-5 p-0"
-                              onClick={() => increaseProductQuantity(c)}
-                            >
-                              <ChevronUp className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-5 w-5 p-0"
-                              onClick={() => decreaseProductQuantity(c)}
-                            >
-                              <ChevronDown className="h-4 w-4" />
-                            </Button>
-                          </div>
+                        <div className="absolute inset-y-0 right-0 flex flex-col justify-center">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-5 w-5 p-0"
+                            onClick={() => increaseProductQuantity(c)}
+                          >
+                            <ChevronUp className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-5 w-5 p-0"
+                            onClick={() => decreaseProductQuantity(c)}
+                          >
+                            <ChevronDown className="h-4 w-4" />
+                          </Button>
                         </div>
-                    
+                      </div>
                     </TableCell>
                     <TableCell className="font-semibold text-xs lg:text-base text-red-500">
                       {(c.price * c.quantity).toLocaleString("en-US", {

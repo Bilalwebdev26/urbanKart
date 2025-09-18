@@ -50,6 +50,24 @@ export const updateQuantity = createAsyncThunk(
     }
   }
 );
+export const deleteAllCart = createAsyncThunk(
+  "cart/deleteallcart",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/deleteAll`,
+        {
+          withCredentials: true,
+        }
+      );
+      return res.data.cart;
+    } catch (error) {
+      return rejectWithValue(
+        error.resposne.data || "Error while deleting Cart"
+      );
+    }
+  }
+);
 export const deleteProductFromCart = createAsyncThunk(
   "cart/deleteProductFromCart",
   async ({ id, size, color }, { rejectWithValue }) => {
@@ -70,6 +88,7 @@ export const deleteProductFromCart = createAsyncThunk(
     }
   }
 );
+
 //create slice
 
 export const cartSlice = createSlice({
@@ -115,6 +134,19 @@ export const cartSlice = createSlice({
         state.updating = false;
       })
       .addCase(deleteProductFromCart.rejected, (state, action) => {
+        state.updating = false;
+        state.error = action.payload;
+      })
+      //delete all cart
+      .addCase(deleteAllCart.pending, (state) => {
+        state.updating = true;
+        state.error = null;
+      })
+      .addCase(deleteAllCart.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.updating = false;
+      })
+      .addCase(deleteAllCart.rejected, (state, action) => {
         state.updating = false;
         state.error = action.payload;
       });

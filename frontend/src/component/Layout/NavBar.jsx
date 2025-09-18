@@ -17,8 +17,10 @@ import { logout } from "../../redux/Client/auth.store";
 import Loading from "../Common/Loading";
 import toast from "react-hot-toast";
 import { toggleSideBar } from "@/redux/Client/sideBar.store";
+import { fetchCartProducts } from "@/redux/Client/cart.store";
 const NavBar = ({ isScrolled }) => {
   const { user, loading } = useSelector((state) => state.auth);
+  const { cart,loading:cartloading } = useSelector((state) => state.cart);
   const{setHam}= useSelector((state)=>state.sidebar)
   const [onProfile, setOnProfile] = useState(false);
   // const [setHam, setHamMenu] = useState(false);
@@ -56,7 +58,10 @@ const NavBar = ({ isScrolled }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onProfile]);
-
+  useEffect(()=>{
+    dispatch(fetchCartProducts())
+  },[dispatch])
+console.log("Cart Nav : ",cart)
   return (
     <div
       className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
@@ -169,7 +174,7 @@ const NavBar = ({ isScrolled }) => {
                 />
               </Link>
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
-                5
+                {cart?.products?.length || 0}
               </span>
             </div>
             {/* profile */}
