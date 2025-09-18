@@ -38,7 +38,7 @@ const App = () => {
         <Route element={<HomeLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/wishlist" element={<WishList />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/user/cart" element={<Cart />} />
           <Route
             path="/signin"
             element={!user ? <SignIn /> : <Navigate to={"/"} />}

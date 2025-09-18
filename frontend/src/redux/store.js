@@ -3,6 +3,7 @@ import userStore from "./Client/auth.store"
 import productStore from "./Client/product.store"
 import sidebarStore from "./Client/sideBar.store"
 import wishlistStore from "./Client/wishlist.store"
+import cartStore from "./Client/cart.store"
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
      product:productStore,
      sidebar:sidebarStore,
      wishlist:wishlistStore,
+     cart:cartStore
   },
 });

@@ -161,7 +161,7 @@ const NavBar = ({ isScrolled }) => {
             </Link> */}
             {/* cart */}
             <div className="relative">
-              <Link to="/cart">
+              <Link to="/user/cart">
                 <AiOutlineShoppingCart
                   className={`transition-all duration-300${
                     isScrolled ? "text-3xl" : "text-2xl"

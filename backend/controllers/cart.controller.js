@@ -74,7 +74,8 @@ export const addProductInCart = async (req, res) => {
 };
 export const updateQunatity = async (req, res) => {
   const { quantity, size, color } = req.body;
-  if (quantity < 1) {
+  console.log(req.body)
+  if (isNaN(quantity) || quantity < 1) {
     return res
       .status(400)
       .json({ message: "Product quantity should be valid." });
@@ -165,6 +166,7 @@ export const removeProductFromCart = async (req, res) => {
   }
 };
 export const showAll = async (req, res) => {
+  console.log("Cart call");
   try {
     const cart = await Cart.findOne({ user: req.user._id });
     if (!cart) {
