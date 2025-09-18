@@ -10,12 +10,12 @@ import WebFeature from "../Common/WebFeature";
 import { FaArrowUp } from "react-icons/fa";
 
 const Home = () => {
-  const scrollTop = ()=>{
+  const scrollTop = () => {
     window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    })
-  }
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="">
       <Banner />
@@ -34,9 +34,12 @@ const Home = () => {
       {/* Features of web  */}
       <WebFeature />
       {/*  */}
-      <div onClick={scrollTop} className="bg-black h-12 w-12 lg:h-20 lg:w-20 flex items-center justify-center rounded-full cursor-pointer">
+      <div
+        onClick={scrollTop}
+        className="bg-black h-12 w-12 lg:h-20 lg:w-20 flex items-center justify-center rounded-full cursor-pointer"
+      >
         <button>
-          <FaArrowUp className="text-white w-8 h-8 lg:w-10 lg:h-10 cursor-pointer"/>
+          <FaArrowUp className="text-white w-8 h-8 lg:w-10 lg:h-10 cursor-pointer" />
         </button>
       </div>
     </div>
