@@ -235,17 +235,17 @@ const Account = () => {
             {/* Icon */}
             <div className="mb-6">
               <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <svg 
-                  className="w-10 h-10 text-white" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-10 h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   />
                 </svg>
               </div>
@@ -255,10 +255,11 @@ const Account = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
               Account Access Required
             </h2>
-            
+
             {/* Description */}
             <p className="text-gray-600 mb-8 text-sm md:text-base leading-relaxed">
-              Please login to access your profile, orders, wishlist, and manage your account settings.
+              Please login to access your profile, orders, wishlist, and manage
+              your account settings.
             </p>
 
             {/* Login Button */}
@@ -271,8 +272,8 @@ const Account = () => {
             {/* Sign Up Link */}
             <div className="text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link 
-                to="/signup" 
+              <Link
+                to="/signup"
                 className="text-black font-semibold lg:cursor-pointer hover:underline transition-colors duration-200"
               >
                 Sign Up Here
