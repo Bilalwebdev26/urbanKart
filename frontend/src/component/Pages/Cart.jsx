@@ -279,7 +279,12 @@ const Cart = () => {
                     </TableCell>
 
                     <TableCell className="text-xs lg:text-base font-semibold text-red-500 text-center">
-                      {c.price}
+                      {c.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
                     </TableCell>
                     <TableCell>
                       <button className="">
@@ -297,7 +302,7 @@ const Cart = () => {
                                 })
                               )
                             }
-                            className="w-12 md:w-20 pr-5 text-center"
+                            className="w-12 md:w-20 pr-1 lg:pr-5 text-start"
                           />
 
                           <div className="absolute inset-y-0 right-0 flex flex-col justify-center">
@@ -325,6 +330,8 @@ const Cart = () => {
                       {(c.price * c.quantity).toLocaleString("en-US", {
                         style: "currency",
                         currency: "USD",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
                       })}
                     </TableCell>
                     <TableCell className="font-semibold text-xs lg:text-base text-red-500">
@@ -344,9 +351,11 @@ const Cart = () => {
                 Sub-Total
               </TableCell>
               <TableCell className="">
-                {cart.totalPrice.toLocaleString("en-US", {
+                {(cart.totalPrice || 0).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
                 })}
               </TableCell>
             </TableRow>
