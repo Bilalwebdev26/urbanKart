@@ -3,7 +3,7 @@ import axios from "axios";
 const initialState = {
   cart: {},
   error: null,
-  updating:false,
+  updating: false,
   loading: false,
 };
 //actions
@@ -28,13 +28,11 @@ export const fetchCartProducts = createAsyncThunk(
 );
 export const updateQuantity = createAsyncThunk(
   "cart/updateQuantity",
-  async ({ quantity, size, color, productId:id }, { rejectWithValue }) => {
-    console.log("Product Id ",id )
+  async ({ quantity, size, color, productId: id }, { rejectWithValue }) => {
+    console.log("Product Id ", id);
     try {
       const res = await axios.put(
-        `${
-          import.meta.env.VITE_BACKEND_URL
-        }/api/v1/cart/updatequantity/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/updatequantity/${id}`,
         {
           quantity,
           size,
@@ -52,6 +50,26 @@ export const updateQuantity = createAsyncThunk(
     }
   }
 );
+export const deleteProductFromCart = createAsyncThunk(
+  "cart/deleteProductFromCart",
+  async ({ id, size, color }, { rejectWithValue }) => {
+    console.log("ID : ", id);
+    try {
+      const res = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/deleteproduct/${id}`,
+        {
+          data: { size, color }, // 👈 body yahan bhejo
+          withCredentials: true, // 👈 cookie/session ke liye
+        }
+      );
+      return res.data.cart;
+    } catch (error) {
+      return rejectWithValue(
+        error.resposne.data || "Error while deleting Product"
+      );
+    }
+  }
+);
 //create slice
 
 export const cartSlice = createSlice({
@@ -61,7 +79,7 @@ export const cartSlice = createSlice({
   extraReducers: (builder) => {
     //cases -> addCase
     builder
-    //display All Cart Products
+      //display All Cart Products
       .addCase(fetchCartProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -75,7 +93,7 @@ export const cartSlice = createSlice({
         state.error = action.payload;
       })
       //Updating Cart Quantity
-        .addCase(updateQuantity.pending, (state) => {
+      .addCase(updateQuantity.pending, (state) => {
         state.updating = true;
         state.error = null;
       })
@@ -87,6 +105,19 @@ export const cartSlice = createSlice({
         state.updating = false;
         state.error = action.payload;
       })
+      //delere Product from Cart
+      .addCase(deleteProductFromCart.pending, (state) => {
+        state.updating = true;
+        state.error = null;
+      })
+      .addCase(deleteProductFromCart.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.updating = false;
+      })
+      .addCase(deleteProductFromCart.rejected, (state, action) => {
+        state.updating = false;
+        state.error = action.payload;
+      });
   },
 });
 export const {} = cartSlice.actions;
