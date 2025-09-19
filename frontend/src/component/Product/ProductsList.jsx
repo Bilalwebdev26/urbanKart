@@ -142,6 +142,7 @@ const ProductsList = ({ products, scrollRef, loading }) => {
   const [prod, setProd] = useState({
     size: "S",
     color: "",
+    productId: "",
   });
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
@@ -192,9 +193,9 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                     Log in now to save your favorite items in your wishlist.
                   </p>
                 </div>
-                 <p className="md:hidden flex md:mt-1 text-xs md:text-sm text-gray-500">
-                   Login to update wishlist Products.
-                  </p>
+                <p className="md:hidden flex md:mt-1 text-xs md:text-sm text-gray-500">
+                  Login to update wishlist Products.
+                </p>
               </div>
             </div>
           </div>
@@ -363,9 +364,11 @@ const ProductsList = ({ products, scrollRef, loading }) => {
 
                     {/* Info */}
                     <div className="p-2 md:p-4 poppins-font">
-                      <h3 className="text-sm font-semibold text-gray-800 line-clamp-1">
-                        {product.name}
-                      </h3>
+                      <Link to={`/product/${product._id}`}>
+                        <h3 className="text-sm font-semibold hover:underline text-gray-800 line-clamp-1">
+                          {product.name}
+                        </h3>
+                      </Link>
                       <div className="flex gap-4 items-center">
                         <p className="text-red-500 text-lg font-medium">
                           ${product.price}
@@ -384,8 +387,17 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                         {product.color.map((c, index) => (
                           <button
                             key={index}
-                            className="w-3 h-3  border-1 border-black"
+                            className={`w-7 h-7 rounded-full overflow-hidden ${(prod.productId === product._id && prod.color === c)?"border-black border-2":"border-gray-400 border-1"}`}
                             style={{ backgroundColor: c }}
+                             onClick={() =>
+                              setProd(
+                                (prev) => ({
+                                  ...prev,
+                                  productId: product._id,
+                                  color: c,
+                                })
+                              )
+                            }
                           ></button>
                         ))}
                       </div>
@@ -394,8 +406,20 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                         {product.size.map((c, index) => (
                           <button
                             key={index}
-                            className="px-2 py-1 text-xs border-1 border-black"
-                            onClick={() => setProd()}
+                            className={`px-2 py-1 text-xs border-1 overflow-hidden border-black ${
+                              prod.productId === product._id && c === prod.size
+                                ? "bg-black text-white"
+                                : ""
+                            }`}
+                            onClick={() =>
+                              setProd(
+                                (prev) => ({
+                                  ...prev,
+                                  productId: product._id,
+                                  size: c,
+                                })
+                              )
+                            }
                           >
                             {c}
                           </button>

@@ -5,6 +5,7 @@ const initialState = {
   error: null,
   updating: false,
   loading: false,
+  addcartLoading:false
 };
 //actions
 export const fetchCartProducts = createAsyncThunk(
@@ -88,6 +89,29 @@ export const deleteProductFromCart = createAsyncThunk(
     }
   }
 );
+export const addProductInCart = createAsyncThunk(
+  "cart/addProductInCart",
+  async ({ size, color, quantity, id }, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/addproduct/${id}`,
+        {
+          size,
+          color,
+          quantity,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      return res.data.cart
+    } catch (error) {
+      return rejectWithValue(
+        error.resposne.data || "Error while Adding Product in cart."
+      );
+    }
+  }
+);
 
 //create slice
 
@@ -149,7 +173,20 @@ export const cartSlice = createSlice({
       .addCase(deleteAllCart.rejected, (state, action) => {
         state.updating = false;
         state.error = action.payload;
-      });
+      })
+      //Add Product in  cart
+      .addCase(addProductInCart.pending, (state) => {
+        state.addcartLoading = true;
+        state.error = null;
+      })
+      .addCase(addProductInCart.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.addcartLoading = false;
+      })
+      .addCase(addProductInCart.rejected, (state, action) => {
+        state.addcartLoading = false;
+        state.error = action.payload;
+      })
   },
 });
 export const {} = cartSlice.actions;

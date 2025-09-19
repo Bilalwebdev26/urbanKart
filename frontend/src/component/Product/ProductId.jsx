@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Stars from "../Common/Stars";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Heart, Loader, ShoppingCart } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { Truck } from "lucide-react";
 import axios from "axios";
@@ -18,6 +18,7 @@ import {
   fetchSimillarProducts,
 } from "@/redux/Client/product.store";
 import ProductsList from "./ProductsList";
+import { addProductInCart } from "@/redux/Client/cart.store";
 
 const ProductId = () => {
   //productById
@@ -26,14 +27,11 @@ const ProductId = () => {
   const dispatch = useDispatch();
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
-  // const {
-  //   productId: product,
-  //   loading,
-  //   error,
-  // } = useSelector((state) => state.product);
-  // const { simillarProducts, loading: productLoading } = useSelector(
-  //   (state) => state.product
-  // );
+  const {
+    cart,
+    addcartLoading,
+    error: cartError,
+  } = useSelector((state) => state.cart);
   const {
     productId: product,
     loading,
@@ -209,6 +207,32 @@ const ProductId = () => {
   const setHandleColor = (col) => {
     setColor(col);
   };
+  const addToCartProduct = (id) => {
+    if (!id) {
+      toast.error("Id required");
+    }
+    if (!user) {
+      toast.error("Login Required");
+      navigate(`/signin?redirect=product/${id}`);
+    } else {
+      if (!colorP) {
+        toast.error("Select Color");
+      } else if (!sizeP) {
+        toast.error("Select Size");
+      } else {
+        dispatch(
+          addProductInCart({
+            size: sizeP,
+            color: colorP,
+            quantity,
+            id,
+          })
+        )
+          .unwrap()
+          .then(() => toast.success("SuccessFully Added To cart."));
+      }
+    }
+  };
   // if (loading) {
   //   return <LoadingSpinner />;
   // }
@@ -221,10 +245,10 @@ const ProductId = () => {
   return (
     <div className="w-full">
       <Toaster position="top-right" reverseOrder={false} />
-       <div className="flex items-center gap-2 my-2">
+      <div className="flex items-center gap-2 my-2">
         <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
         <h3 className="text-red-500 text-sm poppins-font font-semibold">
-           Product Detail
+          Product Detail
         </h3>
       </div>
       {loading ? (
@@ -382,12 +406,34 @@ const ProductId = () => {
                     Buy Now
                   </button>
                   <div className="">
-                    <button className="bg-black hidden lg:flex items-center gap-2 text-white px-2  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
-                      <ShoppingCart className="size-5" />
-                      <span className="text-sm">Add To Cart</span>
+                    <button
+                      onClick={() => addToCartProduct(product._id)}
+                      className="bg-black hidden lg:flex items-center gap-2 text-white px-2  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200"
+                    >
+                      {addcartLoading ? (
+                        <>
+                          <Loader className="size-6 text-center animate-spin mx-11" />
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="size-5" />
+                          <span className="text-sm">Add To Cart</span>
+                        </>
+                      )}
                     </button>
-                    <button className="bg-black flex items-center gap-2 lg:hidden text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
-                      <ShoppingCart className="size-5" />
+                    <button
+                      onClick={() => addToCartProduct(product._id)}
+                      className="bg-black flex items-center gap-2 lg:hidden text-white px-4  lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200"
+                    >
+                      {addcartLoading ? (
+                        <>
+                          <Loader className="size-5 text-center animate-spin" />
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="size-5" />
+                        </>
+                      )}
                     </button>
                     {/* <button className="bg-black text-white text-xs px-2 lg:px-4 lg:h-10 h-9 rounded-sm py-1 text-center cursor-pointer hover:scale-95 transition-all duration-200">
                   Add to Cart

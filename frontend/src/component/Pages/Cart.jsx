@@ -128,7 +128,7 @@ const Cart = () => {
   };
   const handleDeleteAllCart = () => {
     if (cart?.products?.length < 1) {
-      toast.error("No Product Available in cart.")
+      toast.error("No Product Available in cart.");
     }
     dispatch(deleteAllCart());
   };
@@ -191,16 +191,7 @@ const Cart = () => {
                     </TableRow>
                   ))
               : cart?.products?.map((c) => (
-                  <TableRow key={c.productId}>
-                    {/* <TableCell className="max-w-[50px] max-h-[50px] ">
-                      <div className="h-full w-full lg:h-full lg:w-full bg-gray-100 rounded-md flex items-center justify-center">
-                        <img
-                          src={c.images}
-                          className="w-full h-20 object-center object-contain"
-                          alt=""
-                        />
-                      </div>
-                    </TableCell> */}
+                  <TableRow key={`${c.productId}-${c.size}-${c.color}`}>
                     <TableCell className="w-[60px] h-[60px] p-2">
                       <div className="w-[50px] h-[50px] bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
                         <img
@@ -296,6 +287,15 @@ const Cart = () => {
             </TableRow>
           </TableFooter>
         </Table>
+      </div>
+      <div className="flex items-center justify-between gap-2 my-3">
+        <div className="flex items-center gap-2 px-1 py-3 md:p-3 border rounded">
+          <input type="text" placeholder="Enter Coupon Code" className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 border border-black rounded "/>
+          <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">Apply Coupon</button>
+        </div>
+        <div className="">
+          <button className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">Checkout</button>
+        </div>
       </div>
     </div>
   );

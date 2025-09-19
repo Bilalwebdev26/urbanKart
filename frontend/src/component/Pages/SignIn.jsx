@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { Eye, EyeOff, AlertCircle, CheckCircle, Loader } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/Client/auth.store";
@@ -13,6 +13,7 @@ const SignIn = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const emailValidation = (email) => {
     if (!email) return "Email is Required.";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -59,8 +60,13 @@ const SignIn = () => {
       dispatch(login({ email, password }))
         .unwrap()
         .then(() => {
-          navigate("/");
-        })
+          const getUrl = searchParams.get("redirect") || "/";
+          if (getUrl !== "/") {
+            navigate(`/${getUrl}`);
+          }else{
+            navigate("/");
+          }
+        });
     }
   };
   return (
