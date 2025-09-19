@@ -10,5 +10,8 @@ const initialState = {
 const checkoutSlice = createSlice({
     name:"checkout",
     initialState,
-    reducer:{}
+    reducer:{},
+    extraReducers:(builder)=>{
+        
+    }
 })

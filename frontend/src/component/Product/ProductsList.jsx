@@ -134,13 +134,14 @@ import {
 } from "@/redux/Client/wishlist.store";
 import toast from "react-hot-toast";
 import { userProfile } from "@/redux/Client/auth.store";
+import { addProductInCart } from "@/redux/Client/cart.store";
 
 const ProductsList = ({ products, scrollRef, loading }) => {
   console.log("list : ", products);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [prod, setProd] = useState({
-    size: "S",
+    size: "",
     color: "",
     productId: "",
   });
@@ -227,7 +228,38 @@ const ProductsList = ({ products, scrollRef, loading }) => {
     dispatch(getWishListProducts());
   }, [dispatch, wishlist?.length]);
   console.log("Wishlist O/A? : ", wishlist);
+  console.log("Prod : ", prod);
   // Skeleton Loader
+  const handleAddToCart = (id) => {
+    if (!user) {
+      toast.error("Login Required");
+      return;
+    }
+
+    if (prod.productId !== id) {
+      toast.error("Please select this product's size & color");
+      return;
+    }
+    if (!prod.color) {
+      toast.error("Color required");
+      return;
+    }
+    if (!prod.size) {
+      toast.error("Size required");
+      return;
+    }
+    dispatch(
+      addProductInCart({
+        size: prod.size,
+        color: prod.color,
+        quantity: 1,
+        id,
+      })
+    );
+
+    setProd({ size: "", color: "", productId: "" }); // reset after adding
+  };
+
   const SkeletonCard = () => (
     <div className="min-w-[180px] md:min-w-[250px] bg-white rounded-lg shadow-md animate-pulse">
       <div className="relative h-48 bg-gray-200 rounded-t-lg"></div>
@@ -387,15 +419,22 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                         {product.color.map((c, index) => (
                           <button
                             key={index}
-                            className={`w-7 h-7 rounded-full overflow-hidden ${(prod.productId === product._id && prod.color === c)?"border-black border-2":"border-gray-400 border-1"}`}
+                            className={`w-7 h-7 rounded-full overflow-hidden ${
+                              prod.productId === product._id && prod.color === c
+                                ? "border-black border-2"
+                                : "border-gray-400 border-1"
+                            }`}
                             style={{ backgroundColor: c }}
-                             onClick={() =>
+                            onClick={() =>
                               setProd(
-                                (prev) => ({
-                                  ...prev,
-                                  productId: product._id,
-                                  color: c,
-                                })
+                                (prev) =>
+                                  prev.productId === product._id
+                                    ? { ...prev, color: c } // same product => update only color
+                                    : {
+                                        productId: product._id,
+                                        color: c,
+                                        size: "",
+                                      } // new product => reset size
                               )
                             }
                           ></button>
@@ -413,11 +452,14 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                             }`}
                             onClick={() =>
                               setProd(
-                                (prev) => ({
-                                  ...prev,
-                                  productId: product._id,
-                                  size: c,
-                                })
+                                (prev) =>
+                                  prev.productId === product._id
+                                    ? { ...prev, size: c } // same product => update only color
+                                    : {
+                                        productId: product._id,
+                                        color: "",
+                                        size: c,
+                                      } // new product => reset size
                               )
                             }
                           >
@@ -426,7 +468,10 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                         ))}
                       </div>
                       <div className="">
-                        <button className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150">
+                        <button
+                          onClick={() => handleAddToCart(product._id)}
+                          className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150"
+                        >
                           <span>
                             <FaBucket />
                           </span>
