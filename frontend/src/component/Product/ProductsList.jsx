@@ -1,116 +1,3 @@
-// import React from "react";
-// import { FaRegHeart } from "react-icons/fa";
-// import { IoEyeOutline } from "react-icons/io5";
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
-// import Stars from "../Common/Stars";
-// const ProductsList = ({ products, scrollRef }) => {
-//   console.log("list : ", products);
-//   return (
-//     <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
-//       <div className="flex gap-4 pb-4">
-//         {products?.map((product) => (
-//           <div
-//             className="min-w-[180px] md:min-w-[250px] bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-//             key={product._id}
-//           >
-//             <div className="">
-//               <div className="relative h-48 overflow-hidden bg-gray-50 rounded-t-lg">
-//                 <img
-//                   src={product.images[0].url}
-//                   alt={product.name}
-//                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
-//                 />
-//                 <div className="absolute top-14 right-2 bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border">
-//                   <div className="">
-//                     <Dialog>
-//                       <DialogTrigger>
-//                         <IoEyeOutline />
-//                       </DialogTrigger>
-//                       <div className="">
-//                         <DialogContent>
-//                           <div className="flex flex-col md:flex-row gap-2">
-//                             <img
-//                               src={product.images[0].url}
-//                               alt={product.name}
-//                               className="w-full h-full md:w-60 md:h-60  mt-2 object-cover object-center hover:scale-105 transition-transform duration-300"
-//                             />
-//                             <div className="mt-2">
-//                               <DialogHeader>
-//                                 <div className="text-start ">
-//                                   <DialogTitle>{product.name}</DialogTitle>
-//                                 </div>
-//                                 <DialogDescription className="text-start line-clamp-3">
-//                                   {product.desc || "Fallback description..."}
-//                                 </DialogDescription>
-
-//                                 {/* <div className="">
-//                                     {product.color.map((c,index)=>(
-//                                       <button className="" key={index}>
-//                                        {c}
-//                                       </button>
-//                                     ))}
-//                                   </div> */}
-//                                 <div className="">
-//                                   <button className="bg-black text-white px-2 py-1">
-//                                     Add to Cart
-//                                   </button>
-//                                 </div>
-//                               </DialogHeader>
-//                             </div>
-//                           </div>
-//                         </DialogContent>
-//                       </div>
-//                     </Dialog>
-//                   </div>
-//                 </div>
-//                 <div className="absolute top-4 right-2 bg-white rounded-full p-1 cursor-pointer transition-all duration-150 hover:scale-110 border">
-//                   <FaRegHeart />
-//                 </div>
-//                 {product.percentOff !== undefined && (
-//                   <div className="absolute top-4 left-4 bg-red-600 text-white p-1 text-sm rounded">
-//                     -{product.percentOff}% OFF
-//                   </div>
-//                 )}
-//               </div>
-//               <div className="p-4 poppins-font">
-//                 <h3 className="text-sm font-semibold text-gray-800 mb-2 line-clamp-1">
-//                   {product.name}
-//                 </h3>
-//                 <div className="flex gap-4 items-center mb-2">
-//                   <p className="text-red-500 text-lg font-medium">
-//                     ${product.price}
-//                   </p>
-//                   {product.percentOff !== undefined && (
-//                     <p className="line-through text-sm text-gray-500 font-light">
-//                       $
-//                       {Math.round(
-//                         product.price / (1 - product.percentOff / 100)
-//                       )}
-//                     </p>
-//                   )}
-//                 </div>
-//                 <div className="flex gap-2 items-center text-sm text-gray-600">
-//                    <Stars stars={product.rating} />
-//                   <p>({product.numReviews})</p>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProductsList;
-
 import React, { useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
@@ -123,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Stars from "../Common/Stars";
-import { CarTaxiFront } from "lucide-react";
+import { CarTaxiFront, Loader } from "lucide-react";
 import { FaBucket } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -137,7 +24,6 @@ import { userProfile } from "@/redux/Client/auth.store";
 import { addProductInCart } from "@/redux/Client/cart.store";
 
 const ProductsList = ({ products, scrollRef, loading }) => {
-  console.log("list : ", products);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [prod, setProd] = useState({
@@ -145,8 +31,10 @@ const ProductsList = ({ products, scrollRef, loading }) => {
     color: "",
     productId: "",
   });
+  const [loadingProductId, setLoadingProductId] = useState(null);
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
+  const { cart, addcartLoading } = useSelector((state) => state.cart);
   const toggleWishlist = async (product) => {
     if (user) {
       const inWishlist =
@@ -227,38 +115,80 @@ const ProductsList = ({ products, scrollRef, loading }) => {
     dispatch(userProfile());
     dispatch(getWishListProducts());
   }, [dispatch, wishlist?.length]);
-  console.log("Wishlist O/A? : ", wishlist);
-  console.log("Prod : ", prod);
   // Skeleton Loader
-  const handleAddToCart = (id) => {
-    if (!user) {
-      toast.error("Login Required");
-      return;
-    }
+  // const handleAddToCart = async(id) => {
+  //   if (!user) {
+  //     toast.error("Login Required");
+  //     return;
+  //   }
 
-    if (prod.productId !== id) {
-      toast.error("Please select this product's size & color");
-      return;
-    }
-    if (!prod.color) {
-      toast.error("Color required");
-      return;
-    }
-    if (!prod.size) {
-      toast.error("Size required");
-      return;
-    }
-    dispatch(
+  //   if (prod.productId !== id) {
+  //     toast.error("Please select this product's size & color");
+  //     return;
+  //   }
+  //   if (!prod.color) {
+  //     toast.error("Color required");
+  //     return;
+  //   }
+  //   if (!prod.size) {
+  //     toast.error("Size required");
+  //     return;
+  //   }
+  //   setLoadingProductId(id)
+  //   try{
+
+  //     await dispatch(
+  //       addProductInCart({
+  //         size: prod.size,
+  //         color: prod.color,
+  //         quantity: 1,
+  //         id,
+  //       })
+  //     );
+  //   }finally{
+  //     setProd({ size: "", color: "", productId: "" }); // reset after adding
+  //     setLoadingProductId(null)
+  //   }
+
+  // };
+  const handleAddToCart = async (id) => {
+  if (!user) {
+    toast.error("Login Required");
+    return;
+  }
+
+  if (prod.productId !== id) {
+    toast.error("Please select this product's size & color");
+    return;
+  }
+  if (!prod.color) {
+    toast.error("Color required");
+    return;
+  }
+  if (!prod.size) {
+    toast.error("Size required");
+    return;
+  }
+
+  setLoadingProductId(id);
+
+  try {
+    await dispatch(
       addProductInCart({
         size: prod.size,
         color: prod.color,
         quantity: 1,
         id,
       })
-    );
-
-    setProd({ size: "", color: "", productId: "" }); // reset after adding
-  };
+    ).unwrap(); // agar redux toolkit asyncThunk use kar rahe ho to unwrap karna best hai
+    toast.success("Product added to cart!");
+  } catch (error) {
+    toast.error("Failed to add product in cart!");
+  } finally {
+    setProd({ size: "", color: "", productId: "" });
+    setLoadingProductId(null);
+  }
+};
 
   const SkeletonCard = () => (
     <div className="min-w-[180px] md:min-w-[250px] bg-white rounded-lg shadow-md animate-pulse">
@@ -472,10 +402,16 @@ const ProductsList = ({ products, scrollRef, loading }) => {
                           onClick={() => handleAddToCart(product._id)}
                           className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150"
                         >
-                          <span>
-                            <FaBucket />
-                          </span>
-                          <p>Add To Cart</p>
+                          {loadingProductId === product._id ? (
+                            <Loader className="text-white size-6 text-center animate-spin" />
+                          ) : (
+                            <>
+                              <span>
+                                <FaBucket />
+                              </span>
+                              <p>Add To Cart</p>
+                            </>
+                          )}
                         </button>
                       </div>
                     </div>

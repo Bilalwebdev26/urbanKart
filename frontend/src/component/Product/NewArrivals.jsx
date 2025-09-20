@@ -202,7 +202,6 @@ const NewArrivals = () => {
   const { newArrivals: products, loading } = useSelector(
     (state) => state.product
   );
-  console.log("New",products)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchNewArrivalsProducts());

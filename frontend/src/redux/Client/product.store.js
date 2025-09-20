@@ -19,7 +19,6 @@ export const fetchSalesProducts = createAsyncThunk(
       const res = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/showsalesproducts`
       );
-      console.log("Res : ", res);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -80,7 +79,6 @@ export const fetchSimillarProducts = createAsyncThunk(
           import.meta.env.VITE_BACKEND_URL
         }/api/v1/product/similarproducts/${id}`
       );
-      console.log("Res.data Simillar : ", res);
       return res.data.products;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -90,15 +88,12 @@ export const fetchSimillarProducts = createAsyncThunk(
 export const fetchProductById = createAsyncThunk(
   "product/fetchProductId",
   async (id, { rejectWithValue }) => {
-    console.log("Api called id")
     try {
       const res = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/${id}`
       );
-      console.log("Here Product Id api hit:", res);
       return res.data.product;
     } catch (error) {
-      console.error("Error fetching product:", error);
       return rejectWithValue(error.response.data);
     }
   }

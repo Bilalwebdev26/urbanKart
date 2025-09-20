@@ -16,7 +16,6 @@ const BestSellingProducts = () => {
   useEffect(() => {
     dispatch(fetchBestSellingProducts());
   }, [dispatch]);
-  console.log("Best Selling : ",products)
   // const products = [
   //   {
   //     _id: "3",

@@ -76,7 +76,6 @@ const WishList = () => {
     dispatch(getWishListProducts());
     dispatch(userProfile());
   }, [dispatch, wishlist.length]);
-  console.log("Wishlist.jsx : ", wishlist);
   const deleteFromWishlist = async (id) => {
     await dispatch(deleteProductFromWishlist(id));
     dispatch(getWishListProducts());

@@ -15,7 +15,6 @@ export const getWishListProducts = createAsyncThunk(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/wishlist/showall`,
         { withCredentials: true }
       );
-      console.log("Data Fetch : ", res.data);
       return res.data.wishlist.products;
     } catch (err) {
       return rejectWithValue(err.response.data);

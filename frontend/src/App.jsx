@@ -18,6 +18,7 @@ import Loading from "./component/Common/Loading";
 import { userProfile } from "./redux/Client/auth.store";
 import { Toaster } from "react-hot-toast";
 import NotFound from "./component/Common/NotFound";
+import Search from "./component/Pages/Search";
 const App = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const location = useLocation();
@@ -47,13 +48,12 @@ const App = () => {
           <Route
             path="/signup"
             element={!user ? <Register /> : <Navigate to="/" />}
-
-            // element={user ? <Navigate to={"/"} /> : <Register />}
           />
           <Route path="/account" element={<Account />} />
           <Route path="/myreviews" element={<MyReviews />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/product/:id" element={<ProductId />} />
+          <Route path="/search" element={<Search/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>

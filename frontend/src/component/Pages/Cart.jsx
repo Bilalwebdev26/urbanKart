@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChevronUp, ChevronDown, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
+import DeleteAll from "../Cart/DeleteAll";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,6 @@ const Cart = () => {
   }, [dispatch]);
   const increaseProductQuantity = (product) => {
     const newQunatity = product.quantity + 1;
-    console.log(product.productId);
     dispatch(
       updateQuantity({
         quantity: newQunatity,
@@ -112,26 +112,39 @@ const Cart = () => {
       })
     );
   };
-  const deleteProduct = (product) => {
+  const deleteProduct = async (product) => {
     if (!product.productId) {
       toast.error("Product Id Not found.");
     }
-    console.log("ID : ", product.productId);
-    dispatch(
-      deleteProductFromCart({
-        id: product.productId,
-        size: product.size,
-        color: product.color,
-      })
+    await toast.promise(
+      dispatch(
+        deleteProductFromCart({
+          id: product.productId,
+          size: product.size,
+          color: product.color,
+        })
+      ),
+      {
+        loading: "Adding to wishlist...",
+        success: <b className="text-green-700">Product SuccessFullt Remove.</b>,
+        error: <b>Could not remove product.</b>,
+      }
     );
+    // dispatch(
+    //   deleteProductFromCart({
+    //     id: product.productId,
+    //     size: product.size,
+    //     color: product.color,
+    //   })
+    // );
     dispatch(fetchCartProducts());
   };
-  const handleDeleteAllCart = () => {
-    if (cart?.products?.length < 1) {
-      toast.error("No Product Available in cart.");
-    }
-    dispatch(deleteAllCart());
-  };
+  // const handleDeleteAllCart = () => {
+  //   if (cart?.products?.length < 1) {
+  //     toast.error("No Product Available in cart.");
+  //   }
+  //   dispatch(deleteAllCart());
+  // };
   return (
     <div className="poppins-font">
       <div className="flex items-center justify-between">
@@ -142,13 +155,14 @@ const Cart = () => {
           </h3>
         </div>
         <div className="flex items-center justify-center">
-          <button
+          <DeleteAll />
+          {/* <button
             onClick={() => handleDeleteAllCart()}
             className="flex flex-row items-center justify-center gap-2 px-2 py-1 border border-red-400 hover:scale-95 duration-200 transition-all cursor-pointer rounded"
           >
             <Trash2 className="text-red-500 w-5 h-5 inline-block" />
             <span className="text-red-400">Delete All</span>
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -290,11 +304,19 @@ const Cart = () => {
       </div>
       <div className="flex items-center justify-between gap-2 my-3">
         <div className="flex items-center gap-2 px-1 py-3 md:p-3 border rounded">
-          <input type="text" placeholder="Enter Coupon Code" className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 border border-black rounded "/>
-          <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">Apply Coupon</button>
+          <input
+            type="text"
+            placeholder="Enter Coupon Code"
+            className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 border border-black rounded "
+          />
+          <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">
+            Apply Coupon
+          </button>
         </div>
         <div className="">
-          <button className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">Checkout</button>
+          <button className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">
+            Checkout
+          </button>
         </div>
       </div>
     </div>

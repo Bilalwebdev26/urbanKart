@@ -60,8 +60,10 @@ const NavBar = ({ isScrolled }) => {
   }, [onProfile]);
   useEffect(()=>{
     dispatch(fetchCartProducts())
-  },[dispatch])
-console.log("Cart Nav : ",cart)
+  },[dispatch,user])
+const handleSearch = ()=>{
+  navigate("/search")
+}
   return (
     <div
       className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
@@ -89,15 +91,15 @@ console.log("Cart Nav : ",cart)
           Home
         </Link>
         {user && (
-          <Link to={"/account"} className="hover:underline">
+          <Link to={"/user/account"} className="hover:underline">
             Profile
           </Link>
         )}
 
-        <Link to={"/cart"} className="hover:underline">
+        <Link to={"/user/cart"} className="hover:underline">
           Cart
         </Link>
-        <Link to={"/wishlist"} className="hover:underline">
+        <Link to={"/user/wishlist"} className="hover:underline">
           Wishlist
         </Link>
         {!user && (
@@ -138,7 +140,7 @@ console.log("Cart Nav : ",cart)
         )}
         {location.pathname !== "/signin" && location.pathname !== "/signup" && (
           <div className="md:hidden">
-            <FaSearch
+            <FaSearch onClick={handleSearch}
               className={`mr-3 font-normal transition-all duration-300 ${
                 isScrolled ? "text-xl" : "text-lg"
               }`}
@@ -192,7 +194,7 @@ console.log("Cart Nav : ",cart)
                   <div className="flex flex-col py-1 space-y-[3px] text-black">
                     {user && (
                       <Link
-                        to={"/account"}
+                        to={"/user/account"}
                         onClick={handleProfilebtn}
                         className="flex items-center gap-2  text-sm hover:bg-gray-100 rounded-md px-2 py-1 hover:scale-105 transition-all"
                       >

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Heart, Eye, ShoppingCart } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Heart, Eye, ShoppingCart, Loader } from "lucide-react";
 import { FaBucket } from "react-icons/fa6";
 import {
   Dialog,
@@ -19,13 +19,24 @@ import {
 } from "@/redux/Client/wishlist.store";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { addProductInCart } from "@/redux/Client/cart.store";
 
 const ProductsCard = ({ list, scrollRef, loading }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   //get wishlist products
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
+  const [prod, setProd] = useState({
+    size: "",
+    color: "",
+    productId: "",
+  });
+  const [loadingProductId, setLoadingProductId] = useState(null);
+  useEffect(() => {
+    dispatch(userProfile());
+    dispatch(getWishListProducts());
+  }, [dispatch, wishlist?.length]);
   const toggleWishlist = async (product) => {
     if (user) {
       const inWishlist =
@@ -102,10 +113,44 @@ const ProductsCard = ({ list, scrollRef, loading }) => {
       ));
     }
   };
-  useEffect(() => {
-    dispatch(userProfile());
-    dispatch(getWishListProducts());
-  }, [dispatch, wishlist?.length]);
+  const handleAddToCart = async (id) => {
+    if (!user) {
+      toast.error("Login Required");
+      return;
+    }
+
+    if (prod.productId !== id) {
+      toast.error("Please select this product's size & color");
+      return;
+    }
+    if (!prod.color) {
+      toast.error("Color required");
+      return;
+    }
+    if (!prod.size) {
+      toast.error("Size required");
+      return;
+    }
+
+    setLoadingProductId(id);
+
+    try {
+      await dispatch(
+        addProductInCart({
+          size: prod.size,
+          color: prod.color,
+          quantity: 1,
+          id,
+        })
+      ).unwrap(); // agar redux toolkit asyncThunk use kar rahe ho to unwrap karna best hai
+      toast.success("Product added to cart!");
+    } catch (error) {
+      toast.error("Failed to add product in cart!");
+    } finally {
+      setProd({ size: "", color: "", productId: "" });
+      setLoadingProductId(null);
+    }
+  };
   // Products ko 2 rows mein divide karna
   const chunkSize = Math.ceil(list.length / 2);
   const firstRow = list.slice(0, chunkSize);
@@ -268,8 +313,24 @@ const ProductsCard = ({ list, scrollRef, loading }) => {
             {product.color.map((c, index) => (
               <button
                 key={index}
-                className="w-3 h-3  border-1 border-black"
+                className={`w-7 h-7 rounded-full overflow-hidden ${
+                  prod.productId === product._id && prod.color === c
+                    ? "border-black border-2"
+                    : "border-gray-400 border-1"
+                }`}
                 style={{ backgroundColor: c }}
+                onClick={() =>
+                  setProd(
+                    (prev) =>
+                      prev.productId === product._id
+                        ? { ...prev, color: c } // same product => update only color
+                        : {
+                            productId: product._id,
+                            color: c,
+                            size: "",
+                          } // new product => reset size
+                  )
+                }
               ></button>
             ))}
           </div>
@@ -278,19 +339,49 @@ const ProductsCard = ({ list, scrollRef, loading }) => {
             {product.size.map((c, index) => (
               <button
                 key={index}
-                className="px-2 py-1 text-xs border-1 border-black"
-                onClick={() => setProd()}
+                className={`px-2 py-1 text-xs border-1 overflow-hidden border-black ${
+                  prod.productId === product._id && c === prod.size
+                    ? "bg-black text-white"
+                    : ""
+                }`}
+                onClick={() =>
+                  setProd(
+                    (prev) =>
+                      prev.productId === product._id
+                        ? { ...prev, size: c } // same product => update only color
+                        : {
+                            productId: product._id,
+                            color: "",
+                            size: c,
+                          } // new product => reset size
+                  )
+                }
               >
                 {c}
               </button>
             ))}
           </div>
           <div className="flex gap-2 items-center text-sm">
-            <button className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150">
+            {/* <button className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150">
               <span>
                 <FaBucket />
               </span>
               <p>Add To Cart</p>
+            </button> */}
+            <button
+              onClick={() => handleAddToCart(product._id)}
+              className="flex items-center justify-center gap-2 bg-black w-full px-2 py-1 text-white rounded md:cursor-pointer transition-all hover:scale-95 duration-150"
+            >
+              {loadingProductId === product._id ? (
+                <Loader className="text-white size-6 text-center animate-spin" />
+              ) : (
+                <>
+                  <span>
+                    <FaBucket />
+                  </span>
+                  <p>Add To Cart</p>
+                </>
+              )}
             </button>
           </div>
         </div>

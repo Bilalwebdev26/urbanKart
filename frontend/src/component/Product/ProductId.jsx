@@ -23,7 +23,6 @@ import { addProductInCart } from "@/redux/Client/cart.store";
 const ProductId = () => {
   //productById
   const { id } = useParams();
-  console.log("Id : ", id);
   const dispatch = useDispatch();
   const { wishListProducts: wishlist } = useSelector((state) => state.wishlist);
   const { user } = useSelector((state) => state.auth);
@@ -39,16 +38,12 @@ const ProductId = () => {
     simillarProducts,
     loading: productLoading,
   } = useSelector((state) => state.product);
-  console.log("Error : ", error);
+
   useEffect(() => {
     dispatch(fetchProductById(id));
     dispatch(fetchSimillarProducts(id));
   }, [dispatch, id]);
-  console.log("Fetch Simillar : ", simillarProducts);
-  console.log("WishList wait: ", wishlist);
-  console.log("Product Id wait: ", product);
   const addWish = wishlist.some((wish) => wish._id === id);
-  console.log("True/False ", addWish);
   useEffect(() => {
     dispatch(getWishListProducts());
   }, [dispatch, wishlist?.length]);
@@ -58,26 +53,7 @@ const ProductId = () => {
   const [sizeP, setSize] = useState(null);
   const scrollRef = useRef();
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const productById = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `${import.meta.env.VITE_BACKEND_URL}/api/v1/product/${id}`
-  //       );
-  //       console.log("Here api hit:", res);
-  //       setProduct(res.data.product);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching product:", error);
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   if (id) {
-  //     productById();
-  //   }
-  // }, [id]);
-  //product img ke liye
+  
   useEffect(() => {
     if (product?.images?.length > 0) {
       setProductIamge(product.images[0].url);

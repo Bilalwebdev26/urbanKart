@@ -87,7 +87,6 @@ const SalePoducts = () => {
   useEffect(() => {
     dispatch(fetchSalesProducts()); // thunk ya api action
   }, [dispatch]);
-  console.log("Sales : ",products)
   const moveLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
