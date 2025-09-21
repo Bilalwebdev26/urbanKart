@@ -20,8 +20,8 @@ import { toggleSideBar } from "@/redux/Client/sideBar.store";
 import { fetchCartProducts } from "@/redux/Client/cart.store";
 const NavBar = ({ isScrolled }) => {
   const { user, loading } = useSelector((state) => state.auth);
-  const { cart,loading:cartloading } = useSelector((state) => state.cart);
-  const{setHam}= useSelector((state)=>state.sidebar)
+  const { cart, loading: cartloading } = useSelector((state) => state.cart);
+  const { setHam } = useSelector((state) => state.sidebar);
   const [onProfile, setOnProfile] = useState(false);
   // const [setHam, setHamMenu] = useState(false);
   const profileRef = useRef(false);
@@ -34,12 +34,16 @@ const NavBar = ({ isScrolled }) => {
   const handleLogoutbtn = () => {
     setOnProfile(!onProfile);
     if (user) {
-      dispatch(logout()).unwrap().then(()=>{toast.success("dddddd")})
+      dispatch(logout())
+        .unwrap()
+        .then(() => {
+          toast.success("dddddd");
+        });
     }
   };
 
   const handleHamburger = () => {
-    dispatch(toggleSideBar())
+    dispatch(toggleSideBar());
   };
   // Close profile dropdown when clicking outside
   useEffect(() => {
@@ -58,12 +62,12 @@ const NavBar = ({ isScrolled }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onProfile]);
-  useEffect(()=>{
-    dispatch(fetchCartProducts())
-  },[dispatch,user])
-const handleSearch = ()=>{
-  navigate("/search")
-}
+  useEffect(() => {
+    dispatch(fetchCartProducts());
+  }, [dispatch, user]);
+  const handleSearch = () => {
+    navigate("/search");
+  };
   return (
     <div
       className={`poppins-font fixed left-0 w-full shadow-md flex items-center justify-between px-2 py-3 md:px-8 border-b z-[60] border-black transition-all duration-500 ease-in-out ${
@@ -140,7 +144,8 @@ const handleSearch = ()=>{
         )}
         {location.pathname !== "/signin" && location.pathname !== "/signup" && (
           <div className="md:hidden">
-            <FaSearch onClick={handleSearch}
+            <FaSearch
+              onClick={handleSearch}
               className={`mr-3 font-normal transition-all duration-300 ${
                 isScrolled ? "text-xl" : "text-lg"
               }`}
@@ -155,8 +160,8 @@ const handleSearch = ()=>{
           >
             {/* wishlist icon */}
             {location.pathname === "/wishlist" ? (
-              <Link to={"/wishlist"} >
-                <FaHeart className="fill-red-500 hover:animate-bounce"/>
+              <Link to={"/wishlist"}>
+                <FaHeart className="fill-red-500 hover:animate-bounce" />
               </Link>
             ) : (
               <Link to={"/wishlist"} className="">
@@ -167,18 +172,19 @@ const handleSearch = ()=>{
               <FaRegHeart />
             </Link> */}
             {/* cart */}
-            <div className="relative">
-              <Link to="/user/cart">
+            <Link to="/user/cart">
+              <div className="relative">
                 <AiOutlineShoppingCart
                   className={`transition-all duration-300${
                     isScrolled ? "text-3xl" : "text-2xl"
                   }`}
                 />
-              </Link>
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
-                {cart?.products?.length || 0}
-              </span>
-            </div>
+
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                  {cart?.products?.length || 0}
+                </span>
+              </div>
+            </Link>
             {/* profile */}
             <div ref={profileRef} className="relative">
               <button
