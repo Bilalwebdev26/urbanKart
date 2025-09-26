@@ -19,6 +19,7 @@ import {
 } from "@/redux/Client/product.store";
 import ProductsList from "./ProductsList";
 import { addProductInCart } from "@/redux/Client/cart.store";
+import ProductReview from "../Review/ProductReview";
 
 const ProductId = () => {
   //productById
@@ -53,7 +54,7 @@ const ProductId = () => {
   const [sizeP, setSize] = useState(null);
   const scrollRef = useRef();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (product?.images?.length > 0) {
       setProductIamge(product.images[0].url);
@@ -444,8 +445,17 @@ const ProductId = () => {
           </div>
         </>
       )}
-
-      {/* Product list */}
+      {/* Product Review Section */}
+      <div className="flex items-center gap-2 mt-4 mb-8">
+        <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
+        <h3 className="text-red-500 text-sm poppins-font font-semibold">
+           Products Reviews
+        </h3>
+      </div>
+      <div className="">
+        <ProductReview />
+      </div>
+      {/* Simillar Product list */}
       <div className="flex items-center gap-2 mt-4 mb-8">
         <div className="w-4 h-8 bg-red-500 rounded-[2px]" />
         <h3 className="text-red-500 text-sm poppins-font font-semibold">
