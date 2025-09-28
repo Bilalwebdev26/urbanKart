@@ -13,7 +13,7 @@ dotenv.config();
 const seedInsert = async () => {
 
   try {
-    await mongoose.connect(`mongodb+srv://bilalaliwdev:DZLNch4cUjFkNiL5@cluster0.osm9sem.mongodb.net/urbanKart`)
+    await mongoose.connect(`${process.env.MONGODB_URI}/urbanKart`)
     // Purane users delete (optional)
     await Product.deleteMany();
 
