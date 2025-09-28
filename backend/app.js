@@ -15,6 +15,7 @@ import adminUserRoutes from "./routes/admin/adminUser.routes.js"
 import adminProductRoutes from "./routes/admin/adminProd.routes.js"
 import adminShippingRoutes from "./routes/admin/shipping.routes.js"
 import adminOrderRoutes from "./routes/admin/adminOrder.routes.js"
+import { requestLogger } from "./middlewares/custom.middleware.js";
 
 dotenv.config();
 app.use(cookieParser())
@@ -23,6 +24,7 @@ app.use(cors({
     credentials:true
 }))
 app.use(express.json())
+app.use(requestLogger)
 //setRoutes
 app.use("/api/v1/auth",userRoutes)
 app.use("/api/v1/product",prodRoutes)

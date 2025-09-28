@@ -16,9 +16,10 @@ import {
   updateProfileValidate,
 } from "../validation/user.validation.js";
 import { checkUserAuth } from "../middlewares/auth.middleware.js";
+import { rateLimter } from "../middlewares/rate-limit.middleare.js";
 const router = express.Router();
-router.post("/login", loginValidate, loginUser);
-router.post("/register", registerValidate, registerUser);
+router.post("/login", loginValidate,rateLimter, loginUser);
+router.post("/register", registerValidate,rateLimter, registerUser);
 router.post("/logout", checkUserAuth, logoutUser);
 router.get("/profile", checkUserAuth, userProfile);
 router.put(
