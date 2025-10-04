@@ -1,8 +1,11 @@
 import React from 'react'
-
+import { Routes, Route, Link } from "react-router";
+import Home from './Components/Dashboard/Home.jsx';
 const App = () => {
   return (
-    <div>App</div>
+   <Routes>
+    <Route path="/" element={<Home/>}/>
+   </Routes>
   )
 }
 
