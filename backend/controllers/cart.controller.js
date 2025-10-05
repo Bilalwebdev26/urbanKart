@@ -74,7 +74,7 @@ export const addProductInCart = async (req, res) => {
 };
 export const updateQunatity = async (req, res) => {
   const { quantity, size, color } = req.body;
-  console.log(req.body)
+  console.log(req.body);
   if (isNaN(quantity) || quantity < 1) {
     return res
       .status(400)
