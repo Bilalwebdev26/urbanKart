@@ -41,8 +41,4 @@ app.use("/admin/order",adminOrderRoutes)//Admin Order Charges
 app.get("/",(req,res)=>{
     res.send("urbanKart")
 })
-//global error handler
-app.use("*",(req,res,next)=>{
-    res.status(404).json({message:"Invalid route"})
-})
 export default app;
