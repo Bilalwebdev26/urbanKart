@@ -46,6 +46,19 @@
     line-height: 1.4rem;
     max-height: 2.8rem; /* 1.4rem x 2 lines */
   }
+  .checkout-label{
+     font-size: small;
+  }
+ .checkout-input {
+  background-color: #f3f4f6; /* bg-gray-400 */
+  padding-left: 0.5rem;     /* px-2 */
+  padding-right: 0.5rem;
+  padding-top: 0.75rem;     /* py-1 */
+  padding-bottom: 0.75rem;
+  outline: none;            /* outline-none */
+  border-radius: 0.125rem;  /* rounded-sm */
+}
+
   @keyframes slide-in-right {
     0% {
       transform: translateX(100%);

@@ -19,6 +19,7 @@ import { userProfile } from "./redux/Client/auth.store";
 import { Toaster } from "react-hot-toast";
 import NotFound from "./component/Common/NotFound";
 import Search from "./component/Pages/Search";
+import Checkout from "./component/Pages/Checkout";
 const App = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const location = useLocation();
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/account" element={<Account />} />
           <Route path="/myreviews" element={<MyReviews />} />
           <Route path="/myorders" element={<MyOrders />} />
+          <Route path="/user/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductId />} />
           <Route path="/search" element={<Search/>}/>
           <Route path="*" element={<NotFound/>}/>
