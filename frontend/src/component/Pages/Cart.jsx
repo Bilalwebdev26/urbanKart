@@ -21,9 +21,11 @@ import { Input } from "@/components/ui/input";
 import { ChevronUp, ChevronDown, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import DeleteAll from "../Cart/DeleteAll";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const {
     cart,
     loading: cartLoading,
@@ -307,14 +309,14 @@ const Cart = () => {
           <input
             type="text"
             placeholder="Enter Coupon Code"
-            className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 border border-black rounded "
+            className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-2 border border-black rounded "
           />
           <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">
             Apply Coupon
           </button>
         </div>
         <div className="">
-          <button className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">
+          <button onClick={()=>navigate("/user/checkout")} className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">
             Checkout
           </button>
         </div>

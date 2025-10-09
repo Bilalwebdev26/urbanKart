@@ -4,6 +4,8 @@ import productStore from "./Client/product.store"
 import sidebarStore from "./Client/sideBar.store"
 import wishlistStore from "./Client/wishlist.store"
 import cartStore from "./Client/cart.store"
+import shippingCart from "./Client/shipping.store"
+import checkoutSlice from "./Client/checkout.store"
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +13,8 @@ export const store = configureStore({
      product:productStore,
      sidebar:sidebarStore,
      wishlist:wishlistStore,
-     cart:cartStore
+     cart:cartStore,
+     shipping:shippingCart,
+     checkout:checkoutSlice
   },
 });
