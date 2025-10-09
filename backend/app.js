@@ -24,7 +24,7 @@ app.use(cors({
     credentials:true
 }))
 app.use(express.json())
-app.use(requestLogger)
+// app.use(requestLogger)
 //setRoutes
 app.use("/api/v1/auth",userRoutes)
 app.use("/api/v1/product",prodRoutes)
