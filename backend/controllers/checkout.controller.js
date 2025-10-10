@@ -4,6 +4,7 @@ import { Order } from "../models/order.model.js";
 import { Cart } from "../models/cart.model.js";
 export const createCheckout = async (req, res) => {
   const { shippingAddress, products, subTotal, paymentMethod } = req.body;
+  console.log("Req.body : ",shippingAddress, products, subTotal, paymentMethod)
   try {
     const shippingPrice = await Shipping.findOne({});
     const finalAmount = subTotal + (shippingPrice.shippingCharges || 0);
@@ -53,6 +54,7 @@ export const bankPay = async (req, res) => {
 };
 export const cashOnDelivery = async (req, res) => {
   try {
+    console.log("Cash On Delivery api hit....")
     const checkout = await Checkout.findById(req.params.id);
     const shippingPrice = await Shipping.findOne({});
     if (!checkout) {
@@ -85,7 +87,7 @@ export const cashOnDelivery = async (req, res) => {
       .json({ message: "COD Order created Successfully.", order });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Error while Finalize COD" });
+    return res.status(500).json({ message: `Error while Finalize COD : ${error}` });
   }
 };
 export const finalizeInOrderList = async (req, res) => {

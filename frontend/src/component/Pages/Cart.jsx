@@ -18,14 +18,14 @@ import {
 } from "@/redux/Client/cart.store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChevronUp, ChevronDown, Trash2 } from "lucide-react";
+import { ChevronUp, ChevronDown, Trash2, ShoppingBag } from "lucide-react";
 import toast from "react-hot-toast";
 import DeleteAll from "../Cart/DeleteAll";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     cart,
     loading: cartLoading,
@@ -34,6 +34,7 @@ const Cart = () => {
   useEffect(() => {
     dispatch(fetchCartProducts());
   }, [dispatch]);
+  console.log("Cart : ",cart)
   const increaseProductQuantity = (product) => {
     const newQunatity = product.quantity + 1;
     dispatch(
@@ -305,21 +306,34 @@ const Cart = () => {
         </Table>
       </div>
       <div className="flex items-center justify-between gap-2 my-3">
-        <div className="flex items-center gap-2 px-1 py-3 md:p-3 border rounded">
-          <input
-            type="text"
-            placeholder="Enter Coupon Code"
-            className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-2 border border-black rounded "
-          />
-          <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">
-            Apply Coupon
+        { cart?.products?.length ? (
+          <>
+            <div className="flex items-center gap-2 px-1 py-3 md:p-3 border rounded">
+              <input
+                type="text"
+                placeholder="Enter Coupon Code"
+                className="w-34 md:w-50 lg:w-60 text-xs lg:text-base md:text-sm outline-none px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-2 border border-black rounded "
+              />
+              <button className="bg-red-500 text-white font-semibold text-center px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 rounded text-xs md:text-sm">
+                Apply Coupon
+              </button>
+            </div>
+            <div className="">
+              <button
+                onClick={() => navigate("/user/checkout")}
+                className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded"
+              >
+                Checkout
+              </button>
+            </div>
+          </>
+        ):
+        <>
+          <button onClick={()=>navigate("/user/search")} className="bg-green-500 flex items-center justify-center px-3 py-1 text-white rounded-sm gap-2">
+            <ShoppingBag className="size-5"/>
+            <span className="text-base">Add Items</span>
           </button>
-        </div>
-        <div className="">
-          <button onClick={()=>navigate("/user/checkout")} className="bg-black text-white text-sm px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-3 font-semibold rounded">
-            Checkout
-          </button>
-        </div>
+        </>}
       </div>
     </div>
   );

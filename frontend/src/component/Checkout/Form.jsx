@@ -12,7 +12,7 @@ const Form = ({
   return (
     <div className="border rounded-md p-3 ">
       <div className="flex flex-col">
-        <form className="flex flex-col space-y-2">
+        <form onSubmit={handlePlaceOrder} className="flex flex-col space-y-2">
           <div className="flex flex-col">
             <label htmlFor="" className="checkout-label">
               Name
@@ -96,7 +96,6 @@ const Form = ({
             {selectedPayment === "COD" && (
               <div className="flex justify-end mb-3">
                 <button
-                  onClick={handlePlaceOrder}
                   type="submit"
                   className="flex items-center justify-center w-full transition-all duration-150 hover:scale-95 hover:bg-red-700 gap-2 cursor-pointer bg-red-500 text-white p-2 rounded"
                 >

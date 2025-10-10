@@ -12,14 +12,13 @@ import MyOrders from "./component/Pages/MyOrders";
 import ProductId from "./component/Product/ProductId";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
 import Loading from "./component/Common/Loading";
 import { userProfile } from "./redux/Client/auth.store";
 import { Toaster } from "react-hot-toast";
 import NotFound from "./component/Common/NotFound";
-import Search from "./component/Pages/Search";
 import Checkout from "./component/Pages/Checkout";
+import OrderConfigration from "./component/Order/OrderConfigration";
+import SearchPage from "./component/Pages/Search";
 const App = () => {
   const { user, loading, error } = useSelector((state) => state.auth);
   const location = useLocation();
@@ -40,7 +39,7 @@ const App = () => {
         <Route element={<HomeLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/wishlist" element={<WishList />} />
-          <Route path="/user/cart" element={<Cart />} />
+          <Route path="/user/cart" element={user ? <Cart /> : <SignIn />} />
           <Route
             path="/signin"
             element={!user ? <SignIn /> : <Navigate to={"/"} />}
@@ -53,16 +52,17 @@ const App = () => {
           <Route path="/account" element={<Account />} />
           <Route path="/myreviews" element={<MyReviews />} />
           <Route path="/myorders" element={<MyOrders />} />
-          <Route path="/user/checkout" element={<Checkout />} />
+          <Route
+            path="/user/checkout"
+            element={user ? <Checkout /> : <SignIn />}
+          />
           <Route path="/product/:id" element={<ProductId />} />
-          <Route path="/search" element={<Search/>}/>
-          <Route path="*" element={<NotFound/>}/>
+          <Route path="/user/search" element={<SearchPage />} />
+          <Route path="/user/order/order-configration/:id" element={<OrderConfigration />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      <Toaster
-  position="top-right"
-  reverseOrder={false}
-/>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

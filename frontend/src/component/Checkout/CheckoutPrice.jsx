@@ -109,7 +109,10 @@ const CheckoutPrice = ({
                         alt={prod.name}
                         className="h-15 w-15 object-cover"
                       />
-                      <h2 className="text-sm font-semibold">
+                      <h2 className="text-xs sm:text-sm hidden md:block font-semibold">
+                        {prod.name.slice(0, 20)}..
+                      </h2>
+                      <h2 className="text-xs md:hidden font-semibold">
                         {prod.name.slice(0, 20)}..
                       </h2>
                     </div>
