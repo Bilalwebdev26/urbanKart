@@ -184,10 +184,14 @@ export const deleteAllCart = async (req, res) => {
   try {
     const cart = await Cart.findOne({ user: req.user._id });
     if (!cart) {
-      return res.status(400).json({ message: "Cart not available." });
+      return res.status(200).json({ message: "Cart already empty.", cart: { products: [] } });
     }
-    if (!cart.products && cart.products.length === 0) {
-      return res.status(400).json({ message: "Cart has no products." });
+    // if (!cart.products && cart.products.length === 0) {
+    //   return res.status(400).json({ message: "Cart has no products." });
+    // }
+     // ✅ If cart exists but empty
+    if (!cart.products || cart.products.length === 0) {
+      return res.status(200).json({ message: "Cart already empty.", cart });
     }
     cart.products = [];
     cart.totalPrice = 0;

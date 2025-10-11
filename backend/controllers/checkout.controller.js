@@ -32,6 +32,7 @@ export const bankPay = async (req, res) => {
     if (!checkout) {
       return res.status(400).json({ message: "First Create Checkout." });
     }
+    console.log("checkout from PAYPAL: ",checkout)
     if (paymentStatus === "paid") {
       checkout.paymentStatus = "paid";
       checkout.paymentDetail = paymentDetail;
@@ -96,6 +97,7 @@ export const finalizeInOrderList = async (req, res) => {
     if (!checkout) {
       return res.status(400).json({ message: "Checkout not Available." });
     }
+    console.log("checkout : ",checkout)
     const shippingPrice = await Shipping.findOne({});
     if (checkout.ispaid && !checkout.isfinalize) {
       const order = await Order.create({
@@ -125,6 +127,6 @@ export const finalizeInOrderList = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Error while Finalize" });
+    return res.status(500).json({ message: `Error while Finalize : ${error}` });
   }
 };

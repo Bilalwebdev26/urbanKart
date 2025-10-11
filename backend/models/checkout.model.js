@@ -60,7 +60,7 @@ const checkoutSchema = new mongoose.Schema(
     products: [checkoutProductSchema],
     paymentMethod: {
       type: String,
-      enum: ["COD", "Bank"],
+      enum: ["COD", "PayPal"],
       required: true,
     },
     paymentStatus: {

@@ -33,7 +33,7 @@ const Cart = () => {
   } = useSelector((state) => state.cart);
   useEffect(() => {
     dispatch(fetchCartProducts());
-  }, [dispatch]);
+  }, [dispatch,cart.length]);
   console.log("Cart : ",cart)
   const increaseProductQuantity = (product) => {
     const newQunatity = product.quantity + 1;

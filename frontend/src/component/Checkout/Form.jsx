@@ -8,7 +8,12 @@ const Form = ({
   selectedPayment,
   setSelectedPayment,
   handlePlaceOrder,
+  cart,
+  handlePaymentSuccess,
+  checkoutId
 }) => {
+  // const checkoutId = 1;
+  console.log("checkoutId from Form.jsx: ",checkoutId)
   return (
     <div className="border rounded-md p-3 ">
       <div className="flex flex-col">
@@ -105,7 +110,26 @@ const Form = ({
               </div>
             )}
 
-            {selectedPayment === "PayPal" && <PayPalButton />}
+            {/* {selectedPayment === "PayPal" &&
+              {
+                !checkoutId?(<></>):(<></>)
+              }
+            } */}
+            {selectedPayment === "PayPal" &&
+              (!checkoutId ? (
+                <button
+                 type="submit" // 👈 Create checkout first
+                  className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+                >
+                  Pay with PayPal
+                </button>
+              ) : (
+                <PayPalButton
+                  amount={(cart?.totalPrice || 0) + 100}
+                  onSuccess={handlePaymentSuccess}
+                  onError={() => alert("Payment failed. Try again")}
+                />
+              ))}
           </div>
         </form>
       </div>

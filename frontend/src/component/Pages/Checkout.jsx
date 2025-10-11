@@ -3,7 +3,7 @@ import Form from "../Checkout/Form";
 import CheckoutPrice from "../Checkout/CheckoutPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { userProfile } from "@/redux/Client/auth.store";
-import { fetchCartProducts } from "@/redux/Client/cart.store";
+import { deleteAllCart, fetchCartProducts } from "@/redux/Client/cart.store";
 import { shippingRates } from "@/redux/Client/shipping.store";
 import {
   createCheckout,
@@ -11,6 +11,7 @@ import {
 } from "@/redux/Client/checkout.store";
 import { useNavigate } from "react-router-dom";
 import { OrderSuccessToast } from "../Common/OrderConfigration";
+import axios from "axios";
 
 const Checkout = () => {
   const { user, loading: userLoading } = useSelector((state) => state.auth);
@@ -48,6 +49,7 @@ const Checkout = () => {
     }
   }, [user]);
   console.log("Checkout Id ", checkoutId);
+  console.log("checkoutId from Checkout.jsx: ", checkoutId);
   const handlePlaceOrder = async (e) => {
     e.preventDefault();
     console.log("Handle Place holder hit...");
@@ -86,26 +88,57 @@ const Checkout = () => {
           );
           if (result.meta.requestStatus === "fulfilled") {
             OrderSuccessToast("COD order created successfully!");
+            dispatch(fetchCartProducts())
           }
         } catch (error) {
           console.log("Error while creating cod order : ", error);
         }
-      } else if (selectedPayment === "PayPal") {
-        //paypal se pay hoga
       }
     } catch (error) {
       console.log("Error while creating Checkout :", error);
     }
     //axios call create checkout
   };
-  // const createOrder = () => {
-  //   try {
-  //     // if(selectedPayment === "COD"){
-  //     //   //than call cashondeleivery fn controller
-  //     //   const res =
-  //     // }
-  //   } catch (error) {}
-  // };
+  const handlePaymentSuccess = async (detail) => {
+    console.log("Details : ", detail);
+    console.log("checkoutId after Details : ", checkoutId);
+    try {
+      const result = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/checkout/pay/${checkoutId}`,
+        {
+          paymentDetail: detail,
+          paymentStatus: "paid",
+        },
+        { withCredentials: true }
+      );
+      console.log("Result : ", result);
+      //create finalize checkout after fulfiled promise -> create order
+      await createFianalizeOrder(checkoutId);
+    } catch (error) {
+      console.log("Error while payment success");
+    }
+  };
+  const createFianalizeOrder = async () => {
+    try {
+      const res = await axios.put(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/v1/checkout/final/${checkoutId}`,
+        {},
+        { withCredentials: true }
+      );
+      console.log(
+        `Order finalize successFully  ${JSON.stringify(res, null, 2)}`
+      );
+      console.log("Order Id",res?.data?.order._id)
+
+      navigate(`/user/order/order-configration/${res.data.order._id}`, {
+        state: { order: res.data.order }, // 👈 Pass full order object here
+      });
+    } catch (error) {
+      console.log("Error while finalize order .");
+    }
+  };
   console.log("Form Data FROM Checkout : ", formData);
   console.log("selectedPayment : ", selectedPayment);
   return (
@@ -120,6 +153,9 @@ const Checkout = () => {
             selectedPayment={selectedPayment}
             setSelectedPayment={setSelectedPayment}
             handlePlaceOrder={handlePlaceOrder}
+            cart={cart}
+            handlePaymentSuccess={handlePaymentSuccess}
+            checkoutId={checkoutId}
           />
         </div>
         {/* Product detail */}

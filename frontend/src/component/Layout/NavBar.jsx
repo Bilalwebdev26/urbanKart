@@ -64,9 +64,9 @@ const NavBar = ({ isScrolled }) => {
   }, [onProfile]);
   useEffect(() => {
     dispatch(fetchCartProducts());
-  }, [dispatch, user]);
+  }, [dispatch, user,cart?.length]);
   const handleSearch = () => {
-    navigate("/search");
+    navigate("/user/search");
   };
   return (
     <div

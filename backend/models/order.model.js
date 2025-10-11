@@ -79,7 +79,7 @@ const orderSchema = new mongoose.Schema(
     shippingAddress: orderAddressSchema,
     paymentMethod: {
       type: String,
-      enum: ["COD", "Bank"],
+      enum: ["COD", "PayPal"],
       required: true,
     },
     PaymentStatus: {
