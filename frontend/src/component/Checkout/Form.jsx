@@ -1,4 +1,4 @@
-import { CheckLine } from "lucide-react";
+import { CheckLine, CreditCard } from "lucide-react";
 import React from "react";
 import PayPalButton from "../Payment/PayPalButton";
 
@@ -10,10 +10,10 @@ const Form = ({
   handlePlaceOrder,
   cart,
   handlePaymentSuccess,
-  checkoutId
+  checkoutId,
 }) => {
   // const checkoutId = 1;
-  console.log("checkoutId from Form.jsx: ",checkoutId)
+  console.log("checkoutId from Form.jsx: ", checkoutId);
   return (
     <div className="border rounded-md p-3 ">
       <div className="flex flex-col">
@@ -105,7 +105,7 @@ const Form = ({
                   className="flex items-center justify-center w-full transition-all duration-150 hover:scale-95 hover:bg-red-700 gap-2 cursor-pointer bg-red-500 text-white p-2 rounded"
                 >
                   <CheckLine className="size-5" />
-                  <span className="text-sm">Place Order</span>
+                  <span className="">Place Order</span>
                 </button>
               </div>
             )}
@@ -118,10 +118,11 @@ const Form = ({
             {selectedPayment === "PayPal" &&
               (!checkoutId ? (
                 <button
-                 type="submit" // 👈 Create checkout first
-                  className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+                  type="submit" // 👈 Create checkout first
+                  className="bg-yellow-500 flex items-center justify-center gap-2 text-white p-2 rounded w-full hover:bg-yellow-600 transition"
                 >
-                  Pay with PayPal
+                  <CreditCard className="size-5" />
+                  <span> Pay with PayPal</span>
                 </button>
               ) : (
                 <PayPalButton
