@@ -1,6 +1,58 @@
 import mongoose from "mongoose";
 import { Product } from "../models/product.model.js";
 
+export const showSearchTypeProducts = async (req, res) => {
+  //search product from query string
+  const  search  = req.params.search;
+  let page = req.params.page;
+  if (page !== Number || page === undefined) {
+    page = 1;
+  }
+  try {
+    const quantity = 20;
+    const startIndex = (page - 1) * quantity;
+    if (!search) {
+      //show random products
+      const products = await Product.aggregate([{ $sample: { size: 20 } }])
+        .limit(quantity)
+        .skip(startIndex);
+      if (!products.length) {
+        return res
+          .staus(400)
+          .json({ type: "SearchProducts", message: "Products not Found.",page,quantity });
+      }
+      //if products have in array -> return products with pagination context
+      return res
+        .status(200)
+        .json({ message: "Products Found SuccessFully.", products });
+    } else {
+      //find products data -> name,description,tags
+      const products = await Product.find({
+        $or: [
+          { name: { $regex: search, $options: "i" } },
+          { description: { $regex: search, $options: "i" } },
+          { tags: { $regex: search, $options: "i" } },
+        ],
+      })
+        .limit(quantity)
+        .skip(startIndex);
+      if (!products.length) {
+        return res
+          .staus(400)
+          .json({ type: "SearchProducts", message: "Products not Found." });
+      }
+      //if products have in array -> return products with pagination context
+      return res
+        .status(200)
+        .json({ message: "Products Found SuccessFully.", products });
+    }
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: error.message || "Error while fetching products" });
+  }
+};
 export const showProductsbyCategory = async (req, res) => {
   const { category, minPrice, maxPrice, sortBy } = req.query;
   console.log(category);
@@ -45,7 +97,6 @@ export const showProductsbyCategory = async (req, res) => {
       .json({ message: error.message || "Error while fetching products" });
   }
 };
-
 export const showProductId = async (req, res) => {
   try {
     console.log("Backend Api Hit Product id");

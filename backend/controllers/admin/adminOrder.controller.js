@@ -1,6 +1,7 @@
 import { Order } from "../../models/order.model.js";
 export const showAllOrders = async (req, res) => {
   try {
+    //TODO : pagination add ->20 order single line
     const orders = await Order.find().sort({ createdAt: -1 });
     if (!orders || orders.length === 0) {
       return res.status(400).json({ message: "No order Placed." });

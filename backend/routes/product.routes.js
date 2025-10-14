@@ -1,7 +1,8 @@
 import express from "express"
 import { checkUserAuth } from "../middlewares/auth.middleware.js"
-import { bestProductofEachCategory, bestSellingProducts, newArrivalProducts, showFlashSalesProducts, showProductId, showProductsbyCategory, showSimillarProduct } from "../controllers/product.controller.js"
+import { bestProductofEachCategory, bestSellingProducts, newArrivalProducts, showFlashSalesProducts, showProductId, showProductsbyCategory, showSearchTypeProducts, showSimillarProduct } from "../controllers/product.controller.js"
 const router = express.Router()
+router.get("/search",showSearchTypeProducts)
 router.get("/all",showProductsbyCategory)//show products by query /all?name=jacket
 router.get("/similarproducts/:id",showSimillarProduct)//show related products
 router.get("/bestsellingproducts",bestSellingProducts)//show best selling products
