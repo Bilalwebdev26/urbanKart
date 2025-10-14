@@ -11,7 +11,7 @@ export const showSearchTypeProducts = async (req, res) => {
   try {
     const quantity = 20;
     const startIndex = (page - 1) * quantity;
-    if (!search) {
+    if (search === undefined) {
       //show random products
       const products = await Product.aggregate([{ $sample: { size: 20 } }])
         .limit(quantity)
