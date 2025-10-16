@@ -3,37 +3,58 @@ import { Product } from "../models/product.model.js";
 
 export const showSearchTypeProducts = async (req, res) => {
   //search product from query string
-  const  search  = req.params.search;
-  let page = req.params.page;
+  const { search } = req.query;
+  let { maxPrice, minPrice, page, sortBy } = req.query;
+  console.log("Max Price : ", maxPrice);
+  console.log("Min Price : ", minPrice);
+  console.log("Sort By : ", sortBy);
+  console.log("Search : ", search);
+  console.log("Page : ", page);
   if (page !== Number || page === undefined) {
     page = 1;
   }
+  if (maxPrice === undefined || maxPrice !== Number) {
+    maxPrice = 1000;
+  }
+  if (minPrice === undefined || minPrice !== Number) {
+    minPrice = 0;
+  }
+  if (
+    sortBy === undefined ||
+    !["low-to-high", "high-to-low", "highest-rated", "default"].includes(sortBy)
+  ) {
+    sortBy = "default";
+  }
+  console.log("--------------------------------------");
+  console.log("Page : ", page);
+  console.log("Max Price : ", maxPrice);
+  console.log("Min Price : ", minPrice);
+  console.log("Sort By : ", sortBy);
+  const sortStage =
+    sortBy === "high-to-low"
+      ? { price: -1 }
+      : sortBy === "low-to-high"
+      ? { price: 1 }
+      : sortBy === "highest-rated"
+      ? { rating: -1 }
+      : { createdAt: -1 };
+  console.log("sortStage : ", sortStage);
   try {
     const quantity = 20;
     const startIndex = (page - 1) * quantity;
     if (search === undefined) {
       //show random products
-      const products = await Product.aggregate([{ $sample: { size: 20 } }])
-        .limit(quantity)
-        .skip(startIndex);
-      if (!products.length) {
-        return res
-          .staus(400)
-          .json({ type: "SearchProducts", message: "Products not Found.",page,quantity });
-      }
-      //if products have in array -> return products with pagination context
-      return res
-        .status(200)
-        .json({ message: "Products Found SuccessFully.", products });
-    } else {
-      //find products data -> name,description,tags
-      const products = await Product.find({
-        $or: [
-          { name: { $regex: search, $options: "i" } },
-          { description: { $regex: search, $options: "i" } },
-          { tags: { $regex: search, $options: "i" } },
-        ],
-      })
+      const products = await Product.aggregate([
+        {
+          $match: {
+            price: { $gte: minPrice, $lte: maxPrice },
+          },
+        },
+        {
+          $sort: sortStage,
+        },
+      ])
+        .sort(sortStage)
         .limit(quantity)
         .skip(startIndex);
       if (!products.length) {
@@ -42,9 +63,43 @@ export const showSearchTypeProducts = async (req, res) => {
           .json({ type: "SearchProducts", message: "Products not Found." });
       }
       //if products have in array -> return products with pagination context
-      return res
-        .status(200)
-        .json({ message: "Products Found SuccessFully.", products });
+      return res.status(200).json({
+        message: "Random Products Found SuccessFully.",
+        products,
+        page,
+        quantity,
+      });
+    } else {
+      //find products data -> name,description,tags
+      const products = await Product.find([
+        {
+          $or: [
+            { name: { $regex: search, $options: "i" } },
+            { description: { $regex: search, $options: "i" } },
+            { tags: { $regex: search, $options: "i" } },
+          ],
+          $in: [],
+        },
+        {
+          $match:{
+            price:{$gte:minPice}
+          }
+        },
+      ])
+        .limit(quantity)
+        .skip(startIndex);
+      if (!products.length) {
+        return res
+          .staus(400)
+          .json({ type: "SearchProducts", message: "Products not Found." });
+      }
+      //if products have in array -> return products with pagination context
+      return res.status(200).json({
+        message: "Products Found SuccessFully.",
+        products,
+        page,
+        quantity,
+      });
     }
   } catch (error) {
     console.log(error);
